@@ -1,0 +1,27 @@
+div{
+  margin: 0 20px;
+}
+div {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px; /* Espacio para la línea */
+  cursor: pointer;
+}
+
+div::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Grosor de la línea */
+  background-color: #fa5; /* Color de la línea */
+  transform-origin: bottom left;
+  transform: scaleX(0); /* Inicialmente la línea está escondida */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+div:hover::before,
+div:focus::before {
+  transform: scaleX(1); /* La línea se muestra al enfocar o al pasar el mouse */
+}
