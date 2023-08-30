@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TopBarComponent } from 'src/app/templates/top-bar/top-bar.component';
-import { BgComponent } from 'src/app/templates/bg/bg.component';
 
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({

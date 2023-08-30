@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './templates/top-bar/top-bar.component';
 import { LogoComponent } from './templates/logo/logo.component';
-import { ActionsComponent } from './actions/actions.component';
+import { ActionsComponent } from './templates/actions/actions.component';
 import { ContentComponent } from './templates/content/content.component';
 import { BgComponent } from './templates/bg/bg.component';
 import { FooterItemComponent } from './templates/footer-item/footer-item.component';
