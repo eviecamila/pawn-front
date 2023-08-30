@@ -3,12 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { LogoComponent } from './logo/logo.component';
+import { TopBarComponent } from './templates/top-bar/top-bar.component';
+import { LogoComponent } from './templates/logo/logo.component';
 import { ActionsComponent } from './actions/actions.component';
-import { ContentComponent } from './content/content.component';
-import { BgComponent } from './bg/bg.component';
-import { FooterItemComponent } from './footer-item/footer-item.component';
+import { ContentComponent } from './templates/content/content.component';
+import { BgComponent } from './templates/bg/bg.component';
+import { FooterItemComponent } from './templates/footer-item/footer-item.component';
+import { IndexComponent } from './components/index/index.component';
+import { TemplateComponent } from './components/template/template.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { PataComponent } from './templates/pata/pata.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { FooterItemComponent } from './footer-item/footer-item.component';
     ActionsComponent,
     ContentComponent,
     BgComponent,
-    FooterItemComponent
+    FooterItemComponent,
+    IndexComponent,
+    TemplateComponent,
+    NotfoundComponent,
+    PataComponent
   ],
   imports: [
     BrowserModule,
