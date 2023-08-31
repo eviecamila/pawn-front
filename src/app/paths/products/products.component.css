@@ -1,0 +1,5 @@
+.contenido{
+  display: grid;
+  place-items: center;
+}
+.r{border-radius: 10px;}

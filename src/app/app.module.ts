@@ -9,10 +9,12 @@ import { ActionsComponent } from './templates/actions/actions.component';
 import { ContentComponent } from './templates/content/content.component';
 import { BgComponent } from './templates/bg/bg.component';
 import { FooterItemComponent } from './templates/footer-item/footer-item.component';
-import { IndexComponent } from './components/index/index.component';
-import { TemplateComponent } from './components/template/template.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
+import { IndexComponent } from './paths/index/index.component';
+import { NotfoundComponent } from './paths/notfound/notfound.component';
 import { PataComponent } from './templates/pata/pata.component';
+import { NewAccountComponent } from './paths/new-account/new-account.component';
+import { ProductsComponent } from './paths/products/products.component';
+import { ImgComponent } from './templates/img/img.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { PataComponent } from './templates/pata/pata.component';
     BgComponent,
     FooterItemComponent,
     IndexComponent,
-    TemplateComponent,
     NotfoundComponent,
-    PataComponent
+    PataComponent,
+    NewAccountComponent,
+    ProductsComponent,
+    ImgComponent
   ],
   imports: [
     BrowserModule,
