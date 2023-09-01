@@ -1,0 +1,7 @@
+:host {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    /* height: 100%; Asegura que el componente ocupe todo el espacio disponible */
+  }
+  

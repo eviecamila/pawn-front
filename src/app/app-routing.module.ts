@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'index',component: IndexComponent,},
   {path: '404',component: NotfoundComponent,},
   {path: '',redirectTo: 'index',pathMatch: 'full',},
-  {path: 'newaccount',component: NewAccountComponent},
+  {path: 'new',component: NewAccountComponent},
   {path: 'products',component: ProductsComponent},
 
 

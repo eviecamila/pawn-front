@@ -7,26 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ImgComponent implements OnInit {
   @Input() p: string = '';  // Declare the input property
-
+  c: string = '';
   src: string = '';
   alt: string = '';
   width: string = '';
-  c: string = '';
 
-  constructor() { }
+  constructor() {
+    if (this.alt=='') this.alt="TOnto";
+    if (this.width=='') this.width="100px";
+    if (this.src=='') this.src='/assets/tdc.png';
+    
+    // this.alt = _alt;
+    // this.width= _width;
+    // this.src=_src;
+   }
 
   ngOnInit(): void {
-    if (this.p) {
-      const a = this.p.split(',');
-      console.log(a[2])
-      if (a.length == 3) {
-        this.src = a[0].trim();this.alt = a[1].trim();this.width="width: "+a[2];
-      }
-      else if (a.length ==4)
-      {
-        this.src = a[0].trim();this.alt = a[1].trim();
-        this.width="width: "+a[2];this.c = a[3];
-      }
-    }
   }
 }

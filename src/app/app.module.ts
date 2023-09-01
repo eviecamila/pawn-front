@@ -15,6 +15,8 @@ import { PataComponent } from './templates/pata/pata.component';
 import { NewAccountComponent } from './paths/new-account/new-account.component';
 import { ProductsComponent } from './paths/products/products.component';
 import { ImgComponent } from './templates/img/img.component';
+import { FrameComponent } from './templates/p/products/frame/frame.component';
+import { CardComponent } from './templates/p/products/card/card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ImgComponent } from './templates/img/img.component';
     PataComponent,
     NewAccountComponent,
     ProductsComponent,
-    ImgComponent
+    ImgComponent,
+    FrameComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
