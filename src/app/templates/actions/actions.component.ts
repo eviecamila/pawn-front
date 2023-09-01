@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ActionsComponent implements OnInit {
   @Input() content!: string;
+  @Input() url!: string;
   constructor() { }
 
   ngOnInit(): void {
