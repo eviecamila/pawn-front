@@ -4,7 +4,7 @@
 }
 header{
   height: 64px;
-    background: #fafafa;
+    /* background: #fafafa; */
     position: fixed;
     top:0;
     width: 100%;
@@ -35,5 +35,5 @@ header{
   place-items: baseline;
     top: 50%;
     position: relative;
-    transform: translate(0, -40%);
+    transform: translate(0, -50%);
 }

@@ -1,3 +1,6 @@
-<div class="cuerpo">
+<div class="cuerpo" [ngClass]="{
+  'dark-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}">
     <router-outlet></router-outlet>
 </div>

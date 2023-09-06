@@ -12,3 +12,20 @@ body{
 }
 
 .r{border-radius: 10px;}
+<<<<<<< HEAD
+
+
+.dark-mode {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+header.dark-mode, .acciones.dark-mode, .dark-mode div{
+  background-color: #232728;
+  color: #dfe6e9;
+}
+.light-mode {
+  background-color: #dfe6e9;
+  color: #2d3436;
+}
+=======
+>>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b

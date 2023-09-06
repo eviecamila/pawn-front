@@ -1,19 +1,33 @@
-<header>
-  <div class="items">
+<header [ngClass]="{
+  'dark-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}">
+  <div class="items" [ngClass]="{
+    'dark-mode': darkModeService.isDarkModeEnabled() | async,
+    'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+  }">
     <div id="logo">
       <app-logo></app-logo>
     </div>
-    <div id="acciones">
+    <div id="acciones" >
       <ul>
+<<<<<<< HEAD
+        <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
+        <app-actions url="/products" id="prods">Productos</app-actions>
+        <app-actions id="invest">Invertir</app-actions>
+        <app-actions id="faq">Preguntas Frecuentes</app-actions>
+        <app-actions id="dev">Para Desarrolladores</app-actions>
+=======
         <app-actions url="/newaccount" id="open" content="Abrir Cuenta"></app-actions>
         <app-actions url="/products" id="prods" content="Productos"></app-actions>
         <app-actions id="invest" content="Invertir"></app-actions>
         <app-actions id="faq" content="Preguntas Frecuentes"></app-actions>
         <app-actions id="dev" content="Para Desarrolladores"></app-actions>
+>>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
       </ul>
     </div>
-    <div id="bar">
-        <app-actions content="Login"></app-actions>
+    <div id="bar" >
+        <app-actions>Login</app-actions>
     </div>
   </div>
 </header>
