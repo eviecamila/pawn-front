@@ -14,4 +14,11 @@ export class AppComponent implements OnInit {
     const shouldEnableDarkMode = true; // Replace with your logic
     this.darkModeService.toggleDarkMode();
   }
+ toggle(){
+
+    var a: DarkModeService = DarkModeService.getInstance();
+
+    a.toggleDarkMode();
+  }
+
 }

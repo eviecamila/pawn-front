@@ -9,23 +9,25 @@ body{
   /* height: 100vh; */
   /* opacity: .5; */
   /* position: fixed; */
+  font-family: Consolas;
 }
 
 .r{border-radius: 10px;}
-<<<<<<< HEAD
 
 
 .dark-mode {
   background-color: #2d3436;
-  color: #dfe6e9;
+  color: #fff;
 }
-header.dark-mode, .acciones.dark-mode, .dark-mode div{
-  background-color: #232728;
-  color: #dfe6e9;
+.darker-mode {
+  background-color: #232728;;
+  color: #fff;
 }
 .light-mode {
-  background-color: #dfe6e9;
   color: #2d3436;
+  background-color: #dbecf3;
 }
-=======
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
+.lighter-mode {
+  color: #2d3436;
+  background-color: #ffffff;
+}

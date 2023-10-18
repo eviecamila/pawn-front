@@ -15,12 +15,9 @@ import { PataComponent } from './templates/pata/pata.component';
 import { NewAccountComponent } from './paths/new-account/new-account.component';
 import { ProductsComponent } from './paths/products/products.component';
 import { ImgComponent } from './templates/img/img.component';
-<<<<<<< HEAD
-=======
 import { FrameComponent } from './templates/p/products/frame/frame.component';
 import { CardComponent } from './templates/p/products/card/card.component';
 
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +33,6 @@ import { CardComponent } from './templates/p/products/card/card.component';
     NewAccountComponent,
     ProductsComponent,
     ImgComponent,
-<<<<<<< HEAD
-
-=======
-    FrameComponent,
-    CardComponent
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
   ],
   imports: [
     BrowserModule,

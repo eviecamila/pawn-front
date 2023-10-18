@@ -1,1 +1,4 @@
-<div>{{content}}</div>
+<div [ngClass]="{
+  'darker-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}">{{content}}</div>

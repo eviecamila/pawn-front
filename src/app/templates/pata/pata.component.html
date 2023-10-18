@@ -1,4 +1,7 @@
-<footer class="pata">
+<footer class="pata" [ngClass]="{
+  'darker-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}">
     <div class="f_items">
       <div class="col l">
         <app-footer-item content="Bolsa de trabajo"></app-footer-item>

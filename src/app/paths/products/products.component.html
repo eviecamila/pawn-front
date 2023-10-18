@@ -1,14 +1,12 @@
-<div class="contenido">
+<div class="contenido" [ngClass]="{
+  'dark-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}">
   <h1>
     Productos de este banco noob :v
   </h1>
   <h2>Habemus Tarjeta de credito</h2>
-<<<<<<< HEAD
   <app-img p="/assets/tdc.png,tdc nub,20%,r"></app-img>
-=======
-  <!-- <app-img p="/assets/tdc.png,tdc nub,20%,r"></app-img> -->
-  <app-card></app-card>
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
   <p>Este producto consiste en que te prestamos dinero desde una tarjeta, pero nos lo tienes que reponer a fin de quincena W.
     <br> En caso de que nos demos cuenta que no nos has pagado, te vamos a cobrar interes, y eventualmente mas interes hasta
     que te arrepientas de sacarla, y si no pagas te vamos a chingar por llamada hasta que pagues maldito perro.
@@ -16,3 +14,6 @@
   </p>
 
 </div>
+
+
+<button style="z-index: 1;" (click)="pico()">Picop</button>

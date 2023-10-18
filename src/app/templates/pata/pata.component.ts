@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DarkModeService } from 'src/app/dark-mode.service';
 @Component({
   selector: 'app-pata',
   templateUrl: './pata.component.html',
@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PataComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public darkModeService: DarkModeService) {}
+  toggleDarkMode() {this.darkModeService.toggleDarkMode();}
   ngOnInit(): void {
   }
-
 }

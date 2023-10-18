@@ -10,13 +10,10 @@ import { ProductsComponent } from './paths/products/products.component';
 const routes: Routes = [
   {path: 'index',component: IndexComponent,},
   {path: '404',component: NotfoundComponent,},
-  {path: '',redirectTo: 'index',pathMatch: 'full',},
-<<<<<<< HEAD
   {path: 'newaccount',component: NewAccountComponent},
-=======
-  {path: 'new',component: NewAccountComponent},
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
   {path: 'products',component: ProductsComponent},
+  {path: '',redirectTo: 'index',pathMatch: 'full',},
+  {path: '**',redirectTo: 'index',pathMatch: 'full'},
 
 
   {path: '**',redirectTo: '404',pathMatch: 'full',},

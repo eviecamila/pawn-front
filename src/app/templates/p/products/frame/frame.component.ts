@@ -17,7 +17,7 @@ export class FrameComponent implements OnInit {
     // new ImgComponent('tonta', 'imgs.png', 'asd'),
   ];
   ngOnInit(): void {
-    
+
   }
 
 }

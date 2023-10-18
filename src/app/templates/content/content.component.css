@@ -22,5 +22,5 @@
   left: 50%;
   transform: translate(-50%, 0);
   padding: 30px 50px;
-  z-index: -1;
+  /* z-index: -1; */
 }

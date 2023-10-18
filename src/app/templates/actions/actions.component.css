@@ -27,13 +27,8 @@ div:focus::before {
 
 a{
   /* QUITAR LINEA Y DEJARLO DE UN COLOR */
-<<<<<<< HEAD
   /* color: black;text-decoration: none; */
   text-decoration: none;
 }
 div.dark-mode a{color:#dfe6e9;}
 div.light-mode a{color:#000;}
-=======
-  color: black;text-decoration: none;
-}
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b

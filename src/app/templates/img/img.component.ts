@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ImgComponent implements OnInit {
   @Input() p: string = '';  // Declare the input property
-<<<<<<< HEAD
 
   src: string = '';
   alt: string = '';
@@ -29,23 +28,5 @@ export class ImgComponent implements OnInit {
         this.width="width: "+a[2];this.c = a[3];
       }
     }
-=======
-  c: string = '';
-  src: string = '';
-  alt: string = '';
-  width: string = '';
-
-  constructor() {
-    if (this.alt=='') this.alt="TOnto";
-    if (this.width=='') this.width="100px";
-    if (this.src=='') this.src='/assets/tdc.png';
-    
-    // this.alt = _alt;
-    // this.width= _width;
-    // this.src=_src;
-   }
-
-  ngOnInit(): void {
->>>>>>> 4a9cf046296e9e5e92bd1bfb93e9304b8bb3fd7b
   }
 }
