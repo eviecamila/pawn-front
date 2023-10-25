@@ -26,10 +26,24 @@ export class TopBarComponent implements OnInit {
   ngOnInit() {
     this.detectScreenWidth();
     window.addEventListener('resize', () => this.detectScreenWidth());
+     // Retrasar la apertura de la barra lateral para la animación
+     setTimeout(() => {
+      this.openSidebar();
+    }, 400); // Cambia el valor según tus necesidades
   }
 
   detectScreenWidth() {
     this.isMobile = window.innerWidth <= 768; // Ajusta el ancho según tus necesidades
     this.isDesktop = !this.isMobile;
   }
+  openSidebar() {
+    // Obtener el elemento de la barra lateral
+    let x: HTMLElement | null = document.querySelector('.sidebar');
+
+    // Verificar si x no es nulo antes de intentar agregar una clase
+    if (x !== null) {
+      x.classList.add('sidebar-open');
+    }
+  }
+
 }

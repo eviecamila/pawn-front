@@ -12,21 +12,14 @@
     </div>
     <div *ngIf="isMenuOpen" id="menu-toggle" (click)="toggleMenu()">
       <div style="font-size: 32px;">&#10006;</div>
+
     </div>
 
-    <div id="menu-items" [ngClass]="{ open: isMenuOpen }" *ngIf="isMobile">
-
-
-      <ul>
-        <li>
-          <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
-        </li>
-        <li><app-actions url="/products" id="prods">Productos</app-actions></li>
-        <li><app-actions id="invest">Invertir</app-actions></li>
-        <li><app-actions id="faq">Preguntas Frecuentes</app-actions></li>
-        <li><app-actions id="dev">Para Desarrolladores</app-actions></li>
-        <li><app-actions url="/login">Login</app-actions></li>
-      </ul>
+    <div [ngClass]="{
+      'sidebar-open': isMenuOpen,
+      'sidebar-closed': !isMenuOpen
+    }">
+      <app-sidebar></app-sidebar>
     </div>
 
     <div id="logo">

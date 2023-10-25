@@ -19,6 +19,7 @@ import { FrameComponent } from './templates/p/products/frame/frame.component';
 import { CardComponent } from './templates/p/products/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './paths/login/login.component';
+import { SidebarComponent } from './templates/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoginComponent } from './paths/login/login.component';
     ProductsComponent,
     ImgComponent,
     LoginComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
