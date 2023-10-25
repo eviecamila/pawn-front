@@ -1,40 +1,117 @@
-*{
-  font-family: 'Consolas';
-  font-weight: bolder;
+/* Estilos comunes a todas las pantallas */
+* {
+  /* font-family: 'Consolas'; */
+  /* font-weight: bolder; */
 }
-header{
+
+header {
   height: 64px;
-    /* background: #fafafa; */
-    position: fixed;
-    top:0;
-    width: 100%;
-    z-index: 2;
-
-
+  /* background: #fafafa; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
+
 .items {
   display: grid;
   grid-template-columns: 100px 1fr 100px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   justify-items: stretch;
-  align-items: stretch;
+  align-items: center; /* Alinea verticalmente el contenido */
+  height: 100%;
 }
 
-.items div
-{
+.items div {
   display: grid;
   place-items: center;
   /* top:2px; */
 }
 
-#acciones div{
-  display: flex;
-  flex-direction: row;
+/* Estilos para el menú hamburguesa */
+#menu-toggle {
+  display: none; /* Ocultar el menú hamburguesa en pantallas grandes */
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 3;
 }
-#acciones{
-  place-items: baseline;
-    top: 50%;
-    position: relative;
-    transform: translate(0, -50%);
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin: 6px auto; /* Centrar verticalmente */
+}
+
+/* Estilos para ocultar los elementos de navegación en pantallas pequeñas */
+#acciones.hidden {
+  display: none;
+}
+
+/* Estilos para el menú desplegable en pantallas pequeñas */
+#menu-items {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -300px; /* Inicialmente oculto */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: left 0.3s;
+  z-index: 4;
+  overflow-y: auto;
+}
+
+#menu-items.open {
+  left: 0; /* Muestra el menú desplegable */
+}
+
+#close-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px; /* Tamaño del botón "X" */
+  color: #000; /* Color del botón "X" */
+  cursor: pointer;
+}
+
+/* Media Query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
+@media (max-width: 768px) {
+  /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
+  #menu-toggle {
+    display: block;
+  }
+  #acciones, #bar {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
+  #acciones ul {
+    list-style: none; /* Eliminar viñetas (bolitas) */
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinea verticalmente el contenido */
+  }
+  #acciones ul li {
+    margin: 0 10px; /* Espacio entre elementos de navegación */
+  }
+}
+
+#logo {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+#acciones {
+  top: 60%;
+  position: relative;
+  transform: translate(0, -50%);
 }

@@ -7,11 +7,13 @@ import { IndexComponent } from './paths/index/index.component';
 import { NotfoundComponent } from './paths/notfound/notfound.component';
 import { NewAccountComponent } from './paths/new-account/new-account.component';
 import { ProductsComponent } from './paths/products/products.component';
+import { LoginComponent } from './paths/login/login.component';
 const routes: Routes = [
   {path: 'index',component: IndexComponent,},
   {path: '404',component: NotfoundComponent,},
   {path: 'newaccount',component: NewAccountComponent},
   {path: 'products',component: ProductsComponent},
+  {path: 'login',component: LoginComponent},
   {path: '',redirectTo: 'index',pathMatch: 'full',},
   {path: '**',redirectTo: 'index',pathMatch: 'full'},
 

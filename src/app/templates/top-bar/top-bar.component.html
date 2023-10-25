@@ -1,29 +1,51 @@
-<!-- TODO:
-Hacerla responsive que cuando se vea en vertical, sea responsive
--->
-
-<header [ngClass]="{
-  'darker-mode': darkModeService.isDarkModeEnabled() | async,
-  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-}">
-  <div class="items" [ngClass]="{
+<header
+  [ngClass]="{
     'darker-mode': darkModeService.isDarkModeEnabled() | async,
     'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-  }">
+  }"
+>
+  <div class="items">
+    <div id="menu-toggle" (click)="toggleMenu()" *ngIf="isMobile && !isMenuOpen">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div *ngIf="isMenuOpen" id="menu-toggle" (click)="toggleMenu()">
+      <div style="font-size: 32px;">&#10006;</div>
+    </div>
+
+    <div id="menu-items" [ngClass]="{ open: isMenuOpen }" *ngIf="isMobile">
+
+
+      <ul>
+        <li>
+          <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
+        </li>
+        <li><app-actions url="/products" id="prods">Productos</app-actions></li>
+        <li><app-actions id="invest">Invertir</app-actions></li>
+        <li><app-actions id="faq">Preguntas Frecuentes</app-actions></li>
+        <li><app-actions id="dev">Para Desarrolladores</app-actions></li>
+        <li><app-actions url="/login">Login</app-actions></li>
+      </ul>
+    </div>
+
     <div id="logo">
       <app-logo></app-logo>
     </div>
-    <div id="acciones" >
+
+    <div id="acciones" *ngIf="isDesktop">
       <ul>
-        <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
-        <app-actions url="/products" id="prods">Productos</app-actions>
-        <app-actions id="invest">Invertir</app-actions>
-        <app-actions id="faq">Preguntas Frecuentes</app-actions>
-        <app-actions id="dev">Para Desarrolladores</app-actions>
+        <li>
+          <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
+        </li>
+        <li><app-actions url="/products" id="prods">Productos</app-actions></li>
+        <li><app-actions id="invest">Invertir</app-actions></li>
+        <li><app-actions id="faq">Preguntas Frecuentes</app-actions></li>
+        <li><app-actions id="dev">Para Desarrolladores</app-actions></li>
       </ul>
     </div>
-    <div id="bar">
-        <app-actions>Login</app-actions>
+    <div id="bar" *ngIf="isDesktop">
+      <app-actions url="/login">Login</app-actions>
     </div>
   </div>
 </header>

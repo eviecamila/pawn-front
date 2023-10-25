@@ -21,6 +21,35 @@
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
+  padding: 3%;
+  /* z-index: -1; */
+}
+/* Media Query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
+@media (max-width: 768px) {
+  .cuerpo
+{
+  width: 100%;
+  height: 100vh;
+  /* border-radius: 10px 10px 0 ; */
+  /* background-color: #eaeaea; */
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
   padding: 30px 50px;
   /* z-index: -1; */
+}
+}
+
+@media (min-width: 769px) {
+  /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
+  #acciones ul {
+    list-style: none; /* Eliminar viñetas (bolitas) */
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinea verticalmente el contenido */
+  }
+  #acciones ul li {
+    margin: 0 10px; /* Espacio entre elementos de navegación */
+  }
 }

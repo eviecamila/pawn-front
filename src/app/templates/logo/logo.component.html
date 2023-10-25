@@ -1,4 +1,11 @@
-<img class="items" [ngClass]="{
-  'logo-dark': darkModeService.isDarkModeEnabled() | async,
-  'logo-light': !(darkModeService.isDarkModeEnabled() | async)
-}" src="/assets/logo.png" height="60px">
+<a href="/" class="logo-container">
+  <img
+    class="items"
+    [ngClass]="{
+      'logo-dark': darkModeService.isDarkModeEnabled() | async,
+      'logo-light': !(darkModeService.isDarkModeEnabled() | async)
+    }"
+    src="/assets/logo.png"
+    height="50px"
+  >
+</a>

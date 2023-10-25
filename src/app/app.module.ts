@@ -17,6 +17,8 @@ import { ProductsComponent } from './paths/products/products.component';
 import { ImgComponent } from './templates/img/img.component';
 import { FrameComponent } from './templates/p/products/frame/frame.component';
 import { CardComponent } from './templates/p/products/card/card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './paths/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import { CardComponent } from './templates/p/products/card/card.component';
     NewAccountComponent,
     ProductsComponent,
     ImgComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
