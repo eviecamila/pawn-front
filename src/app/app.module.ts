@@ -20,6 +20,7 @@ import { CardComponent } from './templates/p/products/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './paths/login/login.component';
 import { SidebarComponent } from './templates/sidebar/sidebar.component';
+import { ProfilePictureComponent } from './templates/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SidebarComponent } from './templates/sidebar/sidebar.component';
     ImgComponent,
     LoginComponent,
     SidebarComponent,
+    ProfilePictureComponent,
   ],
   imports: [
     BrowserModule,

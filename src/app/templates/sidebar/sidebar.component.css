@@ -1,1 +1,30 @@
-.sidebar-content ul{list-style: none;}
+.sidebar-content ul{list-style: none;padding-left: 15px;}
+.opcion{margin-top:15px;}
+.opcion a{
+    color:#fff;
+    text-decoration:none;
+}
+.sidebar-content{
+    /* cambiar colores en base a lo deseado */
+    background: #010188;
+    border-left: 3px solid;
+    height: 100vh;
+    width: 30vh;
+}
+.margen{
+    height: 50px;
+}
+
+
+.sidebar-content {
+    display: grid;
+    grid-template-rows: 1fr 100px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;;
+    justify-items: stretch;
+    align-items: stretch;
+ }
+ .bot-items{
+    display: grid;
+    align-items: end;
+ }

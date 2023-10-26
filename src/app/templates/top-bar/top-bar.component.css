@@ -115,21 +115,13 @@ header {
   position: relative;
   transform: translate(0, -50%);
 }
-
-/* CSS para barra lateral cerrada */
-.sidebar-closed {
+.sidebar-open, .sidebar-closed{
   position: absolute;
-  left: 100%;
-  top: 20vh; /* Mantiene la misma posición vertical en ambos estados */
-  /* display: none; */
-  transition: left .6s; /* Transición de 3 segundos para moverla hacia la izquierda */
-
+  top:0;
+  transition:left 0.6s;
 }
+/* CSS para barra lateral cerrada */
+.sidebar-closed {left: 100%;}
 
 /* CSS para barra lateral abierta */
-.sidebar-open {
-  position: absolute;
-  left: 50%; /* Muestra la barra lateral en su posición final (izquierda: 0) */
-  top: 20vh; /* Mantiene la misma posición vertical en ambos estados */
-  transition: left .6s;
-}
+.sidebar-open {left:46.6%;}
