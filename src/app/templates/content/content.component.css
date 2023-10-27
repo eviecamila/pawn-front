@@ -14,35 +14,38 @@
 .cuerpo
 {
   width: 60%;
-  height: 100vh;
   /* border-radius: 10px 10px 0 ; */
   /* background-color: #eaeaea; */
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
-  padding: 3%;
+  /* padding: 3%; */
   /* z-index: -1; */
 }
-/* Media Query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
+/* Movil kgDa */
 @media (max-width: 768px) {
   .cuerpo
 {
   width: 100%;
-  height: 100vh;
+  min-height: 50vh;
   /* border-radius: 10px 10px 0 ; */
   /* background-color: #eaeaea; */
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding: 30px 50px;
+  padding: 50px 10px;
   /* z-index: -1; */
 }
 
 }
-
+/* Desktop */
 @media (min-width: 769px) {
   .fondo{
     background-image: url('../../../assets/bg.jpg');
+  }
+  .cuerpo
+  {
+    width: 60%;
+    min-height: 70vh;
+    padding: 50px 10px;
+
   }
   /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
   #acciones ul {

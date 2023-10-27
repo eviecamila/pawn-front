@@ -1,7 +1,7 @@
 
 body{
   margin:0;padding: 0;
-  background-image: url('assets/bg.jpg');
+
   background-size: cover;
   /* background-position: center; */
   background-repeat: no-repeat;
@@ -11,7 +11,17 @@ body{
   /* position: fixed; */
   font-family: Consolas;
 }
+/* When pones img */
+/* Mobile */
+@media (max-width: 768px) {
 
+}
+/* DesktOp */
+@media (min-width: 769px) {
+  body{
+    background-image: url('assets/bg.jpg');
+  }
+}
 .r{border-radius: 10px;}
 
 

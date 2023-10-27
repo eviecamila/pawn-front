@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './paths/login/login.component';
 import { SidebarComponent } from './templates/sidebar/sidebar.component';
 import { ProfilePictureComponent } from './templates/profile-picture/profile-picture.component';
+import { SwitchDarkModeComponent } from './templates/switch-dark-mode/switch-dark-mode.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ProfilePictureComponent } from './templates/profile-picture/profile-pic
     LoginComponent,
     SidebarComponent,
     ProfilePictureComponent,
+    SwitchDarkModeComponent,
   ],
   imports: [
     BrowserModule,

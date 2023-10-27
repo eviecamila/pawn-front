@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Fondo en modo claro */
+  color: #333; /* Texto en modo claro */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196F3; /* Fondo en modo claro */
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white; /* Color del ícono del sol */
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #f39f4f; /* Fondo en modo oscuro */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #333; /* Color del ícono de la luna */
+}
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilos en modo oscuro */
+input:checked + .slider:before {
+  background-color: #333; /* Color del ícono de la luna en modo oscuro */
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3; /* Fondo en modo oscuro */
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: white; /* Color del ícono del sol en modo oscuro */
+}
+
+body.dark-mode {
+  background-color: #333; /* Fondo en modo oscuro */
+  color: #fff; /* Texto en modo oscuro */
+}
+
+input:checked + .slider:before {
+  background-color: white; /* Color del ícono de la luna en modo oscuro */
+}
+
+input:checked + .slider {
+  background-color: #f39f4f; /* Fondo en modo oscuro */
+}
+
+#mode-switch:checked + .slider:before {
+  content: "🌞";
+}
+
+#mode-switch + .slider:before {
+  content: "🌜";
+}

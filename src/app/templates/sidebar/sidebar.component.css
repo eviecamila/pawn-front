@@ -8,8 +8,8 @@
     /* cambiar colores en base a lo deseado */
     background: #010188;
     border-left: 3px solid;
-    height: 100vh;
-    width: 30vh;
+    height: 100%;
+    width: 25vh;
 }
 .margen{
     height: 50px;

@@ -6,9 +6,18 @@
 >
   <div class="items">
     <div id="menu-toggle" (click)="toggleMenu()" *ngIf="isMobile && !isMenuOpen">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+      <div class="bar" [ngClass]="{
+        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+      }"></div>
+      <div class="bar" [ngClass]="{
+        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+      }"></div>
+      <div class="bar" [ngClass]="{
+        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+      }"></div>
     </div>
     <div *ngIf="isMenuOpen" id="menu-toggle" (click)="toggleMenu()">
       <div style="font-size: 32px;">&#10006;</div>

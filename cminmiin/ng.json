@@ -1,4 +1,7 @@
 // Custom settings de la minmisotA
+
+// Mete tu ip en la linea 81
+// "host":"xxx.xxx.xxx.xxx"
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
@@ -75,8 +78,7 @@
           "defaultConfiguration": "development",
           "options": {
             "port":80,
-            // IPCONFIG
-            "host":"192.168.100.65"
+            "host":"192.168.1.14"
           }
         },
         "extract-i18n": {

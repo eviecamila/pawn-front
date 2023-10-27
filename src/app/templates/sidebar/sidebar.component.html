@@ -4,6 +4,12 @@
   <div class="top-items">
     <ul>
       <li class="margen"></li>
+      <li class="opcion">
+        <app-switch-dark-mode></app-switch-dark-mode>
+      </li>
+      <li class="opcion text-center">
+        <span style="color:white">Modo {{getMode()}}</span>
+      </li>
       <li><app-profile-picture></app-profile-picture></li>
       <li class="margen"></li>
       <li class="opcion"><a routerLink="/inicio">Inicio</a></li>
