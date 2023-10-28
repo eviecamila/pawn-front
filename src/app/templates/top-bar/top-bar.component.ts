@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from '../../dark-mode.service';
+import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -35,6 +35,9 @@ export class TopBarComponent implements OnInit {
   detectScreenWidth() {
     this.isMobile = window.innerWidth <= 768; // Ajusta el ancho según tus necesidades
     this.isDesktop = !this.isMobile;
+    if (this.isDesktop) {
+      this.closeMenu();
+    }
   }
   openSidebar() {
     // Obtener el elemento de la barra lateral

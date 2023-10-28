@@ -1,26 +1,43 @@
 <!-- app-sidebar.component.html -->
-<div class="sidebar-content">
+<div></div>
+<div
+  class="sidebar-content"
+  [ngClass]="{
+    light: getModeBit(),
+    dark: !getModeBit()
+  }"
+>
   <!-- Contenido de la barra lateral, como enlaces o menús -->
   <div class="top-items">
     <ul>
       <li class="margen"></li>
-      <li class="opcion">
+      <li
+        class="opcion"
+        style="
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          position: relative;
+          left: -10%;
+        "
+      >
         <app-switch-dark-mode></app-switch-dark-mode>
-      </li>
-      <li class="opcion text-center">
-        <span style="color:white">Modo {{getMode()}}</span>
+        <span>Modo {{ getMode() }}</span>
       </li>
       <li><app-profile-picture></app-profile-picture></li>
       <li class="margen"></li>
-      <li class="opcion"><a routerLink="/inicio">Inicio</a></li>
-      <li class="opcion"><a routerLink="/productos">Productos</a></li>
-      <li class="opcion"><a routerLink="/contacto">Contacto</a></li>
+      <li class="opcion"><a routerLink="/newaccount" id="open">Empeños</a></li>
+      <li class="opcion"><a routerLink="/products" id="prods">Productos</a></li>
+      <li class="opcion"><a routerLink="invest">Invertir</a></li>
+      <li class="opcion"><a routerLink="faq">Preguntas Frecuentes</a></li>
+      <li class="opcion"><a routerLink="dev">Para Desarrolladores</a></li>
+
       <!-- <li class="opcion"><a routerLink="/login">Login</a></li> -->
     </ul>
   </div>
   <div class="bot-items">
     <ul>
-    <li class="opcion"><a routerLink="/login">Login</a></li>
+      <li class="opcion"><a routerLink="/login">Login</a></li>
     </ul>
   </div>
 </div>

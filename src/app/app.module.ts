@@ -22,6 +22,8 @@ import { LoginComponent } from './paths/login/login.component';
 import { SidebarComponent } from './templates/sidebar/sidebar.component';
 import { ProfilePictureComponent } from './templates/profile-picture/profile-picture.component';
 import { SwitchDarkModeComponent } from './templates/switch-dark-mode/switch-dark-mode.component';
+import { MenuComponent } from './administrative/menu/menu.component';
+import { AdministrativeModule } from './modules/administrative/administrative.module';
 
 @NgModule({
   declarations: [
@@ -42,11 +44,13 @@ import { SwitchDarkModeComponent } from './templates/switch-dark-mode/switch-dar
     SidebarComponent,
     ProfilePictureComponent,
     SwitchDarkModeComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    AdministrativeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

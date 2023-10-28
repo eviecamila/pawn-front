@@ -118,10 +118,11 @@ header {
 .sidebar-open, .sidebar-closed{
   position: absolute;
   top:0;
-  transition:left 0.6s;
+  transition:right  0.4s;
+  z-index: 1;
 }
 /* CSS para barra lateral cerrada */
-.sidebar-closed {left: 100%;}
+.sidebar-closed {right: -100%;}
 
 /* CSS para barra lateral abierta */
-.sidebar-open {left:46.6%;}
+.sidebar-open {right: 0;}

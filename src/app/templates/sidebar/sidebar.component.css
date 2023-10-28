@@ -6,15 +6,28 @@
 }
 .sidebar-content{
     /* cambiar colores en base a lo deseado */
-    background: #010188;
-    border-left: 3px solid;
-    height: 100%;
-    width: 25vh;
+    background: #85baff;
+    color:#000;
+    border-left: 3px solid #55f;
+    height: 100vh;
+    min-width: 25vh;
+}
+.sidebar-content.dark{
+  background: #09094e;
+  color:#fff;
+
+}
+.sidebar-content.light{
+  border-left: 3px solid #8383f3;
+
 }
 .margen{
     height: 50px;
 }
-
+.light ul li a, .light span{
+  color:#000;
+  font-weight: 600;
+}
 
 .sidebar-content {
     display: grid;

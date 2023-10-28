@@ -91,11 +91,3 @@ input:checked + .slider:before {
 input:checked + .slider {
   background-color: #f39f4f; /* Fondo en modo oscuro */
 }
-
-#mode-switch:checked + .slider:before {
-  content: "🌞";
-}
-
-#mode-switch + .slider:before {
-  content: "🌜";
-}

@@ -5,29 +5,44 @@
   }"
 >
   <div class="items">
-    <div id="menu-toggle" (click)="toggleMenu()" *ngIf="isMobile && !isMenuOpen">
-      <div class="bar" [ngClass]="{
-        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-      }"></div>
-      <div class="bar" [ngClass]="{
-        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-      }"></div>
-      <div class="bar" [ngClass]="{
-        'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-        'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-      }"></div>
+    <div
+      id="menu-toggle"
+      (click)="toggleMenu()"
+      *ngIf="isMobile && !isMenuOpen"
+    >
+      <div
+        class="bar"
+        [ngClass]="{
+          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+        }"
+      ></div>
+      <div
+        class="bar"
+        [ngClass]="{
+          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+        }"
+      ></div>
+      <div
+        class="bar"
+        [ngClass]="{
+          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
+          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
+        }"
+      ></div>
     </div>
     <div *ngIf="isMenuOpen" id="menu-toggle" (click)="toggleMenu()">
-      <div style="font-size: 32px;">&#10006;</div>
-
+      <div style="font-size: 32px">&#10006;</div>
     </div>
 
-    <div [ngClass]="{
-      'sidebar-open': isMenuOpen,
-      'sidebar-closed': !isMenuOpen
-    }">
+    <div
+      [ngClass]="{
+        'sidebar-open': isMenuOpen,
+        'sidebar-closed': !isMenuOpen
+      }"
+      *ngIf="isMobile && !isDesktop"
+    >
       <app-sidebar></app-sidebar>
     </div>
 
@@ -35,18 +50,16 @@
       <app-logo></app-logo>
     </div>
 
-    <div id="acciones" *ngIf="isDesktop">
+    <div id="acciones" *ngIf="isDesktop" (click)="closeMenu()">
       <ul>
-        <li>
-          <app-actions url="/newaccount" id="open">Abrir Cuenta</app-actions>
-        </li>
+        <li><app-actions url="/newaccount" id="open">Empeños</app-actions></li>
         <li><app-actions url="/products" id="prods">Productos</app-actions></li>
         <li><app-actions id="invest">Invertir</app-actions></li>
         <li><app-actions id="faq">Preguntas Frecuentes</app-actions></li>
         <li><app-actions id="dev">Para Desarrolladores</app-actions></li>
       </ul>
     </div>
-    <div id="bar" *ngIf="isDesktop">
+    <div id="bar" *ngIf="isDesktop" (click)="closeMenu()">
       <app-actions url="/login">Login</app-actions>
     </div>
   </div>

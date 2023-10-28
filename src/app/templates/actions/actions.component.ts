@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DarkModeService } from 'src/app/dark-mode.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-actions',
   template:`
