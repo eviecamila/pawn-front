@@ -33,7 +33,7 @@ export class TopBarComponent implements OnInit {
   }
 
   detectScreenWidth() {
-    this.isMobile = window.innerWidth <= 768; // Ajusta el ancho según tus necesidades
+    this.isMobile = window.innerWidth <= 1000; // Ajusta el ancho según tus necesidades
     this.isDesktop = !this.isMobile;
     if (this.isDesktop) {
       this.closeMenu();

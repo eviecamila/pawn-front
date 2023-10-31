@@ -1,9 +1,3 @@
-/* Estilos comunes a todas las pantallas */
-* {
-  /* font-family: 'Consolas'; */
-  /* font-weight: bolder; */
-}
-
 header {
   height: 64px;
   /* background: #fafafa; */
@@ -19,7 +13,7 @@ header {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   justify-items: stretch;
-  align-items: center; /* Alinea verticalmente el contenido */
+  /* align-items: center; Alinea verticalmente el contenido */
   height: 100%;
 }
 
@@ -80,7 +74,7 @@ header {
 }
 
 /* Media Query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
   #menu-toggle {
     display: block;
@@ -90,7 +84,7 @@ header {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
   /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
   #acciones ul {
     list-style: none; /* Eliminar viñetas (bolitas) */
@@ -126,3 +120,12 @@ header {
 
 /* CSS para barra lateral abierta */
 .sidebar-open {right: 0;}
+
+#left-items{
+  margin-left:50px;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  position: relative;
+  top:-6px;
+}

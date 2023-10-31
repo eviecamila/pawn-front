@@ -11,32 +11,33 @@
   <div class="top-items">
     <ul>
       <li class="margen"></li>
-      <li
-        class="opcion"
-        style="
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          position: relative;
-          left: -10%;
-        "
-      >
-        <app-switch-dark-mode></app-switch-dark-mode>
-        <span>Modo {{ getMode() }}</span>
-      </li>
       <li><app-profile-picture></app-profile-picture></li>
+
       <li class="margen"></li>
-      <li class="opcion"><a routerLink="/newaccount" id="open">Empeños</a></li>
-      <li class="opcion"><a routerLink="/products" id="prods">Productos</a></li>
+      <li class="opcion"><a routerLink="pawn" id="open">Empeños</a></li>
+      <li class="opcion"><a routerLink="sellings" id="prods">Ventas</a></li>
       <li class="opcion"><a routerLink="invest">Invertir</a></li>
-      <li class="opcion"><a routerLink="faq">Preguntas Frecuentes</a></li>
-      <li class="opcion"><a routerLink="dev">Para Desarrolladores</a></li>
+      <li class="opcion"><a routerLink="faq" >Preguntas Frecuentes</a></li>
+
 
       <!-- <li class="opcion"><a routerLink="/login">Login</a></li> -->
     </ul>
   </div>
   <div class="bot-items">
     <ul>
+      <li
+        class="opcion"
+        style="
+          /* display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          position: relative; */
+          /* left: -10%; */
+        "
+      >
+        <app-switch-dark-mode></app-switch-dark-mode>
+        <!-- <span>Modo {{ getMode() }}</span> -->
+      </li>
       <li class="opcion"><a routerLink="/login">Login</a></li>
     </ul>
   </div>

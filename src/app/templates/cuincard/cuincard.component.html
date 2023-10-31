@@ -1,4 +1,4 @@
-<div><a [ngClass]="{
+<div class="card" ngClass="{
   'darker-mode': darkModeService.isDarkModeEnabled() | async,
   'light-mode': !(darkModeService.isDarkModeEnabled() | async)}"
-   routerLink="{{url}}"><ng-content></ng-content></a></div>
+  ><ng-content></ng-content></div>

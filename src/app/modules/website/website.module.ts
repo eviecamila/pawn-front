@@ -14,8 +14,7 @@ import { FooterItemComponent } from '../../templates/footer-item/footer-item.com
 import { IndexComponent } from '../../paths/index/index.component';
 import { NotfoundComponent } from '../../paths/notfound/notfound.component';
 import { PataComponent } from '../../templates/pata/pata.component';
-import { NewAccountComponent } from '../../paths/new-account/new-account.component';
-import { ProductsComponent } from '../../paths/products/products.component';
+import { VentasComponent } from '../../paths/ventas/ventas.component';
 import { ImgComponent } from '../../templates/img/img.component';
 import { LoginComponent } from '../../paths/login/login.component';
 import { SidebarComponent } from '../../templates/sidebar/sidebar.component';
@@ -23,8 +22,14 @@ import { ProfilePictureComponent } from '../../templates/profile-picture/profile
 import { SwitchDarkModeComponent } from '../../templates/switch-dark-mode/switch-dark-mode.component';
 import { MenuComponent } from '../../administrative/menu/menu.component';
 import { WebsiteComponent } from 'src/app/a_website/website/website.component';
-import { RouterModule } from '@angular/router';
+import { ItemCardComponent } from '../../templates/cuincard/cuincard.component';
+import { CardComponent } from '../../templates/p/products/card/card.component';
+import { PawnComponent } from '../../paths/pawn/pawn.component';
+import { InvestComponent } from '../../paths/invest/invest.component';
+
+
 import { WebsiteRoutingModule } from './website-routing.module';
+import { FaqComponent } from 'src/app/paths/faq/faq.component';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -37,14 +42,17 @@ import { WebsiteRoutingModule } from './website-routing.module';
     IndexComponent,
     NotfoundComponent,
     PataComponent,
-    NewAccountComponent,
-    ProductsComponent,
+    VentasComponent,
     ImgComponent,
     LoginComponent,
     SidebarComponent,
     ProfilePictureComponent,
     SwitchDarkModeComponent,
     MenuComponent,
+    CardComponent,
+    PawnComponent,
+    InvestComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,

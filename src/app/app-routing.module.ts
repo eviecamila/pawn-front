@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '**',
+    path: '',
     redirectTo: 'web', // Redirigir a la ruta "web" por defecto
     pathMatch: 'full'
   },
@@ -15,7 +15,11 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./modules/administrative/administrative.module').then(m => m.AdministrativeModule)
   },
-  // Otras rutas
+  {
+    path: '**',
+    redirectTo: 'web', // Redirigir a la ruta "web" por defecto
+    pathMatch: 'full'
+  },
 ];
 
 

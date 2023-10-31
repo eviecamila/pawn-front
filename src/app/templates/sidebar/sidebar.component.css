@@ -40,4 +40,6 @@
  .bot-items{
     display: grid;
     align-items: end;
+    position: relative;
+    bottom: 100px;
  }

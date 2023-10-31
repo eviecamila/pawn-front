@@ -3,10 +3,10 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  templateUrl: './ventas.component.html',
+  styleUrls: ['./ventas.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class VentasComponent implements OnInit {
   constructor(public darkModeService: DarkModeService) {}
 
   toggleDarkMode() {

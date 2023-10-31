@@ -46,17 +46,18 @@
       <app-sidebar></app-sidebar>
     </div>
 
-    <div id="logo">
+    <div id="left-items">
       <app-logo></app-logo>
+
+      <app-switch-dark-mode *ngIf="isDesktop"></app-switch-dark-mode>
     </div>
 
     <div id="acciones" *ngIf="isDesktop" (click)="closeMenu()">
       <ul>
-        <li><app-actions url="/newaccount" id="open">Empeños</app-actions></li>
-        <li><app-actions url="/products" id="prods">Productos</app-actions></li>
-        <li><app-actions id="invest">Invertir</app-actions></li>
-        <li><app-actions id="faq">Preguntas Frecuentes</app-actions></li>
-        <li><app-actions id="dev">Para Desarrolladores</app-actions></li>
+        <li><app-actions url="pawn" id="">Empeños</app-actions></li>
+        <li><app-actions url="sellings" id="prods">Ventas</app-actions></li>
+        <li><app-actions url="invest">Invertir</app-actions></li>
+        <li><app-actions url="faq">Preguntas Frecuentes</app-actions></li>
       </ul>
     </div>
     <div id="bar" *ngIf="isDesktop" (click)="closeMenu()">

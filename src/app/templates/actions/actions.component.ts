@@ -2,12 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-actions',
-  template:`
-  <div [ngClass]="{
-  'darker-mode': darkModeService.isDarkModeEnabled() | async,
-  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-}"><a href="{{url}}"><ng-content></ng-content></a></div>
-  `,
+  templateUrl: './actions.component.html',
 
   styleUrls: ['./actions.component.css','../../../../src/styles.css']
 })
