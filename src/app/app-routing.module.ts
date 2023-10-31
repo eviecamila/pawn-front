@@ -1,25 +1,23 @@
-// Base imports
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// TEMPLATES
-import { IndexComponent } from './paths/index/index.component';
-import { NotfoundComponent } from './paths/notfound/notfound.component';
-import { NewAccountComponent } from './paths/new-account/new-account.component';
-import { ProductsComponent } from './paths/products/products.component';
-import { LoginComponent } from './paths/login/login.component';
 const routes: Routes = [
-  {path: 'index',component: IndexComponent,},
-  {path: '404',component: NotfoundComponent,},
-  {path: 'newaccount',component: NewAccountComponent},
-  {path: 'products',component: ProductsComponent},
-  {path: 'login',component: LoginComponent},
-  {path: '',redirectTo: 'index',pathMatch: 'full',},
-  {path: '**',redirectTo: 'index',pathMatch: 'full'},
-
-
-  {path: '**',redirectTo: '404',pathMatch: 'full',},
+  {
+    path: '**',
+    redirectTo: 'web', // Redirigir a la ruta "web" por defecto
+    pathMatch: 'full'
+  },
+  {
+    path: 'web',
+    loadChildren: () => import('./modules/website/website.module').then(m => m.WebsiteModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/administrative/administrative.module').then(m => m.AdministrativeModule)
+  },
+  // Otras rutas
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
