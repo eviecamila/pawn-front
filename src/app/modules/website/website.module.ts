@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
-import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AdministrativeModule } from '../../modules/administrative/administrative.module';
 
 import { AppComponent } from '../../app.component';
 import { TopBarComponent } from '../../templates/top-bar/top-bar.component';
@@ -26,6 +24,7 @@ import { SwitchDarkModeComponent } from '../../templates/switch-dark-mode/switch
 import { MenuComponent } from '../../administrative/menu/menu.component';
 import { WebsiteComponent } from 'src/app/a_website/website/website.component';
 import { RouterModule } from '@angular/router';
+import { WebsiteRoutingModule } from './website-routing.module';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -49,15 +48,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     NgbModule,
-    RouterModule.forChild([ // Define rutas específicas para este módulo
-  {path: 'web/**', component: WebsiteComponent},
-
-
-  // {path: '**',redirectTo: '404',pathMatch: 'full',},
-      // Otras rutas del módulo
-    ]),
+    WebsiteRoutingModule
   ],
 })
 export class WebsiteModule { }
