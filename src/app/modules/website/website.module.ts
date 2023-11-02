@@ -52,7 +52,8 @@ import { FaqComponent } from 'src/app/paths/faq/faq.component';
     CardComponent,
     PawnComponent,
     InvestComponent,
-    FaqComponent
+    FaqComponent,
+    ItemCardComponent
   ],
   imports: [
     CommonModule,

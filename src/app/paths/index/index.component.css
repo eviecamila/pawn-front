@@ -1,16 +1,16 @@
-.card{
+app-item-card{
   margin:10px auto;
   height: 100px;
-  background:#fff;
+  /* background:#fff; */
 }
 
-.card:hover{
-  background:#bbb;
+app-item-card:hover{
+  /* background:#bbb; */
 }
 
-.row .card{
+.row app-item-card{
   width: 100px;
 }
-.col .card{
+.col app-item-card div{
   width: 100%;
 }

@@ -1,4 +1,4 @@
-<div class="card" ngClass="{
+<div class="card" [ngClass]="{
   'darker-mode': darkModeService.isDarkModeEnabled() | async,
   'light-mode': !(darkModeService.isDarkModeEnabled() | async)}"
-  ><ng-content></ng-content></div>
+  >{{title}}<br><i class="bi bi-{{icon}}"></i></div>
