@@ -1,16 +1,39 @@
-app-item-card{
-  margin:10px auto;
-  height: 100px;
+app-itemcard {
+  /* width: 100px;
+  height: 100px; */
+  /* background-color: #3498db; */
+  transition: all 0.3s ease; /* Agregamos una transición para suavizar el cambio de tamaño */
+  margin:20px auto;
+  /* height: 100px; */
   /* background:#fff; */
+  display: grid;
+  place-items: center;
 }
 
-app-item-card:hover{
-  /* background:#bbb; */
+/* app-item-card:hover {
+  width: 120%; /* Cambia el ancho en el hover
+  height: 120%; /* Cambia la altura en el hover
+} */
+@media screen and (max-width: 1000) {
+  img
+  {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1001px) {
+  img{
+    width: 100px;
+  }
 }
 
-.row app-item-card{
-  width: 100px;
+.btn-light-blue {
+  background-color: #dbecf3; /* Aquí puedes ajustar el color azul claro según tus preferencias */
+  color: #000; /* Color de texto oscuro */
+  border: 1px solid #000; /* Borde negro (opcional) */
+  transition: all .3s ease;
 }
-.col app-item-card div{
-  width: 100%;
+.btn-light-blue:hover {
+  background-color: lightblue; /* Aquí puedes ajustar el color azul claro según tus preferencias */
+  color: #000; /* Color de texto oscuro */
+  border: 1px solid #000; /* Borde negro (opcional) */
 }

@@ -22,7 +22,6 @@ import { ProfilePictureComponent } from '../../templates/profile-picture/profile
 import { SwitchDarkModeComponent } from '../../templates/switch-dark-mode/switch-dark-mode.component';
 import { MenuComponent } from '../../administrative/menu/menu.component';
 import { WebsiteComponent } from 'src/app/a_website/website/website.component';
-import { ItemCardComponent } from '../../templates/cuincard/cuincard.component';
 import { CardComponent } from '../../templates/p/products/card/card.component';
 import { PawnComponent } from '../../paths/pawn/pawn.component';
 import { InvestComponent } from '../../paths/invest/invest.component';
@@ -30,6 +29,9 @@ import { InvestComponent } from '../../paths/invest/invest.component';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { FaqComponent } from 'src/app/paths/faq/faq.component';
+import { FocusablecardComponent } from 'src/app/templates/cuincard/focusablecard/focusablecard.component';
+import { ItemcardComponent } from 'src/app/templates/cuincard/itemcard/itemcard.component';
+import { LinkComponent } from 'src/app/templates/actions/link/link.component';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -53,7 +55,9 @@ import { FaqComponent } from 'src/app/paths/faq/faq.component';
     PawnComponent,
     InvestComponent,
     FaqComponent,
-    ItemCardComponent
+    ItemcardComponent,
+    FocusablecardComponent,
+    LinkComponent
   ],
   imports: [
     CommonModule,

@@ -1,47 +1,126 @@
-<h1>Empeños Pesados: Facilitando tus Finanzas</h1>
-<h3>Olvida la burocracia de empeñar en persona</h3>
+<div class="text-center">
+  <h1>Empeños Pesados: Facilitando tus Finanzas</h1>
+</div>
+<h3>
+  <span [ngClass]="{ mobile_margin: true }">&nbsp;&nbsp;&nbsp;</span
+  >&nbsp;Olvida la burocracia de empeñar en persona
+</h3>
 <p>
-  En Empeños Pesados, te ahorramos la molestia de ir a lugares inseguros para empeñar tus objetos. Evita riesgos y obtén el respaldo que necesitas. En Empeños Pesados, hacemos las cosas fáciles para ti.
+  En Empeños Pesados, te ahorramos la molestia de ir a lugares inseguros para
+  empeñar tus objetos. Evita riesgos y obtén el respaldo que necesitas. En
+  Empeños Pesados, hacemos las cosas fáciles para ti.
 </p>
 <h3 class="text-center">
-  "En Empeños Pesados, empeñamos de todo, ¡incluso hasta el semestre!"
+  <em> "En Empeños Pesados, empeñamos de todo, ¡incluso hasta el semestre!"</em>
 </h3>
-<h2>¿Por qué elegir Empeños Pesados?</h2>
+<h4 style="margin-right: 10%" class="text-end">-Evie 🏳️‍⚧️ (la dev fullstack de esta estupidez)</h4>
+<br />
+<h2>
+  <span [ngClass]="{ mobile_margin: true }">&nbsp;&nbsp;&nbsp;</span>&nbsp;¿Por
+  qué elegir Empeños Pesados?
+</h2>
 <p>Aquí tienes varias opciones para empeñar, incluyendo:</p>
 <!-- Inserta aquí los artículos que aceptamos para empeño -->
-<div class="text-center" [ngClass]="{
+<div
+  class="text-center"
+  [ngClass]="{
   'row': screen.isDesktop(),
   'col': screen.isMobile(),
-}">
-<app-item-card></app-item-card>
-<app-item-card></app-item-card>
-<app-item-card></app-item-card>
-<app-item-card></app-item-card>
-<app-item-card></app-item-card>
-
+}"
+>
+  <app-itemcard class="col-md-3" icon="gem">Joyería</app-itemcard>
+  <app-itemcard class="col-md-3" icon="car-front">Autos</app-itemcard>
+  <app-itemcard class="col-md-3" icon="bicycle"
+    >Bicicletas y Motos</app-itemcard
+  >
+  <app-itemcard class="col-md-3" icon="pc-display-horizontal"
+    >Computadoras y Laptops</app-itemcard
+  >
+  <app-itemcard class="col-md-3" icon="pci-card"
+    >Componentes electrónicos</app-itemcard
+  >
+  <app-itemcard class="col-md-3" icon="phone">Celulares</app-itemcard>
+  <app-itemcard class="col-md-3" icon="nintendo-switch"
+    >Consolas y Videojuegos</app-itemcard
+  >
+  <app-itemcard class="col-md-3" icon="watch">Relojes</app-itemcard>
+  <app-itemcard class="col-md-3" icon="camera">Cámaras</app-itemcard>
+  <app-itemcard class="col-md-3" icon="boombox"
+    >Instrumentos musicales y dispositivos de audio</app-itemcard
+  >
+  <app-itemcard class="col-md-3" icon="speaker">Bocinas</app-itemcard>
+  <!-- <app-itemcard class='col-md-3' icon="laptop">Tablets y eReaders</app-itemcard> -->
+  <app-itemcard class="col-md-3" icon="tv">Electrodomésticos</app-itemcard>
+  <!-- <app-itemcard class='col-md-3' icon="bag-check">Ropa y Accesorios</app-itemcard> -->
+  <!-- Agrega más elementos según los artículos que empeñes -->
 </div>
+<br />
+<br />
+<br />
 <section class="section-tienda">
-  <div class="container">
+  <div
+    class="container card"
+    [ngClass]="{
+      'darker-mode': darkModeService.isDarkModeEnabled() | async,
+      'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+    }"
+    style="padding: 30px"
+  >
+    <div class="text-center container-icon">
+      <img
+        src="https://empenofacil.com/uploads/servicio-al-cliente-empeno-facil.webp"
+        loading="lazy"
+        alt="casa-de-empeño-seguro"
+        title="casa-de-empeño-seguro"
+        [ngClass]="{
+          'logo-dark': darkModeService.isDarkModeEnabled() | async,
+          'logo-light': !(darkModeService.isDarkModeEnabled() | async)
+        }"
+      />
+    </div>
+    <br />
     <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-8">
-                                                          <div class="container-title-icon">
+      <div class="">
+        <div class="container-title-icon">
           <div class="row">
-            <div class="col-2 container-icon">
-                                <img src="https://empenofacil.com/uploads/servicio-al-cliente-empeno-facil.webp" loading="lazy" alt="casa-de-empeño-seguro" title="casa-de-empeño-seguro" width="100%" height="100%">
-                            </div>
-            <div class="col-sm-12 col-md-10 col-lg-10 container-desc">
-              <h2>Te entendemos, te ayudamos y te préstamos rápido.</h2>
-              <p></p><p>¡Visítanos en tu Empeño Fácil más cercano!</p><p></p>
+            <div class="text-center">
+              <h3>
+                Estamos aquí para entenderte, ayudarte y proporcionarte
+                asistencia forma rápida.
+              </h3>
+              <h4>
+                ¡Visítanos en tu sucursal Empeño Pesado más cercana!
+                <br />
+                O contactanos al telefono o correo
+
+              </h4>
+            </div>
+            <div style="margin:0 10%">
+              <h5>
+                <br />
+                <i class="bi bi-phone"></i>
+                &nbsp;<app-link href="phone:527783647283">7783647283</app-link>
+                <br />
+                <i class="bi bi-envelope"></i>
+                &nbsp;<app-link href="mailto:eviecaretonta@gmail.com"
+                  >eviecaretonta@gmail.com</app-link
+                >
+              </h5>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 container-btn">
-                                        <a href="https://empenofacil.com/encuentra-tu-tienda" class="btn-marine">Encuentra Tu Tienda</a>
-                </div>
-            </div>
+    </div>
   </div>
 </section>
+<br>
 <div class="text-end">
-  <a href="tu-enlace-de-empeño" class="btn btn-primary">Empeñar ya mismo</a>
+  <a href="web/pawn" class="btn"
+  [ngClass]="{
+    'btn-dark': darkModeService.isDarkModeEnabled() | async,
+    'btn-light-blue': !(darkModeService.isDarkModeEnabled() | async)
+  }" style="border:1px solid #000;"
+  >
+  Empieza a empeñar <i class="bi bi-gem"></i></a>
 </div>
+

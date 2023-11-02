@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { DarkModeService } from 'src/app/paths/ventas/services/dark-mode.service';
 import { TopBarComponent } from './top-bar.component';
 
 describe('TopBarComponent', () => {

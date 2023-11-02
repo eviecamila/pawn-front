@@ -1,0 +1,8 @@
+<a [ngClass]="{
+  'darker-mode': darkModeService.isDarkModeEnabled() | async,
+  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+}"
+href="{{href}}"
+>
+  <ng-content></ng-content>
+</a>
