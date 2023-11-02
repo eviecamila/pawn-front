@@ -6,8 +6,6 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   styleUrls: ['./cuincard.component.css']
 })
 export class ItemCardComponent {
-  constructor(public darkModeService: DarkModeService){}
-  @Input() title:string = 'Item';
-  @Input() icon:string = 'question-diamond-fill';
+
 
 }

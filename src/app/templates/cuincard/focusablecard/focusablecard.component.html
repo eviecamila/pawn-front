@@ -1,0 +1,7 @@
+<div
+  class="card"
+  [ngClass]="{
+    'darker-mode': darkModeService.isDarkModeEnabled() | async,
+    'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+  }"
+><ng-content></ng-content></div>
