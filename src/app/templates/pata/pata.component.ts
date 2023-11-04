@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/paths/ventas/services/dark-mode.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-pata',
   templateUrl: './pata.component.html',

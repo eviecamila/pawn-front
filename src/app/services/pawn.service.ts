@@ -5,10 +5,7 @@ const apiUrl = environment.address;
 @Injectable({
   providedIn: 'root'
 })
-export class HiworldService {
-
-  constructor(private http:HttpClient) { }
-  wasa(){
-    return this.http.get(`${apiUrl}/clients/hi`)
-  }
+export class PawnService {
+  constructor(private http: HttpClient) { }
+  tiposItem() {return this.http.get(`${apiUrl}/items/tipos/list/`);}
 }

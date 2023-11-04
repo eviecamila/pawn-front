@@ -1,8 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PawnService } from 'src/app/services/website/pawn.service';
-import { Component, OnInit} from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { PawnService } from 'src/app/services/pawn.service';
 
 // Pruebas tontas unitarias

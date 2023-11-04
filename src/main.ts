@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { DarkModeService } from './app/paths/ventas/services/dark-mode.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 if (environment.production) {
   enableProdMode();
 }
