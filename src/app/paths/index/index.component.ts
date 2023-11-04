@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+
 import { ScreenService } from 'src/app/services/screen.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({

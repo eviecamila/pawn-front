@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
+
 @Component({
   selector: 'app-itemcard',
   templateUrl: './itemcard.component.html',

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from '../../services/dark-mode.service';
+import { DarkModeService } from '../../paths/ventas/services/dark-mode.service';
 
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.css', '../../../styles.css'],
+  styleUrls: [
+    './top-bar.component.css',
+    '../../../styles.css'
+  ],
 })
 export class TopBarComponent implements OnInit {
-  constructor(public darkModeService: DarkModeService) {}
+  constructor(public darkModeService: DarkModeService) { }
 
   isMobile: boolean = false;
   isDesktop: boolean = true;
@@ -15,7 +18,7 @@ export class TopBarComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-    console.log('Hay una X?',this.isMenuOpen)
+    console.log('Hay una X?', this.isMenuOpen)
   }
 
 
@@ -26,8 +29,8 @@ export class TopBarComponent implements OnInit {
   ngOnInit() {
     this.detectScreenWidth();
     window.addEventListener('resize', () => this.detectScreenWidth());
-     // Retrasar la apertura de la barra lateral para la animación
-     setTimeout(() => {
+    // Retrasar la apertura de la barra lateral para la animación
+    setTimeout(() => {
       this.openSidebar();
     }, 400); // Cambia el valor según tus necesidades
   }
