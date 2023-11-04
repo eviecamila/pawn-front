@@ -57,6 +57,9 @@
 <br />
 <br />
 <br />
+
+<!-- Da issues con la pantalla vertical -->
+<!-- Ya no, solucionado -->
 <section class="section-tienda">
   <div
     class="container card"
@@ -92,7 +95,6 @@
                 ¡Visítanos en tu sucursal Empeño Pesado más cercana!
                 <br />
                 O contactanos al telefono o correo
-
               </h4>
             </div>
             <div style="margin:0 10%">
@@ -113,14 +115,18 @@
     </div>
   </div>
 </section>
-<br>
+<br />
 <div class="text-end">
-  <a href="web/pawn" class="btn"
-  [ngClass]="{
-    'btn-dark': darkModeService.isDarkModeEnabled() | async,
-    'btn-light-blue': !(darkModeService.isDarkModeEnabled() | async)
-  }" style="border:1px solid #000;"
+  <a
+    href="web/pawn"
+    class="btn"
+    [ngClass]="{
+      'btn-dark': darkModeService.isDarkModeEnabled() | async,
+      'btn-light-blue': !(darkModeService.isDarkModeEnabled() | async)
+    }"
+    style="border: 1px solid #000"
   >
-  Empieza a empeñar <i class="bi bi-gem"></i></a>
+    Empieza a empeñar <i class="bi bi-gem"></i
+  ></a>
 </div>
-
+<br />

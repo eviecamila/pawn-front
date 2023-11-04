@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WebsiteModule } from './modules/website/website.module';
 import { AdministrativeModule } from './modules/administrative/administrative.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,6 +17,7 @@ AppComponent,
     AppRoutingModule,
     WebsiteModule,
     AdministrativeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

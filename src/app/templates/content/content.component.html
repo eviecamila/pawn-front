@@ -1,4 +1,4 @@
-<div class="cuerpo" [ngClass]="{
+<div class="cuerpo container" [ngClass]="{
   'dark-mode': darkModeService.isDarkModeEnabled() | async,
   'lighter-mode': !(darkModeService.isDarkModeEnabled() | async)
 }">

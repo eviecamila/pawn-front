@@ -1,23 +1,9 @@
-.margen{
-  height: 64px;
-  width: 100;
-}
-.fondo{
-  width: 100%;
-  min-height: 100vh;
-  opacity: .5;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
 .cuerpo
 {
   /* border-radius: 10px 10px 0 ; */
   /* background-color: #eaeaea; */
+  min-height: 65vh;
   position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
   /* padding: 3%; */
   /* z-index: -1; */
 }
@@ -26,7 +12,7 @@
   .cuerpo
 {
   width: 100%;
-  min-height: 50vh;
+  /* min-height: 50vh; */
   /* border-radius: 10px 10px 0 ; */
   /* background-color: #eaeaea; */
   padding: 50px 10px;
@@ -36,25 +22,11 @@
 }
 /* Desktop */
 @media (min-width: 769px) {
-  .fondo{
-    background-image: url('../../../assets/bg.jpg');
-  }
   .cuerpo
   {
     width: 90%;
-    min-height: 70vh;
+    /* min-height: 70vh; */
     padding: 50px 30px;
 
-  }
-  /* Mostrar el menú hamburguesa y ocultar los elementos de navegación en pantallas pequeñas */
-  #acciones ul {
-    list-style: none; /* Eliminar viñetas (bolitas) */
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Alinea verticalmente el contenido */
-  }
-  #acciones ul li {
-    margin: 0 10px; /* Espacio entre elementos de navegación */
   }
 }

@@ -1,21 +1,18 @@
-<<<<<<< Updated upstream
-import { Component } from '@angular/core';
-=======
+import { Component, OnInit} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { PawnService } from 'src/app/services/website/pawn.service';
 import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PawnService } from 'src/app/services/pawn.service';
->>>>>>> Stashed changes
 
 // Pruebas tontas unitarias
 import { HiworldService } from 'src/app/services/hiworld.service';
 @Component({
   selector: 'app-pawn',
   templateUrl: './pawn.component.html',
-  styleUrls: ['./pawn.component.css']
+  styleUrls: ['./pawn.component.css'],
+  providers:[PawnService]
 })
-<<<<<<< Updated upstream
-export class PawnComponent {
-=======
 export class PawnComponent implements OnInit {
   constructor(
     private pawn: PawnService,
@@ -30,7 +27,6 @@ export class PawnComponent implements OnInit {
   ngOnInit(): void {
     this.pawn.tiposItem().subscribe(data => {this.tiposItem = data;console.log(this.tiposItem);});
     this.hi.wasa().subscribe(data => {console.log(data)});
-
   }
   calcularCuota() {
     // Convierte la tasa de interés de porcentaje a fracción decimal
@@ -43,6 +39,4 @@ export class PawnComponent implements OnInit {
     this.resultado = cuota;
     console.log(this.resultado);
   }
->>>>>>> Stashed changes
-
 }

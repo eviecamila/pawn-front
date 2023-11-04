@@ -1,7 +1,31 @@
-<h2>Empeña tu coso rancio aqui</h2>
-<p>XD</p>
-<br>
-<br>
-<br>
-<br>
-<p><b>Inserte aqui mas cosas</b></p>
+<div class="text-center">
+  <h2>Un préstamo a tu alcance</h2>
+  <p>Ingresa los detalles del préstamo a continuación:</p>
+  <div class="col-mx-5">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="monto">Monto del préstamo:</label>
+          <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto del préstamo" required [(ngModel)]="monto">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="tasa">Tasa de interés anual (%):</label>
+          <input type="number" class="form-control" id="tasa" name="tasa" placeholder="Tasa de interés" required [(ngModel)]="tasa">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="plazo">Plazo en meses:</label>
+          <input type="number" class="form-control" id="plazo" name="plazo" placeholder="Plazo del préstamo" required [(ngModel)]="plazo">
+        </div>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="calcularCuota()">Calcular</button>
+    </form>
+  </div>
+  <br>
+  <h3>Resultado:</h3>
+
+  <p>Capital prestado: <span id="resultado">{{resultado}}</span></p>
+  <p>Intereses: <span id="resultado">{{resultado}}</span></p>
+  <p>Total a pagar: <span id="resultado">{{resultado}}</span></p>
+  <p>Pago mensual estimado: <span id="resultado">{{resultado}}</span></p>
+</div>
