@@ -32,6 +32,7 @@ import { FaqComponent } from 'src/app/paths/faq/faq.component';
 import { FocusablecardComponent } from 'src/app/templates/cuincard/focusablecard/focusablecard.component';
 import { ItemcardComponent } from 'src/app/templates/cuincard/itemcard/itemcard.component';
 import { LinkComponent } from 'src/app/templates/actions/link/link.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -62,7 +63,8 @@ import { LinkComponent } from 'src/app/templates/actions/link/link.component';
   imports: [
     CommonModule,
     NgbModule,
-    WebsiteRoutingModule
+    WebsiteRoutingModule,
+    FormsModule
   ],
 })
 export class WebsiteModule { }
