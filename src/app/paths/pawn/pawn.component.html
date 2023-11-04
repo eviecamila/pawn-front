@@ -1,31 +1,29 @@
 <div class="text-center">
-  <h2>Un préstamo a tu alcance</h2>
-  <p>Ingresa los detalles del préstamo a continuación:</p>
+  <h2><b>Simulador de Empeño</b></h2>
+  <p>Ingresa los detalles a continuación:</p>
   <div class="col-mx-5">
-    <form>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="monto">Monto del préstamo:</label>
-          <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto del préstamo" required [(ngModel)]="monto">
-        </div>
-        <div class="form-group col-md-12">
-          <label for="tasa">Tasa de interés anual (%):</label>
-          <input type="number" class="form-control" id="tasa" name="tasa" placeholder="Tasa de interés" required [(ngModel)]="tasa">
-        </div>
-        <div class="form-group col-md-12">
-          <label for="plazo">Plazo en meses:</label>
-          <input type="number" class="form-control" id="plazo" name="plazo" placeholder="Plazo del préstamo" required [(ngModel)]="plazo">
-        </div>
+    <form (ngSubmit)="calcularCuota()">
+      <div class="form-group">
+        <label for="tipoItem">Tipo de Item:</label>
+        <select class="form-control" id="tipoItem" name="tipoItem" [(ngModel)]="tipoItem" required>
+          <option value="Selecciona un tipo de ítem" disabled>Selecciona un tipo de ítem</option>
+          <option *ngFor="let item of tiposItem" [value]="item.tipo">{{ item.tipo }}</option>
+        </select>
+
+
       </div>
-      <br>
-      <button type="button" class="btn btn-primary" (click)="calcularCuota()">Calcular</button>
+
+      <div class="form-group">
+        <label for="dias">Días de Empeño:</label>
+        <input type="number" class="form-control" id="dias" name="dias" placeholder="Días" [(ngModel)]="dias" required>
+      </div>
+
+      <div class="form-group">
+        <label for="monto">Monto Esperado:</label>
+        <input type="number" class="form-control" id="monto" name="monto" placeholder="Monto" [(ngModel)]="monto" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>
-  <br>
-  <h3>Resultado:</h3>
-
-  <p>Capital prestado: <span id="resultado">{{resultado}}</span></p>
-  <p>Intereses: <span id="resultado">{{resultado}}</span></p>
-  <p>Total a pagar: <span id="resultado">{{resultado}}</span></p>
-  <p>Pago mensual estimado: <span id="resultado">{{resultado}}</span></p>
 </div>
