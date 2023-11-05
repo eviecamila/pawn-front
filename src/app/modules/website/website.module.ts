@@ -34,6 +34,7 @@ import { ItemcardComponent } from 'src/app/templates/cuincard/itemcard/itemcard.
 import { LinkComponent } from 'src/app/templates/actions/link/link.component';
 import { FormsModule } from '@angular/forms';
 import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.component';
+import { ItemlistComponent } from 'src/app/paths/pawn/itemlist/itemlist.component';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -60,7 +61,8 @@ import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.compon
     ItemcardComponent,
     FocusablecardComponent,
     LinkComponent,
-    PawnCalcComponent
+    PawnCalcComponent,
+    ItemlistComponent
   ],
   imports: [
     CommonModule,
