@@ -55,4 +55,5 @@ export class DarkModeService {
   isDarkModeEnabled() {
     return this.darkModeEnabled.asObservable();
   }
+  modo(){return this.isDarkModeEnabled()?"light":'dark';}
 }

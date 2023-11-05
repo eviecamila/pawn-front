@@ -11,6 +11,7 @@
 @media (max-width: 768px) {
   .cuerpo
 {
+  max-width: 100%;
   width: 100%;
   /* min-height: 50vh; */
   /* border-radius: 10px 10px 0 ; */
@@ -24,7 +25,7 @@
 @media (min-width: 769px) {
   .cuerpo
   {
-    width: 90%;
+    max-width: 95%;
     /* min-height: 70vh; */
     padding: 50px 30px;
 
