@@ -33,6 +33,7 @@ import { FocusablecardComponent } from 'src/app/templates/cuincard/focusablecard
 import { ItemcardComponent } from 'src/app/templates/cuincard/itemcard/itemcard.component';
 import { LinkComponent } from 'src/app/templates/actions/link/link.component';
 import { FormsModule } from '@angular/forms';
+import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.component';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -58,7 +59,8 @@ import { FormsModule } from '@angular/forms';
     FaqComponent,
     ItemcardComponent,
     FocusablecardComponent,
-    LinkComponent
+    LinkComponent,
+    PawnCalcComponent
   ],
   imports: [
     CommonModule,
