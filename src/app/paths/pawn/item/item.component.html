@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h2 [innerHTML]="item.verbosename"></h2>
+  <img
+    style="border-radius: 100%; border: 3px solid"
+    width="300px"
+    [src]="'/assets/imgs/'+item.tipo+'.jpg'"
+  />
+  <div [innerHTML]="item.descripcion"></div>
+</div>
