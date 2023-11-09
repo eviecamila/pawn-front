@@ -1,0 +1,33 @@
+<h1>Cotización de Empeño</h1>
+    <form action="procesar_cotizacion.php" method="post">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="curp">CURP:</label>
+        <input type="text" id="curp" name="curp" required>
+        <br><br>
+
+        <label for="item">Tipo de Artículo:</label>
+        <select id="item" name="item" required>
+            <option value="computadoras">Computadoras</option>
+            <option value="laptops">Laptops</option>
+            <option value="celulares">Celulares</option>
+            <option value="joyeria">Joyería</option>
+        </select>
+        <br><br>
+
+        <label for="nombre_articulo">Nombre del Artículo:</label>
+        <input type="text" id="nombre_articulo" name="nombre_articulo" required>
+        <br><br>
+
+        <label for="caracteristicas">Características:</label>
+        <textarea id="caracteristicas" name="caracteristicas" rows="4" required></textarea>
+        <br><br>
+
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+        <br><br>
+
+        <input type="submit" value="Cotizar">
+    </form>

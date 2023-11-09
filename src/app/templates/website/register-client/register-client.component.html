@@ -1,0 +1,29 @@
+<h1>Registro de Cliente</h1>
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre">
+  </div>
+
+  <div class="form-group">
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" formControlName="direccion">
+  </div>
+
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="phone" formControlName="telefono">
+  </div>
+
+  <div class="form-group">
+    <label for="curp">CURP:</label>
+    <input type="text" id="curp" formControlName="curp">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+  </div>
+
+  <button type="submit">Registrar Cliente</button>
+</form>

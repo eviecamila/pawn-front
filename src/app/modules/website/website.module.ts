@@ -36,6 +36,12 @@ import { FormsModule } from '@angular/forms';
 import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.component';
 import { ItemlistComponent } from 'src/app/paths/pawn/itemlist/itemlist.component';
 import { PawnItemComponent } from 'src/app/paths/pawn/item/item.component';
+import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.component';
+import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotizacion.component';
+import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -64,13 +70,18 @@ import { PawnItemComponent } from 'src/app/paths/pawn/item/item.component';
     LinkComponent,
     PawnCalcComponent,
     ItemlistComponent,
-    PawnItemComponent
+    PawnItemComponent,
+    QrScannerComponent,
+    CotizacionComponent,
+    RegisterClientComponent,
   ],
   imports: [
     CommonModule,
     NgbModule,
     WebsiteRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxScannerQrcodeModule,
+    ReactiveFormsModule,
   ],
 })
 export class WebsiteModule { }

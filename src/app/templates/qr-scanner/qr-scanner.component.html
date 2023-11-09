@@ -1,0 +1,25 @@
+<div class="w-100 d-grid" style="place-items: center">
+  <ngx-scanner-qrcode
+    [config]="{
+      isBeep: false,
+      canvasStyles: [
+        { lineWidth: 0, strokeStyle: 'clear', fillStyle: '#00000000' },
+        { font: '1px serif', strokeStyle: '#fff0', fillStyle: '#00000000' }
+      ]
+    }"
+    class="escaner"
+    #action="scanner"
+    (event)="toggleScanner();showAlert($event)"
+  ></ngx-scanner-qrcode>
+
+  <!-- data  -->
+  <!-- <span *ngIf="action.isStart">{{ action.data.value[0].value | json }}</span> -->
+
+  <!-- Loading -->
+  <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+  <!-- Botón para iniciar/parar el escáner -->
+  <button (click)="toggleScanner()">
+    {{ action.isStart ? "Stop" : "Start" }}
+  </button>
+</div>
