@@ -6,8 +6,9 @@ const apiUrl = environment.address;
   providedIn: 'root'
 })
 export class HiworldService {
+
   constructor(private http:HttpClient) { }
   wasa(){
-    return this.http.get(`${apiUrl}/clients/hi/`)
+    return this.http.get(`${apiUrl}/clients/hi`)
   }
 }
