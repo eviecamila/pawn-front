@@ -31,4 +31,5 @@ export class PawnComponent implements OnInit {
 
     // Calcula la cuota mensual
     const cuota = (this.monto * tasaDecimal) / (1 - Math.pow(1 + tasaDecimal, -this.plazo));
+  }
 }
