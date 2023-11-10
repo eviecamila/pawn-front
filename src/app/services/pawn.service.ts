@@ -9,4 +9,8 @@ export class PawnService {
   constructor(private http: HttpClient) { }
   tiposItem() {return this.http.get(`${apiUrl}/items/tipos/list/`);}
   tipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
+  editTipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
+  newTipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
+  deleteTipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
+  bs5Icons() {return this.http.get<any>("src/assets/data/bs5_icons.json")}
 }

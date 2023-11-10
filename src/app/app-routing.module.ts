@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { TiposItemComponent } from './templates/administrative/tipos-item/tipos-item.component';
+import { WebsiteComponent } from './a_website/website/website.component';
 const routes: Routes = [
   {
     path: '',

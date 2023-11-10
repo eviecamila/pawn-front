@@ -1,0 +1,8 @@
+<p>tipos-item works!</p>
+<select [(ngModel)]="tipoItem">
+  <option>Selecciona un icono</option>
+  <option *ngFor="let icon of icons" [value]="icon">{{icon}}&nbsp;<i [class]="'bi bi-'+icon"></i></option>
+</select>
+<br>
+<!-- <i [ngClass]="'bi '+tipoItem"></i> -->
+<i class="bi" [class]="'bi-'+tipoItem"></i>

@@ -40,6 +40,7 @@ export class PawnCalcComponent implements OnInit {
     console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
     console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
     console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
+    console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
   }
   getTasaDeInteresPorTipoItem(tipo: string): number {
     const tipoEncontrado = this.tiposItem.find((item) => item.tipo === tipo);
@@ -52,6 +53,12 @@ export class PawnCalcComponent implements OnInit {
     //  Holdon fake & true
     // mis tuais lesbianas https://www.youtube.com/watch?v=zQELp93xxfo&pp=ygUNZmFrZSBhbmQgdHJ1ZQ%3D%3D
   }
-  toggleModal() { this.modal = !this.modal; if (this.validateForm()) this.valid = true; }
+  toggleModal() {
+    this.modal = !this.modal;
+    if (this.validateForm()) {
+      this.calcularCuota();
+      this.valid = true;
+    }
+  }
   hideAlert() { this.modal = false; }
 }

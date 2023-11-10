@@ -9,6 +9,7 @@ import { PawnItemComponent } from 'src/app/paths/pawn/item/item.component';
 import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.component';
 import { PawnComponent } from 'src/app/paths/pawn/pawn.component';
 import { VentasComponent } from 'src/app/paths/ventas/ventas.component';
+import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
 import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.component';
 import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotizacion.component';
 import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
@@ -70,7 +71,17 @@ const routes: Routes = [
       {
         path: 'faq',
         component: FaqComponent
-      }
+      },
+      {
+        path: 'abc',
+        // component: WebsiteComponent,
+        children: [
+          {
+            path: 'tipos_item',
+            component: TiposItemComponent
+          }
+        ]
+      },
     ]
   }
 ];

@@ -41,6 +41,7 @@ import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.comp
 import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotizacion.component';
 import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     QrScannerComponent,
     CotizacionComponent,
     RegisterClientComponent,
+    TiposItemComponent,
   ],
   imports: [
     CommonModule,

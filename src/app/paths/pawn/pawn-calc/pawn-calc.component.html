@@ -41,6 +41,20 @@
         </select>
       </div>
       <div class="form-group">
+        <label for="monto">Monto Esperado:</label>
+        <input
+          type="number"
+          class="form-control col-6 mx-auto"
+          [attr.data-bs-theme]="modo"
+          id="monto"
+          name="monto"
+          placeholder="Monto"
+          [(ngModel)]="monto"
+          required
+        />
+      </div>
+
+      <div class="form-group">
         <label for="dias">Días de Empeño:</label>
         <input
           type="number"
@@ -54,19 +68,7 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="monto">Monto Esperado:</label>
-        <input
-          type="number"
-          class="form-control col-6 mx-auto"
-          [attr.data-bs-theme]="modo"
-          id="monto"
-          name="monto"
-          placeholder="Monto"
-          [(ngModel)]="monto"
-          required
-        />
-      </div>
+
       <br />
       <button
         (click)="toggleModal()"
@@ -105,14 +107,14 @@
   >
     <button (click)="hideAlert()" class="btn-close">X</button>
     <div *ngIf="valid">
-      <h3>Detalles del Préstamo</h3>
+      <h3>Detalles del Préstamo <i class="bi bi-gem"></i></h3>
       <!-- Aquí muestra los detalles del préstamo, por ejemplo: -->
       <p>Tipo de Item: {{ tipoItem }}</p>
       <p>Días de Empeño: {{ dias }}</p>
       <p>Monto Esperado: {{ monto | currency : "USD" : "symbol" : "1.2-2" }}</p>
     </div>
     <div *ngIf="!valid">
-      <h3>Error</h3>
+      <h3>Error <i class="bi bi-exclamation-triangle"></i></h3>
       <p>Campos Vacíos</p>
     </div>
     <button (click)="hideAlert()" class="btn">Cerrar</button>
