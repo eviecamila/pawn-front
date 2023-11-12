@@ -1,3 +1,9 @@
+/* Tostadora puta */
+@import 'ngx-toastr/toastr';
+@import "assets/css/toastr.css";
+
+/* BS icons/ bs
+ */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 

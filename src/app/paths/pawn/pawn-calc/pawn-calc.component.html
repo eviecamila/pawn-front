@@ -74,7 +74,8 @@
         (click)="toggleModal()"
         type="button"
         class="btn float-end"
-        [ngClass]="modo + '-mode'"
+        [attr.data-bs-theme]="modo"
+        [ngClass]="(modo==='dark'?'darker':'light') + '-mode'"
         data-bs-toggle="modal"
         data-bs-target="#myModal"
       >
@@ -88,7 +89,7 @@
     </form>
   </div>
 
-  <a class="btn btn-primary" routerLink="..">Presiona aqui para regresar</a>
+  <a class="btn btn-primary" routerLink=".." id="go-back">Presiona aqui para regresar</a>
 </div>
 
 <div
@@ -117,6 +118,6 @@
       <h3>Error <i class="bi bi-exclamation-triangle"></i></h3>
       <p>Campos Vacíos</p>
     </div>
-    <button (click)="hideAlert()" class="btn">Cerrar</button>
+    <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">Cerrar</button>
   </div>
 </div>

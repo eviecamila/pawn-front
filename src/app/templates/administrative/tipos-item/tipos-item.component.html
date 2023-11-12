@@ -1,8 +1,41 @@
 <p>tipos-item works!</p>
-<select [(ngModel)]="tipoItem">
-  <option>Selecciona un icono</option>
-  <option *ngFor="let icon of icons" [value]="icon">{{icon}}&nbsp;<i [class]="'bi bi-'+icon"></i></option>
-</select>
-<br>
-<!-- <i [ngClass]="'bi '+tipoItem"></i> -->
+<form (ngSubmit)="guardarItem()">
+  <div class="form-group">
+    <label for="tipo">Tipo:</label>
+    <input type="text" id="tipo" name="tipo" [(ngModel)]="tipoItem" required />
+  </div>
+
+  <div class="form-group">
+    <label for="verbosename">Verbosename:</label>
+    <input type="text" id="verbosename" name="verbosename" [(ngModel)]="verboseName" required />
+  </div>
+
+  <div class="form-group">
+    <label for="icon">Icon</label>
+    <select name="icon" [(ngModel)]="icon">
+      <option>Selecciona un icono</option>
+      <option *ngFor="let icon of icons" [value]="icon">{{icon}}</option>
+    </select>
+    &nbsp;<i [class]="'bi bi-'+icon"></i>
+  </div>
+
+  <div class="form-group">
+    <label for="extension">Extension:</label>
+    <input type="file" id="extension" name="extension" [(ngModel)]="extension" required />
+  </div>
+
+
+  <div class="form-group">
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" [(ngModel)]="descripcion" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="tasaInteres">Tasa de Interés:</label>
+    <input type="number" id="tasaInteres" name="tasaInteres" [(ngModel)]="tasaInteres" required />
+  </div>
+
+  <button type="submit">Guardar</button>
+</form>
+
 <i class="bi" [class]="'bi-'+tipoItem"></i>
