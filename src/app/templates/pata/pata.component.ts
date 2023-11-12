@@ -8,7 +8,6 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 export class PataComponent implements OnInit {
 
   constructor(public darkModeService: DarkModeService) {}
-  toggleDarkMode() {this.darkModeService.toggleDarkMode();}
   ngOnInit(): void {
   }
 }

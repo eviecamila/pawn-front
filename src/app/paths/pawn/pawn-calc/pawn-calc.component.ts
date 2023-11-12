@@ -16,7 +16,10 @@ export class PawnCalcComponent implements OnInit {
   modo!: string;
   modal: boolean = false;
   valid: boolean = false;
-  constructor(private pawn: PawnService, public darkModeService: DarkModeService, public currencyPipe: CurrencyPipe) {
+  constructor(
+    private pawn: PawnService,
+    public darkModeService: DarkModeService,
+    public currencyPipe: CurrencyPipe) {
     // Suscríbete a los cambios en el servicio darkModeService
     this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
       // Actualiza la variable modo en función del estado del modo oscuro

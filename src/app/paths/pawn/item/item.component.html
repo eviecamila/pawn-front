@@ -1,9 +1,48 @@
+<!-- mi-componente.component.html -->
 <div class="text-center">
   <h2 [innerHTML]="item.verbosename"></h2>
   <img
     style="border-radius: 100%; border: 3px solid"
     width="300px"
-    [src]="'/assets/imgs/'+item.tipo+'.jpg'"
+    [src]="'/assets/imgs/' + item.tipo + '.jpg'"
   />
   <div [innerHTML]="item.descripcion"></div>
+
+  <!-- Formulario desplegable -->
+  <!-- pawn-item.component.html -->
+  <div class="card" [attr.data-bs-theme]="modo">
+    <div
+      [ngStyle]="{
+        'border-bottom': isCollapsibleActive ? '1px solid #000' : 'none'
+      }"
+    >
+    <button
+    class="btn col-12"
+    [ngClass]="{'btn-dark': modo === 'dark', 'light-mode': modo === 'light'}"
+    type="button"
+    (click)="toggleCollapsible()"
+  >
+        ¿Deseas empeñar? Haz clic aquí para obtener una cotización.
+      </button>
+    </div>
+
+    <!-- Angular Collapsible -->
+    <div class="coll-container"
+    [ngClass]=>
+      <div
+        [@expandCollapse]="isCollapsibleActive ? 'open' : 'closed'"
+        class="coll-content"
+      >
+        <!-- Contenido colapsable -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- {{ isCollapsibleActive }} -->
 </div>

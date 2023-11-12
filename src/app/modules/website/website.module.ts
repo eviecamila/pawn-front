@@ -42,7 +42,7 @@ import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotiza
 import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     WebsiteComponent,

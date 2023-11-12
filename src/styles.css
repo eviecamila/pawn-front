@@ -4,8 +4,15 @@
 
 /* BS icons/ bs
  */
+
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "https://cdn.jsdelivr.net/npm/animate.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~ngx-bootstrap/bootstrap.min.css'; */
+
 
 body{
   margin:0;padding: 0;
