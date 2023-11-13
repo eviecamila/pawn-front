@@ -43,6 +43,7 @@ import { RegisterClientComponent } from 'src/app/templates/website/register-clie
 import { ReactiveFormsModule } from '@angular/forms';
 import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/collapsible-menu.component';
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -76,6 +77,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CotizacionComponent,
     RegisterClientComponent,
     TiposItemComponent,
+    CollapsibleMenuComponent
   ],
   imports: [
     CommonModule,

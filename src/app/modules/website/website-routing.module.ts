@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Input } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxScannerQrcodeComponent } from 'ngx-scanner-qrcode';
 import { WebsiteComponent } from 'src/app/a_website/website/website.component';
@@ -90,4 +90,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WebsiteRoutingModule { }
+export class WebsiteRoutingModule {
+  @Input() modo!:string;
+}

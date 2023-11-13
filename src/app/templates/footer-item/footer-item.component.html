@@ -1,4 +1,4 @@
 <div [ngClass]="{
   'darker-mode': darkModeService.isDarkModeEnabled() | async,
   'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-}"><a  href=href><ng-content></ng-content></a></div>
+}"><app-link [href]=href><ng-content></ng-content></app-link></div>

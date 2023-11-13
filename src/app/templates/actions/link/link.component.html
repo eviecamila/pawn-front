@@ -1,8 +1,10 @@
 <a [ngClass]="{
   'darker-mode': darkModeService.isDarkModeEnabled() | async,
-  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+  'lighter-mode': !(darkModeService.isDarkModeEnabled() | async)
 }"
 href="{{href}}"
+[ngStyle]="{ 'color': color, 'background-color': bg }"
+[target]="target"
 >
   <ng-content></ng-content>
 </a>

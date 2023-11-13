@@ -1,24 +1,31 @@
-.pata
-{
-  /* background: #fafafa; */
+.pata {
   padding: 50px 10%;
 }
-.f_items{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 100px;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    place-items: center;
-}
-.col{
+
+.f_items {
   display: flex;
-  flex-direction: column;
-  position: relative;
+  flex-wrap: wrap; /* Asegura que los elementos se envuelvan en dispositivos móviles */
+  justify-content: space-around; /* Centra las columnas en dispositivos móviles */
 }
-.r{
-  left: 0;
+
+.col {
+  flex: 1; /* Hace que las columnas ocupen el mismo espacio */
+  min-width: 0; /* Evita que las columnas se desborden en dispositivos móviles */
+  padding: 20px; /* Espaciado entre las columnas */
+  box-sizing: border-box; /* Asegura que el relleno y el borde no aumenten el tamaño total */
 }
-.l{
-  right: 0;
+
+/* Agrega estilos específicos para dispositivos móviles */
+@media (max-width: 767px) {
+  .f_items {
+    flex-direction: column; /* Una columna en dispositivos móviles */
+    align-items: center; /* Centra los elementos en dispositivos móviles */
+  }
+}
+
+/* Agrega estilos específicos para dispositivos de escritorio */
+@media (min-width: 768px) {
+  .f_items {
+    flex-direction: row; /* Dos columnas en escritorio */
+  }
 }

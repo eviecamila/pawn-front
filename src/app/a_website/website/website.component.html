@@ -1,8 +1,8 @@
 <div>
-  <app-top-bar></app-top-bar>
-  <app-bg></app-bg>
+  <app-top-bar [modo]="modo"></app-top-bar>
+  <app-bg [modo]="modo"></app-bg>
 </div>
 <!-- <router-outlet></router-outlet>
  -->
-<app-content><router-outlet></router-outlet></app-content>
-<app-pata></app-pata>
+<app-content [modo]="modo"><router-outlet></router-outlet></app-content>
+<app-pata [modo]="modo"></app-pata>

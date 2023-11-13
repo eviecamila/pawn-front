@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   ],
 })
 export class TopBarComponent implements OnInit {
+  @Input() modo!: string
   constructor(public darkModeService: DarkModeService) { }
 
   isMobile: boolean = false;

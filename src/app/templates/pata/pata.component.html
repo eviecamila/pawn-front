@@ -9,23 +9,23 @@
       <div class="col-12 col-lg-6">
         <!-- Una columna en móvil y dos columnas en escritorio -->
         <div class="row">
-          <div class="col-12 col-md-6 animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6">
             <app-footer-item>Bolsa de trabajo</app-footer-item>
           </div>
-          <div class="col-12 col-md-6 text-end animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
             <app-footer-item>Viva Angular mirrei</app-footer-item>
           </div>
-          <div class="col-12 col-md-6 animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6">
             <app-footer-item>Odio Angular</app-footer-item>
           </div>
-          <div class="col-12 col-md-6 text-end animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
             <app-footer-item>When te drogas</app-footer-item>
           </div>
-          <div class="col-12 col-md-6 animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6">
             <app-footer-item>Como llegar?</app-footer-item>
           </div>
 
-          <div class="col-12 col-md-6 text-end animate__animated animate__fadeIn animate__slideInDown">
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
             <!-- <app-footer-item>?</app-footer-item> -->
           </div>
         </div>

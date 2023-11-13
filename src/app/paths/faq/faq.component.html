@@ -1,87 +1,78 @@
-<!-- <p>faq works!</p> -->
+<h2>Preguntas Frecuentes (FAQ)</h2>
+<p>En empeños pesados, nos preocupamos por resolver tus dudas</p>
+<br>
 
-<!-- <h2>Te vamos a robar tu varo?</h2>
-<p><b>si</b></p>
+<div>
+  <app-collapsible-menu titulo="¿Cómo funciona el proceso empeño?" [modo]="modo">
+    <p>El proceso de empeño implica traer el artículo que deseas empeñar a
+        nuestras instalaciones. Nuestro equipo de profesionales lo evaluará para
+        determinar su valor. Una vez acordado, te proporcionaremos un préstamo
+        basado en ese valor. Se establecerán términos claros, incluyendo el
+        período del préstamo y las condiciones para recuperar tu artículo. Una
+        vez cumplidos los términos, puedes recuperar tu artículo pagando el
+        préstamo más los intereses correspondientes.
+    </p>
+  </app-collapsible-menu>
+</div>
 <br>
+<div>
+  <app-collapsible-menu
+    titulo="¿Cómo se determina el valor de un artículo?"
+    [modo]="modo"
+  >
+    <p>Valoramos los artículos en función de su condición, demanda del mercado
+        y valor de mercado. Nuestro experimentado equipo evaluará cada artículo
+        de manera justa y transparente.
+    </p>
+  </app-collapsible-menu>
+</div>
 <br>
-<h2>Cuando obtendre mi item?</h2>
-<p><b>cuando lo pagues malapaga de MRD</b></p>
+<div>
+  <app-collapsible-menu
+    titulo="¿Cuánto tiempo tengo para recuperar mi artículo empeñado?"
+    [modo]="modo"
+  >
+    <p>El período para recuperar tu artículo empeñado se acuerda durante la
+        transacción.
+          </p>
+  </app-collapsible-menu>
+</div>
 <br>
+<div>
+  <app-collapsible-menu
+    titulo="¿Qué sucede si no puedo recuperar mi artículo?"
+    [modo]="modo"
+  >
+    <p>obre la venta de artículos no reclamados. Estamos comprometidos a
+        manejar estos casos de manera justa y transparente.
+    </p>
+  </app-collapsible-menu>
+</div>
 <br>
-<h2>Te vamos a partir la madre?</h2>
-<p><b>si</b></p>
+<div>
+  <app-collapsible-menu
+    titulo="¿Cuáles son las tasas de interés y tarifas?"
+    [modo]="modo"
+  >
+    <p>Proporcionamos información detallada sobre las tasas de interés
+        aplicables y cualquier tarifa adicional asociada con el préstamo.
+        Queremos que tengas toda la información necesaria.
+    </p>
+  </app-collapsible-menu>
+</div>
 <br>
-<br>
-<h2>Vamos a pasar?</h2>
-<p><b>si</b></p>
-<br>
-<br>-->
-
-<div class="container">
-    <!-- Preguntas y respuestas -->
-    <div class="qa-container" onclick="toggleAnswer(1)">
-      <h2>¿Cómo funciona el empeño?    </h2>
-      <p><b>El proceso de empeño implica traer 
-        el artículo que deseas empeñar a nuestra casa.
-         Nuestro equipo de profesionales lo evaluará 
-         para determinar su valor. Una vez acordado, 
-         te proporcionaremos un préstamo basado en ese 
-         valor. Se establecerán términos claros, 
-         incluyendo el período del préstamo y las 
-         condiciones para recuperar tu artículo. 
-         Una vez cumplidos los términos, puedes 
-         recuperar tu artículo pagando el préstamo 
-         más los intereses correspondientes.</b></p>
-    </div>
-    <div class="qa-container" onclick="toggleAnswer(2)">
-      <h2>¿Qué artículos aceptamos para empeñar?      </h2>
-      <p><b>Aceptamos una amplia variedad de
-        artículos, que incluyen joyas, dispositivos 
-        electrónicos, automoviles y más. 
-        Ponte en contacto con nosotros para obtener 
-        información específica sobre los artículos 
-        que estamos dispuestos a aceptar.</b></p>
-    </div>
-    <div class="qa-container" onclick="toggleAnswer(3)">
-      <h2>¿Cómo se determina el valor de un artículo?      </h2>
-      <p><b>Valoramos los artículos en función de su 
-        condición, demanda del mercado y valor de 
-        mercado. Nuestro experimentado equipo 
-        evaluará cada artículo de manera justa y 
-        transparente.</b></p>
-    </div>
-    <div class="qa-container" onclick="toggleAnswer(4)">
-      <h2>¿Cuánto tiempo tengo para recuperar mi artículo empeñado?
-      </h2>
-      <p><b>El período para recuperar tu artículo 
-        empeñado se acuerda durante la transacción. 
-      </b></p>
-    </div>
-    <div class="qa-container" onclick="toggleAnswer(4)">
-        <h2>¿Qué sucede si no puedo recuperar mi artículo?        </h2>
-        <p><b>En caso de no poder recuperar tu 
-            artículo, seguimos políticas claras 
-            sobre la venta de artículos no 
-            reclamados. Estamos comprometidos a 
-            manejar estos casos de manera justa y 
-            transparente.</b></p>
-      </div>
-      <div class="qa-container" onclick="toggleAnswer(4)">
-        <h2>¿Cuáles son las tasas de interés y tarifas?        </h2>
-        <p><b>Proporcionamos información detallada 
-            sobre las tasas de interés aplicables y 
-            cualquier tarifa adicional asociada con 
-            el préstamo. Queremos que tengas toda la 
-            información necesaria.</b></p>
-      </div>
-      <div class="qa-container" onclick="toggleAnswer(4)">
-        <h2>¿Está asegurado mi artículo mientras está en la casa de empeños?        </h2>
-        <p><b>Sí, todos los artículos almacenados en 
-            nuestra casa de empeños están asegurados 
-            para garantizar su seguridad y protección.</b></p>
-      </div>
-      
-
+  <div>
+    <app-collapsible-menu
+      titulo="¿Está asegurado mi artículo mientras está en la casa de empeños?"
+      [modo]="modo"
+    >
+      <p>Sí, todos los artículos almacenados en nuestra casa de empeños están
+          asegurados para garantizar su seguridad y protección.
+      </p>
+    </app-collapsible-menu>
   </div>
-  <script src="script.js"></script>
+  <br>
 
+
+<h3>Deseas empeñar ahora mismo? entra en nuestro apartado de <app-link>Empeños</app-link></h3>
+  <!-- <script src="script.js"></script> -->

@@ -1,0 +1,35 @@
+<div class="card" [attr.data-bs-theme]="modo">
+  <div
+    [ngStyle]="{
+      'border-bottom': isCollapsibleActive ? '1px solid #000' : 'none'
+    }"
+  >
+    <button
+      class="btn col-12"
+      [ngClass]="{
+        'btn-dark': modo === 'dark',
+        'light-mode': modo === 'light'
+      }"
+      type="button"
+      (click)="toggleCollapsible()"
+    >
+      <b>{{ titulo }}</b>
+    </button>
+  </div>
+
+  <!-- Angular Collapsible -->
+  <div
+    class="coll-container"
+    [ngClass]="[
+      (modo === 'dark' ? 'dark' : 'lighter') + '-mode',
+      isCollapsibleActive ? 'open' : ''
+    ]"
+  >
+    <div
+      [@expandCollapse]="isCollapsibleActive ? 'open' : 'closed'"
+      class="coll-content"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
