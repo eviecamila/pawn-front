@@ -9,7 +9,6 @@ import { TopBarComponent } from 'src/app/templates/top-bar/top-bar.component';
 import { LogoComponent } from 'src/app/templates/logo/logo.component';
 import { ActionsComponent } from 'src/app/templates/actions/actions.component';
 import { ContentComponent } from 'src/app/templates/content/content.component';
-import { BgComponent } from 'src/app/templates/bg/bg.component';
 import { FooterItemComponent } from 'src/app/templates/footer-item/footer-item.component';
 import { IndexComponent } from 'src/app/paths/index/index.component';
 import { NotfoundComponent } from 'src/app/paths/notfound/notfound.component';
@@ -51,7 +50,6 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     LogoComponent,
     ActionsComponent,
     ContentComponent,
-    BgComponent,
     FooterItemComponent,
     IndexComponent,
     NotfoundComponent,
@@ -77,7 +75,7 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     CotizacionComponent,
     RegisterClientComponent,
     TiposItemComponent,
-    CollapsibleMenuComponent
+    CollapsibleMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -86,6 +84,15 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     FormsModule,
     NgxScannerQrcodeModule,
     ReactiveFormsModule,
+  ],
+  exports: [
+    PataComponent,
+    FooterItemComponent,
+    TopBarComponent,
+    WebsiteComponent,
+    ContentComponent,
+    LogoComponent,
+    SwitchDarkModeComponent,
   ],
 })
 export class WebsiteModule { }

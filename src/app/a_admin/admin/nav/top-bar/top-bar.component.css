@@ -1,0 +1,4 @@
+@media (min-width: 992px) {
+  app-switch-dark-mode
+  {position: absolute; top: 18%;}
+}

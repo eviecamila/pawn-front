@@ -1,67 +1,49 @@
-<header
-  [ngClass]="{
-    'darker-mode': darkModeService.isDarkModeEnabled() | async,
-    'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-  }"
+<nav
+  class="navbar navbar-expand-lg"
+  [class]="modo + (modo === 'dark' ? 'er' : '') + '-mode'"
 >
-  <div class="items">
-    <div
-      id="menu-toggle"
-      (click)="toggleMenu()"
-      *ngIf="isMobile && !isMenuOpen"
+  <div class="container-fluid">
+    <app-logo [admin]="true" class="navbar-brand"></app-logo>
+    <a
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      [attr.bs-]
+      [attr.data-bs-theme]="modo"
     >
-      <div
-        class="bar"
-        [ngClass]="{
-          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-        }"
-      ></div>
-      <div
-        class="bar"
-        [ngClass]="{
-          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-        }"
-      ></div>
-      <div
-        class="bar"
-        [ngClass]="{
-          'lighter-mode': darkModeService.isDarkModeEnabled() | async,
-          'dark-mode': !(darkModeService.isDarkModeEnabled() | async)
-        }"
-      ></div>
-    </div>
-    <div *ngIf="isMenuOpen" id="menu-toggle" (click)="toggleMenu()">
-      <div style="font-size: 32px">&#10006;</div>
-    </div>
-
-    <div
-      [ngClass]="{
-        'sidebar-open': isMenuOpen,
-        'sidebar-closed': !isMenuOpen
-      }"
-      *ngIf="isMobile && !isDesktop"
-    >
-      <app-sidebar></app-sidebar>
-    </div>
-
-    <div id="left-items">
-      <app-logo></app-logo>
-
-      <app-switch-dark-mode *ngIf="isDesktop"></app-switch-dark-mode>
-    </div>
-
-    <div id="acciones" *ngIf="isDesktop" (click)="closeMenu()">
-      <ul>
-        <li><app-actions url="pawn" id="">Empeños</app-actions></li>
-        <li><app-actions url="sellings" id="prods">Ventas</app-actions></li>
-        <li><app-actions url="invest">Invertir</app-actions></li>
-        <li><app-actions url="faq">Preguntas Frecuentes</app-actions></li>
+      <span class="navbar-toggler-icon"></span>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav"
+    [class]="modo === 'dark' ? 'd' : 'l'">
+      <div class="ms-auto"></div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pico" href="#">Características</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Precios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+            >Deshabilitado</a
+          >
+        </li>
+        <li class="nav-item ms-auto">
+          <app-switch-dark-mode class="nav-link suich"></app-switch-dark-mode>
+        </li>
       </ul>
-    </div>
-    <div id="bar" *ngIf="isDesktop" (click)="closeMenu()">
-      <app-actions url="/login">Login</app-actions>
+      <div class="ms-auto">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+          >Iniciar Sesion</a
+        >
+      </div>
     </div>
   </div>
-</header>
+</nav>

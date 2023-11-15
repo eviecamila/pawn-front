@@ -11,7 +11,13 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 })
 export class TopBarComponent implements OnInit {
   @Input() modo!: string
-  constructor(public darkModeService: DarkModeService) { }
+  @Input() admin: boolean = false
+  constructor(public darkModeService: DarkModeService) {
+    this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
+      // Actualiza la variable modo en función del estado del modo oscuro
+      this.modo = !isDarkMode ? 'light' : 'dark';
+    });
+  }
 
   isMobile: boolean = false;
   isDesktop: boolean = true;
