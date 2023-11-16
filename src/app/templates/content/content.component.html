@@ -1,7 +1,8 @@
 <div class="cuerpo container" [ngClass]="{
   'dark-mode': darkModeService.isDarkModeEnabled() | async,
-  'lighter-mode': !(darkModeService.isDarkModeEnabled() | async)
-}">
+  'lighter-mode': !(darkModeService.isDarkModeEnabled() | async),
+}" [ngStyle]="{'max-width': admin?'100%':''}"
+>
   <!-- Aqui deberia ir el contenido -->
 <!-- <ng-content></ng-content> -->
     <router-outlet></router-outlet>

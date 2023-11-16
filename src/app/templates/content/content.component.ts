@@ -8,6 +8,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 export class ContentComponent implements OnInit {
   @Input()title!:string;
   @Input()modo!:string;
+  @Input()admin:boolean = false;
   constructor(public darkModeService: DarkModeService) {}
   toggleDarkMode() {this.darkModeService.toggleDarkMode();}
   ngOnInit(): void {
