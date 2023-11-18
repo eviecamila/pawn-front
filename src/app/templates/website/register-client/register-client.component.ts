@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/client.service';
+import { ToastrService } from 'ngx-toastr';
+
+let tiposData: any = {
+  phone: 'teléfono',
+  email: 'correo electrónico',
+  curp: 'CURP'
+}
 
 @Component({
   selector: 'app-register-client',
@@ -13,7 +20,8 @@ export class RegisterClientComponent {
 
   constructor(
     private fb: FormBuilder,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private toastr: ToastrService
   ) {
     this.clienteForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -29,39 +37,72 @@ export class RegisterClientComponent {
     if (curpControl)
       curpControl.valueChanges.subscribe(value => {
         if (value.length === 18) {
-          clientService.clientExists({ type: "curp", data: value }).subscribe(data => {
-            console.log(data)
-          })
+          this.verifyExists("curp", value, true);
         }
       });
 
     if (emailControl)
       emailControl.valueChanges.subscribe(value => {
-        clientService.clientExists({ type: "email", data: value }).subscribe(data => {
-          console.log(data)
-        })
+        this.verifyExists("email", value, true);
       });
 
     if (phoneControl)
       phoneControl.valueChanges.subscribe(value => {
-        clientService.clientExists({ type: "phone", data: value }).subscribe(data => {
-          console.log(data)
-        })
+
         if (value.length === 10)
-          console.log(value);
+          this.verifyExists("phone", value, true);
       })
 
   }
 
+  verifyExists(tipo: string, valor: string, alerta: boolean):any {
+    this.clientService.clientExists({ type: tipo, data: valor }).subscribe(data => {
+      if (data === '1' && alerta) this.toastr.error(`${tiposData[tipo].charAt(0).toUpperCase() + tiposData[tipo].slice(1)} ya existente.`);
+      return data === '1';
+    })
+  }
   onSubmit() {
     if (this.clienteForm.valid) {
       // El formulario es válido; puedes enviar los datos.
-      console.log('Formulario válido, datos enviados:', this.clienteForm.value);
-      this.clientService.register(this.clienteForm.value).subscribe(data => {console.log(data);});
 
+      // Obtener los valores de curp, telefono y correo
+      const curpControl = this.clienteForm.get('curp');
+      const telefonoControl = this.clienteForm.get('telefono');
+      const emailControl = this.clienteForm.get('email');
+
+      if (curpControl && telefonoControl && emailControl) {
+        const curp = curpControl.value;
+        const telefono = telefonoControl.value;
+        const email = emailControl.value;
+      if (
+        !this.verifyExists('email', email, false) &&
+        !this.verifyExists('curp', curp, false) &&
+        !this.verifyExists('phone', telefono, false)
+        ){
+          this.clientService.register(this.clienteForm.value).subscribe((data: any) => {
+            data.status === 'OK' ?
+              this.toastr.success("Cliente registrado exitosamente")
+              : this.toastr.error(data.message);
+              setTimeout(() => {
+                // Recarga la página después de 2 segundos
+                location.reload();
+              }, 2000); // 2000 milisegundos = 2 segundos
+
+          });
+        }
+        // Enviar los datos o realizar otras acciones con los valores
+        else{
+          this.toastr.error("Datos ya existentes");
+          setTimeout(() => {
+            // Recarga la página después de 2 segundos
+            location.reload();
+          }, 1000); // 2000 milisegundos = 2 segundos
+        }
+      }
     } else {
-      // El formulario no es válido; muestra mensajes de error o realiza otras acciones.
-      console.log('Formulario no válido, verifica los campos.');
+      this.toastr.error("Campos Vacios");
     }
+
   }
+
 }

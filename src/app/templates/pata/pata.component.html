@@ -1,15 +1,35 @@
-<footer class="pata" [ngClass]="{
-  'darker-mode': darkModeService.isDarkModeEnabled() | async,
-  'light-mode': !(darkModeService.isDarkModeEnabled() | async)
-}">
-    <div class="f_items">
-      <div class="col l">
-        <app-footer-item content="Bolsa de trabajo"></app-footer-item>
-        <app-footer-item content="Viva Angular mirrei"></app-footer-item>
-      </div>
-      <div class="col r">
-        <app-footer-item content="Odio Angular"></app-footer-item>
-        <app-footer-item content="When te drogas"></app-footer-item>
+<footer class="pata"
+  [ngClass]="{
+    'darker-mode': darkModeService.isDarkModeEnabled() | async,
+    'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+  }"
+>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-12 col-lg-6">
+        <!-- Una columna en móvil y dos columnas en escritorio -->
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <app-footer-item>Bolsa de trabajo</app-footer-item>
+          </div>
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
+            <app-footer-item>Viva Angular mirrei</app-footer-item>
+          </div>
+          <div class="col-12 col-md-6">
+            <app-footer-item>Odio Angular</app-footer-item>
+          </div>
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
+            <app-footer-item>When te drogas</app-footer-item>
+          </div>
+          <div class="col-12 col-md-6">
+            <app-footer-item>Como llegar?</app-footer-item>
+          </div>
+
+          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
+            <!-- <app-footer-item>?</app-footer-item> -->
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>

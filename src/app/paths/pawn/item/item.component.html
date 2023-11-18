@@ -1,9 +1,20 @@
+<!-- mi-componente.component.html -->
 <div class="text-center">
   <h2 [innerHTML]="item.verbosename"></h2>
   <img
     style="border-radius: 100%; border: 3px solid"
     width="300px"
-    [src]="'/assets/imgs/'+item.tipo+'.jpg'"
+    [src]="'/assets/imgs/' + item.tipo + '.jpg'"
   />
   <div [innerHTML]="item.descripcion"></div>
+
+  <!-- Formulario desplegable -->
+  <!-- pawn-item.component.html -->
+  <app-collapsible-menu titulo="¿Deseas empeñar? Haz clic aquí para obtener una cotización." [modo]="modo"><p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+  </p></app-collapsible-menu>
+  <!-- {{ isCollapsibleActive }} -->
 </div>

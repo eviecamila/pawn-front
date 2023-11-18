@@ -23,3 +23,8 @@ div:hover::before,
 div:focus::before {
   transform: scaleX(1); /* La línea se muestra al enfocar o al pasar el mouse */
 }
+
+a{
+  text-decoration: none;
+  color:inherit;
+}

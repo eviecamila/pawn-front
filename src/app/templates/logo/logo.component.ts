@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-logo',
@@ -6,6 +6,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent implements OnInit {
+  @Input() admin: boolean = false;
   constructor(public darkModeService: DarkModeService) {}
   toggleDarkMode() {this.darkModeService.toggleDarkMode();}
   ngOnInit(): void {

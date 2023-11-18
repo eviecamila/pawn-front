@@ -21,3 +21,4 @@ describe('FaqComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

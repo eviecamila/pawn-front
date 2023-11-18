@@ -9,14 +9,12 @@ import { TopBarComponent } from 'src/app/templates/top-bar/top-bar.component';
 import { LogoComponent } from 'src/app/templates/logo/logo.component';
 import { ActionsComponent } from 'src/app/templates/actions/actions.component';
 import { ContentComponent } from 'src/app/templates/content/content.component';
-import { BgComponent } from 'src/app/templates/bg/bg.component';
 import { FooterItemComponent } from 'src/app/templates/footer-item/footer-item.component';
 import { IndexComponent } from 'src/app/paths/index/index.component';
 import { NotfoundComponent } from 'src/app/paths/notfound/notfound.component';
 import { PataComponent } from 'src/app/templates/pata/pata.component';
 import { VentasComponent } from 'src/app/paths/ventas/ventas.component';
 import { ImgComponent } from 'src/app/templates/img/img.component';
-import { LoginComponent } from 'src/app/paths/login/login.component';
 import { SidebarComponent } from 'src/app/templates/sidebar/sidebar.component';
 import { ProfilePictureComponent } from 'src/app/templates/profile-picture/profile-picture.component';
 import { SwitchDarkModeComponent } from 'src/app/templates/switch-dark-mode/switch-dark-mode.component';
@@ -41,6 +39,9 @@ import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.comp
 import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotizacion.component';
 import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
+import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/collapsible-menu.component';
+import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card/href-item-card.component';
 
 @NgModule({
   declarations: [
@@ -49,14 +50,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     LogoComponent,
     ActionsComponent,
     ContentComponent,
-    BgComponent,
     FooterItemComponent,
     IndexComponent,
     NotfoundComponent,
     PataComponent,
     VentasComponent,
     ImgComponent,
-    LoginComponent,
     SidebarComponent,
     ProfilePictureComponent,
     SwitchDarkModeComponent,
@@ -74,6 +73,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     QrScannerComponent,
     CotizacionComponent,
     RegisterClientComponent,
+    TiposItemComponent,
+    CollapsibleMenuComponent,
+    HrefItemCardComponent
   ],
   imports: [
     CommonModule,
@@ -82,6 +84,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NgxScannerQrcodeModule,
     ReactiveFormsModule,
+  ],
+  exports: [
+    PataComponent,
+    FooterItemComponent,
+    TopBarComponent,
+    WebsiteComponent,
+    ContentComponent,
+    LogoComponent,
+    SwitchDarkModeComponent,
+    // FocusablecardComponent
+    ItemcardComponent,
+    HrefItemCardComponent
+
   ],
 })
 export class WebsiteModule { }

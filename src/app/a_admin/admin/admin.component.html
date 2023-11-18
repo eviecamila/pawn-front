@@ -1,0 +1,11 @@
+<div
+  style="height: 100vh"
+  [ngStyle]="{
+    background: modo === 'dark' ? '#2d3436' : '#fff'
+  }"
+>
+  <app-top-bar [admin]="true" ></app-top-bar>
+  <app-content [admin]="true" [modo]="modo"
+    ><router-outlet></router-outlet
+  ></app-content>
+</div>

@@ -5,20 +5,21 @@ import { AppComponent } from './app.component';
 import { WebsiteModule } from './modules/website/website.module';
 import { AdministrativeModule } from './modules/administrative/administrative.module';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
 AppComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     WebsiteModule,
     AdministrativeModule,
-    HttpClientModule
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

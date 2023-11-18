@@ -1,5 +1,18 @@
+/* Tostadora puta */
+@import 'ngx-toastr/toastr';
+@import "assets/css/toastr.css";
+
+/* BS icons/ bs
+ */
+
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "https://cdn.jsdelivr.net/npm/animate.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~ngx-bootstrap/bootstrap.min.css'; */
+
 
 body{
   margin:0;padding: 0;
@@ -24,7 +37,18 @@ body{
     background-image: url('assets/bg.jpg');
   }
 }
-.r{border-radius: 10px;}
+/* .r{border-radius: 10px;} */
+app-itemcard, app-href-item-card{
+  /* width: 100px;
+  height: 100px; */
+  /* background-color: #3498db; */
+  transition: all 0.3s ease; /* Agregamos una transición para suavizar el cambio de tamaño */
+  margin:20px auto;
+  /* height: 100px; */
+  /* background:#fff; */
+  display: grid;
+  place-items: center;
+}
 
 
 .dark-mode {

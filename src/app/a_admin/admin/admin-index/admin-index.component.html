@@ -1,0 +1,18 @@
+<h2>Bienvenid/genderize/, /name/</h2>
+<h3>Que deseas hacer ahora?</h3>
+<br><br>
+<div
+  class="text-center"
+  [ngClass]="{
+  'row': screen.isDesktop(),
+  'col': screen.isMobile(),
+}"
+>
+  <app-href-item-card
+    *ngFor="let item of getIcons()"
+    [href]="'admin/abc?tipo='+item.href"
+    class="col-md-3"
+    icon="{{ item.icon }}"
+    >ABC {{ item.name }}</app-href-item-card
+  >
+</div>

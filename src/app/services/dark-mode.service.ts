@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
+import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -18,6 +18,9 @@ export class DarkModeService {
       DarkModeService.instance = new DarkModeService();
     }
     return DarkModeService.instance;
+  }
+  resolve() {
+    return this.isDarkModeEnabled().pipe(map((isDarkMode:any) => !isDarkMode ? 'light' : 'dark'));
   }
   getDMFromLS()
   {

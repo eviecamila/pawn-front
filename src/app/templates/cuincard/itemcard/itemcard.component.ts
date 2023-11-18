@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DarkModeService } from 'src/app/services/dark-mode.service';
-// import { PawnService } from 'src/app/services/pawn.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-itemcard',
@@ -8,10 +6,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   styleUrls: ['./itemcard.component.css']
 })
 export class ItemcardComponent {
-  constructor(
-    public darkModeService: DarkModeService,
-    
-    ){}
-  @Input() icon:string = 'question-diamond-fill';
-  @Input() name!:string;
+  // El icono a mostrar, con un valor por defecto.
+  @Input() icon: string = 'question-diamond-fill';
+  constructor() { }
 }
