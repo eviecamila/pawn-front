@@ -1,0 +1,58 @@
+<div class="text-center mt-5">
+  <form (ngSubmit)="onSubmit()" class="w-50 mx-auto">
+    <div class="mb-4">
+      <img
+        class="items"
+        [ngClass]="'logo-' + modo"
+        src="/assets/logo.png"
+        height="50px"
+      />
+      <h1><b>Empeños Pesados</b></h1>
+
+      <h3>Inicio de Sesión</h3>
+    </div>
+
+    <!-- Grupo de Usuario -->
+    <div class="mb-3 input-group">
+      <span class="input-group-text">
+        <i class="bi bi-person-fill"></i>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        [(ngModel)]="model.username"
+        name="username"
+        placeholder="Usuario"
+        required
+      />
+    </div>
+
+    <!-- Grupo de Contraseña -->
+    <div class="mb-3 input-group">
+      <span class="input-group-text">
+        <i class="bi bi-lock-fill"></i>
+      </span>
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        class="form-control"
+        id="password"
+        [(ngModel)]="model.password"
+        name="password"
+        placeholder="Contraseña"
+        required
+      />
+      <span class="input-group-text">
+        <i
+          (click)="toggleShowPassword()"
+          class="bi"
+          [class.bi-eye-fill]="showPassword"
+          [class.bi-eye-slash-fill]="!showPassword"
+        ></i>
+      </span>
+    </div>
+
+    <!-- Botón de Enviar -->
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+  </form>
+</div>

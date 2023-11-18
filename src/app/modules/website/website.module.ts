@@ -15,7 +15,6 @@ import { NotfoundComponent } from 'src/app/paths/notfound/notfound.component';
 import { PataComponent } from 'src/app/templates/pata/pata.component';
 import { VentasComponent } from 'src/app/paths/ventas/ventas.component';
 import { ImgComponent } from 'src/app/templates/img/img.component';
-import { LoginComponent } from 'src/app/paths/login/login.component';
 import { SidebarComponent } from 'src/app/templates/sidebar/sidebar.component';
 import { ProfilePictureComponent } from 'src/app/templates/profile-picture/profile-picture.component';
 import { SwitchDarkModeComponent } from 'src/app/templates/switch-dark-mode/switch-dark-mode.component';
@@ -41,8 +40,9 @@ import { CotizacionComponent } from 'src/app/templates/website/cotizacion/cotiza
 import { RegisterClientComponent } from 'src/app/templates/website/register-client/register-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/collapsible-menu.component';
+import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card/href-item-card.component';
+
 @NgModule({
   declarations: [
     WebsiteComponent,
@@ -56,7 +56,6 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     PataComponent,
     VentasComponent,
     ImgComponent,
-    LoginComponent,
     SidebarComponent,
     ProfilePictureComponent,
     SwitchDarkModeComponent,
@@ -76,6 +75,7 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     RegisterClientComponent,
     TiposItemComponent,
     CollapsibleMenuComponent,
+    HrefItemCardComponent
   ],
   imports: [
     CommonModule,
@@ -93,6 +93,10 @@ import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/col
     ContentComponent,
     LogoComponent,
     SwitchDarkModeComponent,
+    // FocusablecardComponent
+    ItemcardComponent,
+    HrefItemCardComponent
+
   ],
 })
 export class WebsiteModule { }

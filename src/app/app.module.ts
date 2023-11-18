@@ -7,7 +7,6 @@ import { AdministrativeModule } from './modules/administrative/administrative.mo
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ AppComponent,
     ToastrModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
-    // NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

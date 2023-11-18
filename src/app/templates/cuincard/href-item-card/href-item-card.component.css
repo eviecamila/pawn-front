@@ -1,0 +1,6 @@
+app-focusablecard{
+  width: 100%;
+  display: flex; /* Centrar contenido verticalmente */
+  justify-content: center; /* Centrar contenido horizontalmente */
+  align-items: center; /* Centrar contenido verticalmente */
+}
