@@ -1,0 +1,64 @@
+<form (ngSubmit)="createNewItem()" #myForm="ngForm">
+  <div class="mb-3">
+    <label for="itemCurp" class="form-label">CURP:</label>
+    <input
+      [(ngModel)]="newItem.curp"
+      type="text"
+      class="form-control"
+      id="itemCurp"
+      name="curp"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="itemName" class="form-label">Nombre del Artículo:</label>
+    <select [(ngModel)]="newItem.item" class="form-control" id="itemName" name="item" required>
+      <option *ngFor="let item of items" [value]="item.id">{{ item.verbosename }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="itemSpecs" class="form-label">Especificaciones:</label>
+    <input
+      [(ngModel)]="newItem.specs"
+      type="text"
+      class="form-control"
+      id="itemSpecs"
+      name="specs"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="itemExtras" class="form-label">Extras:</label>
+    <input
+      [(ngModel)]="newItem.extras"
+      type="text"
+      class="form-control"
+      id="itemExtras"
+      name="extras"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="itemDias" class="form-label">Días:</label>
+    <input
+      [(ngModel)]="newItem.dias"
+      type="number"
+      class="form-control"
+      id="itemDias"
+      name="dias"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="itemCotizacion" class="form-label">Cotización:</label>
+    <input
+      [(ngModel)]="newItem.cotizacion"
+      type="number"
+      class="form-control"
+      id="itemCotizacion"
+      name="cotizacion"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar Artículo</button>
+</form>
