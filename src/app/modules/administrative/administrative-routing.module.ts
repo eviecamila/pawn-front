@@ -38,14 +38,14 @@ const routes: Routes = [
           }
         ]
       },
-
+      {
+        path: 'newitem',
+        component: NewItemComponent,
+      },
     ]
 
   },
-  {
-    path: 'newitem',
-    component: NewItemComponent,
-  },
+
   // {
   //   path: 'pawn',
   //   children: [

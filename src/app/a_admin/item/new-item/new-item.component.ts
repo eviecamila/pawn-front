@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ItemsService } from 'src/app/services/items.service';
 import { Item } from 'src/app/model/item.model';
-
+import { ToastrService } from 'ngx-toastr';
+import { PawnService } from 'src/app/services/pawn.service';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-new-item',
   templateUrl: './new-item.component.html',
@@ -17,14 +19,29 @@ export class NewItemComponent {
     dias: 0,
     cotizacion: 0
   };
-
-  constructor (private itemService: ItemsService) {}
-
+  items: any;
+  constructor(
+    private itemService: ItemsService,
+    private toastr: ToastrService,
+    private pawn: PawnService,
+    public darkModeService: DarkModeService,
+  ) {
+    this.pawn.tiposItem().subscribe((items: any) => {
+      this.items = items['tipos_item'];
+      console.log(items);
+    })
+  }
   createNewItem(): void {
     this.itemService.createItem(this.newItem)
-      .subscribe((Response) => {
-        console.log('Item creado', Response);
+      .subscribe((Response: any) => {
+        if (Response.status==='OK'){
+          this.toastr.success(Response.message);
+        }
+        else{
+          this.toastr.error(Response.message);
+        }
       });
-      
+    // console.log(this.newItem);
+
   }
 }

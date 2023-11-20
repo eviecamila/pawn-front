@@ -11,7 +11,7 @@ const apiUrl = environment.address;
 })
 export class ItemsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private   http: HttpClient) { }
 
   uploadItem(data: any): Observable<any> {
     return this.http.post<any>(`${apiUrl}/items/tipos/new/`, data);
