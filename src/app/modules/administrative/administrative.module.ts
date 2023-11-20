@@ -9,13 +9,15 @@ import { AdminTopBarComponent } from 'src/app/a_admin/admin/nav/top-bar/top-bar.
 import { LoginComponent } from 'src/app/a_admin/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AbcComponent } from 'src/app/a_admin/admin/abc/abc.component';
+import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
 @NgModule({
   declarations: [
     AdminComponent,
     AdminIndexComponent,
     AdminTopBarComponent,
     LoginComponent,
-    AbcComponent
+    AbcComponent,
+    NewItemComponent
   ],
   imports: [
     CommonModule,
