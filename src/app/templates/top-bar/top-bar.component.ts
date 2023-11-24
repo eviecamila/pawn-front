@@ -9,9 +9,18 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
     '../../../styles.css'
   ],
 })
+
+
+
 export class TopBarComponent implements OnInit {
   @Input() modo!: string
-  constructor(public darkModeService: DarkModeService) { }
+  @Input() admin: boolean = false
+  constructor(public darkModeService: DarkModeService) {
+    this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
+      // Actualiza la variable modo en función del estado del modo oscuro
+      this.modo = !isDarkMode ? 'light' : 'dark';
+    });
+  }
 
   isMobile: boolean = false;
   isDesktop: boolean = true;
@@ -43,6 +52,8 @@ export class TopBarComponent implements OnInit {
       this.closeMenu();
     }
   }
+  getAdminItems(){return adminItems}
+  getItems(){return Items}
   openSidebar() {
     // Obtener el elemento de la barra lateral
     let x: HTMLElement | null = document.querySelector('.sidebar');
@@ -54,3 +65,49 @@ export class TopBarComponent implements OnInit {
   }
 
 }
+
+
+export let adminItems = [
+  {
+    name:'Clientes',
+    href:'clients',
+  },
+  {
+    name:'Pertenencias',
+    href:'items',
+  },
+  {
+    name:'Empleados',
+    href:'rrhh',
+  },
+  {
+    name:'Abonos',
+    href:'pay',
+  },
+  {
+    name:'Cotizaciones',
+    href:'quotations',
+  },
+  {
+    name:'Inversiones',
+    href:'invest',
+  },
+];
+export let Items = [
+  {
+    name:'Empeños',
+    href:'pawn',
+  },
+  {
+    name:'Cotizar Ahora',
+    href:'pawn/calc',
+  },
+  {
+    name:'Abonar',
+    href:'pay',
+  },
+  {
+    name:'Inversiones',
+    href:'invest',
+  },
+];
