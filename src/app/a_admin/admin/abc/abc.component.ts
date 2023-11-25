@@ -7,37 +7,27 @@ import { indexAbcs } from '../admin-index/admin-index.component';
 @Component({
   selector: 'app-abc',
   templateUrl: './abc.component.html',
-  styleUrls: ['./abc.component.css']
+  styleUrls: ['./abc.component.css'],
 })
 export class AbcComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute,
-    private sanitizer: DomSanitizer) { }
-  item: string = 'non found'
-  icon: string = 'question-circle-fill'
-  description: string = 'Macana, que no existe dije w';
-  form: SafeHtml = '';
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      // Supongamos que tienes un parámetro de consulta llamado 'param'
-      const tipoValue = params['tipo'];
-      // Aquí puedes hacer algo con paramValue
-      if (tipoValue) {
-        this.item ='ABC de '+ indexAbcs[Abcs[tipoValue]].name;
-        this.icon = indexAbcs[Abcs[tipoValue]].icon;
-        this.description = indexAbcs[Abcs[tipoValue]].description;
-        this.form = this.sanitizer.bypassSecurityTrustHtml(indexAbcs[Abcs[tipoValue]].form);
-      }
-      console.log(indexAbcs[Abcs[tipoValue]]);
-    });
+  data: any = {};
+  selectedMode:string='Selecciona un modo';
+  constructor(private route: ActivatedRoute) {}
+  instance!: any;
+  ngOnInit() {}
 
-
+  onActivate(component: any) {
+    this.instance=component;
+    component.data.subscribe((data: any) => {this.data = data;});
   }
+
+  onModeChange(){this.instance.mode=this.selectedMode;}
 }
-export const Abcs:any= {
-  employee:0,
-  client:1,
-  items:2,
-  ventas:3,
-  pawn:4,
-}
+
+export const Abcs: any = {
+  employee: 0,
+  client: 1,
+  items: 2,
+  ventas: 3,
+  pawn: 4,
+};

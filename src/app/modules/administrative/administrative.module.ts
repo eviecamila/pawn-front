@@ -10,6 +10,13 @@ import { LoginComponent } from 'src/app/a_admin/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AbcComponent } from 'src/app/a_admin/admin/abc/abc.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
+
+import { ItemsComponent } from 'src/app/a_admin/admin/abc/items/items.component';
+import { ClientsComponent } from 'src/app/a_admin/admin/abc/clients/clients.component';
+import { EmployeeComponent } from 'src/app/a_admin/admin/abc/employee/employee.component';
+import { SellingsComponent } from 'src/app/a_admin/admin/abc/sellings/sellings.component';
+import { PawnComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
+import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotations.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -17,7 +24,13 @@ import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.compone
     AdminTopBarComponent,
     LoginComponent,
     AbcComponent,
-    NewItemComponent
+    NewItemComponent,
+    ClientsComponent,
+EmployeeComponent,
+ItemsComponent,
+SellingsComponent,
+PawnComponent,
+QuotationsComponent,
   ],
   imports: [
     CommonModule,

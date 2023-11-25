@@ -1,7 +1,47 @@
-<h1 class="text-center">{{item}}&nbsp;<i [class]="'bi bi-'+icon"></i></h1>
+<div class="header d-flex justify-content-between align-items-center">
+    <div class=""></div>
+    <h1 class="text-center">ABC de {{ data.type }}&nbsp;<i [class]="'bi bi-' + data.icon"></i></h1>
+    <div class="d-flex align-items-center">
+        <button title="QR Scanner" class="btn btn-secondary rounded-circle" ><i
+                class="bi bi-qr-code-scan"></i></button>
+                &nbsp;
+        <button title="Info" class="btn btn-info ml-2 rounded-circle">
+            <i class="bi bi-info"></i>
+        </button>&nbsp;
+        <button title="Add" class="btn btn-success ml-2 rounded-circle"><i class="bi bi-plus"></i></button>
+    </div>
+</div>
+<br>
+<div class="header d-flex justify-content-between align-items-center">
+    <!-- hacer que esto sea responsive en movil 
+    row si es en desktop
+    columna si es en telefono
+    -->
+    <div class="col-md-1"></div>
+    <div class="input-group">
+        <input type="text" class="form-control" [placeholder]="data.searchPlaceholder" aria-label="Search"
+            aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button title="_" class="btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+        </div>
+    </div>
+    <!-- no mostrar si es un  -->
+    <div class="col-md-2"></div>
+    <div class="input-group">
+        <select title="_" class="form-select" [(ngModel)]="selectedMode" (change)="onModeChange()">
+            <option [ngValue]="undefined" disabled selected>Selecciona un modo</option>
+            <option value="add">Agregar</option>
+            <option value="edit">Modificar</option>
+            <option value="delete">Borrar</option>
+        </select>
+
+
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
 <br />
+{{ data.description }}
 
-{{description}}
-
-<br><br>
-<div [innerHTML]="form"></div>
+<br /><br />
+<router-outlet (activate)="onActivate($event)"></router-outlet>

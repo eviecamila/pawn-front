@@ -10,7 +10,7 @@
 >
   <app-href-item-card
     *ngFor="let item of getIcons()"
-    [href]="'admin/abc?tipo='+item.href"
+    [href]="'admin/abc/'+item.href"
     class="col-md-3"
     icon="{{ item.icon }}"
     >ABC {{ item.name }}</app-href-item-card

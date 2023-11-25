@@ -84,7 +84,7 @@ export const indexAbcs = [
   {
     icon: "wallet2",
     name: "Ventas",
-    href: "ventas",
+    href: "sellings",
     description: "Registro y seguimiento de ventas, incluyendo detalles de transacciones y registros financieros.",
     form: `<form>
     <div class="mb-3">
