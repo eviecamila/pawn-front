@@ -95,7 +95,8 @@ import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card
     SwitchDarkModeComponent,
     // FocusablecardComponent
     ItemcardComponent,
-    HrefItemCardComponent
+    HrefItemCardComponent,
+    QrScannerComponent
 
   ],
 })
