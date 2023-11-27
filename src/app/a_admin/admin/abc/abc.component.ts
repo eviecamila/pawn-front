@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { AbcService } from './abc.service';
@@ -32,17 +32,19 @@ import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.comp
   styleUrls: ['./abc.component.css']
 })
 export class AbcModalComponent implements OnInit {
+  @Output() close = new EventEmitter<any>();
+  @Output() open = new EventEmitter<any>();
   modo = 'dark'
   modal: boolean = false;
   valid: boolean = false;
   title: string = '32'
   ngOnInit(): void {
-
+    this.open.emit()
   }
   toggleModal() {
     this.modal = !this.modal;
   }
-  hideAlert() { this.modal = false; }
+  hideAlert() { this.modal = false; this.close.emit(); }
 }
 
 @Component({
@@ -52,8 +54,8 @@ export class AbcModalComponent implements OnInit {
 })
 export class AbcComponent implements OnInit {
   // @ViewChild(AbcModalComponent) modalComponent!: AbcModalComponent;
-  // @ViewChild(AbcModalComponent) qrScannerModal!: AbcModalComponent;
-  // @ViewChild(QrScannerComponent) qrScanner!: QrScannerComponent;
+  @ViewChild(AbcModalComponent) qrScannerModal!: AbcModalComponent;
+  @ViewChild(QrScannerComponent) qrScanner!: QrScannerComponent;
 
   data: any = {};
   selectedMode: string = 'Selecciona un modo';
@@ -101,16 +103,15 @@ export class AbcComponent implements OnInit {
 
     }
   }
-  onModalToggle() {
-    // this.modalComponent.toggleModal();
-  }
+  onModalToggle(modal:any) {modal.toggleModal();}
   onScan(event: string) {
-    alert(event);
+    console.log(event);
+    this.closeScanner();
+    this.searchText = event;
+    this.onSearch();
   }
-  toggleScanner() {
-    // this.qrScannerModal.toggleModal();
-    // this.qrScanner.toggleScanner();
-  }
+  openScanner() {this.qrScannerModal.modal=true;this.qrScanner.toggleScanner();}
+  closeScanner() {this.qrScannerModal.modal=false;this.qrScanner.toggleScanner();}
 }
 
 @Component({

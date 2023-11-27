@@ -4,12 +4,11 @@
     ABC de {{ data.type }}&nbsp;<i [class]="'bi bi-' + data.icon"></i>
   </h1>
   <div class="d-flex align-items-center">
-    <button (click)="toggleScanner()" title="QR Scanner" class="btn btn-secondary rounded-circle">
+    <button (click)="openScanner()" title="QR Scanner" class="btn btn-secondary rounded-circle">
       <i class="bi bi-qr-code-scan"></i>
     </button>
     &nbsp;
     <button
-      (click)="onModalToggle()"
       title="Info"
       class="btn btn-info ml-2 rounded-circle"
     >
@@ -73,5 +72,5 @@
 
 <br /><br />
 <router-outlet (activate)="onActivate($event)"></router-outlet>
-<!-- <app-abc-modal [ngModel]="qrScannerModal"><app-qr-scanner (scan)="onScan($event)" [ngModel]="qrScanner"></app-qr-scanner></app-abc-modal> -->
+<app-abc-modal [ngModel]="qrScannerModal" (open)="openScanner()" (close)="closeScanner()"><app-qr-scanner (scan)="onScan($event)" [ngModel]="qrScanner"></app-qr-scanner></app-abc-modal>
 

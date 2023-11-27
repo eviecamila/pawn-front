@@ -21,9 +21,8 @@ export class QrScannerComponent implements OnInit {
   }
   ngOnDestroy(): void {
   }
-  onScan(qrData: any, alerta?: boolean): void {
+  onScan(qrData: any): void {
     this.scan.emit(qrData[0].value);
-    if (alerta) alert('QR Detectado:\n' + qrData[0].value)
     this.action.stop();
   }
 }
