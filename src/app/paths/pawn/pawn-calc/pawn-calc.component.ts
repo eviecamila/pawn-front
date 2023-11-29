@@ -33,6 +33,11 @@ export class PawnCalcComponent implements OnInit {
     });
   }
 
+  // capitalInicial: number = 0;
+  capitalFinal: number = 0;
+  interesesTotales: number = 0;
+  tasaInteres: number = 0;
+
   calcularCuota() {
     const tasaDeInteres = this.getTasaDeInteresPorTipoItem(this.tipoItem);
     // Realiza tus cálculos aquí con la tasa de interés y otros datos
@@ -40,6 +45,12 @@ export class PawnCalcComponent implements OnInit {
       importe = this.monto + interes;
     // tasa_decimal = cache['tasa'] / 100.0 * 3 * 1.1
     // Puedes mostrar la cuota en la consola o en una variable, según tus necesidades
+
+    // this.capitalInicial = this.monto;
+    this.capitalFinal = importe;
+    this.interesesTotales = interes;
+    this.tasaInteres = tasaDeInteres;
+
     console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
     console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
     console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
