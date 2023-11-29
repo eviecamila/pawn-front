@@ -94,7 +94,7 @@ export class AbcComponent implements OnInit {
     // no hacer nada aun
   }
   onSearch() {
-    if (this.searchText.length === this.data.searchLength || !this.searchText) {
+    if (!this.data.searchLength || this.searchText.length === this.data.searchLength || !this.searchText) {
       this.abc.buscar(this.data.url + this.data.urls.search, this.searchText).subscribe((data: any) => {
         console.log(data);
         this.instance.found = data[this.data.response]
@@ -121,14 +121,13 @@ export class AbcComponent implements OnInit {
       <div class="card-body" style="padding-left: 20%" [attr.data-bs-theme]="modo">
         <ng-content></ng-content>
       </div>
-      <div class="d-flex flex-column flex-md-row justify-content-md-between mt-3">
-        <button *ngIf="btn.editar" class="btn btn-warning mb-2 mb-md-0" type="button" style="width: 100%; max-width: 100%; max-width-md: 20%">
-          <i class="bi bi-pencil-square"></i> Editar
+      <div class="col justify-content-md-between mt-3">
+        <div *ngFor="let btn of botones" >
+        <button (click)="btn.event" [class]="'btn btn-'+btn.color" type="button" style="width: 100%; max-width: 100%; max-width-md: 20%">
+          <i [class]="'bi bi-'+btn.icon"></i> {{btn.name}}
         </button>
-        <div style="width:30px"></div>
-        <button *ngIf="btn.desactivar" class="btn btn-danger" type="button" style="width: 100%; max-width: 100%; max-width-md: 20%">
-          <i class="bi bi-power"></i> Desactivar
-        </button>
+        <div style="height:10px"></div>
+        </div>
       </div>
     </div>
   `,
@@ -136,6 +135,7 @@ export class AbcComponent implements OnInit {
 })
 export class AbcCardComponent implements OnInit {
   @Input() btn: any = {};
+  @Input() botones!: any;
 
   modo!: string;
   constructor(
