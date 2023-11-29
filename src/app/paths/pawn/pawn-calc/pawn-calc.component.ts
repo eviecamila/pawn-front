@@ -51,10 +51,10 @@ export class PawnCalcComponent implements OnInit {
     this.interesesTotales = interes;
     this.tasaInteres = tasaDeInteres;
 
-    console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
-    console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
-    console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
-    console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
+    // console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
+    // console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
+    // console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
+    // console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
   }
   getTasaDeInteresPorTipoItem(tipo: string): number {
     const tipoEncontrado = this.tiposItem.find((item) => item.tipo === tipo);
