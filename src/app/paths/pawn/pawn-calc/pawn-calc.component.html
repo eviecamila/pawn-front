@@ -113,6 +113,10 @@
       <p>Tipo de Item: {{ tipoItem }}</p>
       <p>Días de Empeño: {{ dias }}</p>
       <p>Monto Esperado: {{ monto | currency : "USD" : "symbol" : "1.2-2" }}</p>
+      <!-- <p>Capital inicial: {{ capitalInicial | currency : "USD" : "symbol" : "1.2-2" }}</p> -->
+      <p>Capital final: {{ capitalFinal | currency : "USD" : "symbol" : "1.2-2" }}</p>
+      <p>Intereses totales: {{ interesesTotales | currency : "USD" : "symbol" : "1.2-2" }}</p>
+      <p>Tasa de interés: {{ tasaInteres | number : "1.2-2" }} %</p>
     </div>
     <div *ngIf="!valid">
       <h3>Error <i class="bi bi-exclamation-triangle"></i></h3>
