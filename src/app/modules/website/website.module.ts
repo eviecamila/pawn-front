@@ -75,7 +75,7 @@ import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card
     RegisterClientComponent,
     TiposItemComponent,
     CollapsibleMenuComponent,
-    HrefItemCardComponent
+    HrefItemCardComponent,
   ],
   imports: [
     CommonModule,

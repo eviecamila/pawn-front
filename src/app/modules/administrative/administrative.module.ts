@@ -17,6 +17,7 @@ import { EmployeeCardComponent, EmployeeComponent } from 'src/app/a_admin/admin/
 import { SellingsComponent } from 'src/app/a_admin/admin/abc/sellings/sellings.component';
 import { PawnComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
 import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotations.component';
+import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal-new';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -35,7 +36,8 @@ import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotat
     AbcCardContainerComponent,
     AbcModalComponent,
     EmployeeCardComponent,
-    ClientCardComponent
+    ClientCardComponent,
+    CreateModalComponent
   ],
   imports: [
     CommonModule,
