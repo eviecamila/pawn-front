@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { AbcService } from './abc.service';
 import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.component';
+import { ItemsService } from 'src/app/services/items.service';
 // ABC MODAL
 @Component({
   selector: 'app-abc-modal',
@@ -44,6 +45,11 @@ export class AbcModalComponent implements OnInit {
   toggleModal() {
     this.modal = !this.modal;
   }
+  openModal() {
+    console.log('Abriendo modal w');
+    this.modal = true
+  }
+  closeModal() { this.modal = false }
   hideAlert() { this.modal = false; this.close.emit(); }
 }
 
@@ -78,7 +84,12 @@ export class AbcComponent implements OnInit {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-
+  onSave(event: any): void {
+  }
+  onNew() {
+    console.log('Llamando a la instancia que abra el modal');
+    this.instance.openModal();
+  }
   ngOnInit() { }
 
   onActivate(component: any) {
@@ -103,22 +114,26 @@ export class AbcComponent implements OnInit {
 
     }
   }
-  onModalToggle(modal:any) {modal.toggleModal();}
+  onModalToggle(modal: any) { modal.toggleModal(); }
   onScan(event: string) {
     console.log(event);
     this.closeScanner();
     this.searchText = event;
     this.onSearch();
   }
-  openScanner() {this.qrScannerModal.modal=true;this.qrScanner.toggleScanner();}
-  closeScanner() {this.qrScannerModal.modal=false;this.qrScanner.toggleScanner();}
+  openScanner() { this.qrScannerModal.modal = true; this.qrScanner.toggleScanner(); }
+  closeScanner() { this.qrScannerModal.modal = false; this.qrScanner.toggleScanner(); }
 }
 
 @Component({
   selector: 'app-abc-card',
   template: `
-    <div class="card" style="padding:6%">
-      <div class="card-body" style="padding-left: 20%" [attr.data-bs-theme]="modo">
+    <div class="card" style="padding: 10%">
+      <div class="justify-content-center d-flex">
+        <img *ngIf="img" [src]="img" class="card" class="square-img rounded" >
+      </div>
+    <div style="padding:6%">
+      <div class="card-body" style="" [attr.data-bs-theme]="modo">
         <ng-content></ng-content>
       </div>
       <div class="col justify-content-md-between mt-3">
@@ -130,11 +145,13 @@ export class AbcComponent implements OnInit {
         </div>
       </div>
     </div>
+    </div>
   `,
   styleUrls: ['./abc.component.css']
 })
 export class AbcCardComponent implements OnInit {
   @Input() btn: any = {};
+  @Input() img!: any;
   @Input() botones!: any;
 
   modo!: string;

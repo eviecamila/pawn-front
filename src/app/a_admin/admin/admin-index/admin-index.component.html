@@ -1,4 +1,4 @@
-<h2>Bienvenid/genderize/, /name/</h2>
+<h2>Hola, /name/</h2>
 <h3>Que deseas hacer ahora?</h3>
 <br><br>
 <div
@@ -10,9 +10,9 @@
 >
   <app-href-item-card
     *ngFor="let item of getIcons()"
-    [href]="'admin/abc/'+item.href"
+    [href]="item.href"
     class="col-md-3"
     icon="{{ item.icon }}"
-    >ABC {{ item.name }}</app-href-item-card
+    >{{ item.name }}</app-href-item-card
   >
 </div>

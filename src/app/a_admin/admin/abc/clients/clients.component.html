@@ -1,4 +1,3 @@
 <app-abc-card-container>
   <app-client-card *ngFor="let cliente of found" [data]="cliente" ></app-client-card>
 </app-abc-card-container>
-<app-abc-modal [ngModel]="qrScannerModal" (open)="openScanner()" (close)="closeScanner()"><app-qr-scanner (scan)="onScan($event)" [ngModel]="qrScanner"></app-qr-scanner></app-abc-modal>

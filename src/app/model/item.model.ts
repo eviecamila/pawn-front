@@ -4,7 +4,19 @@ export interface Item {
     item: string;
     specs: string;
     extras: string;
-    dias: number;
-    cotizacion: number;
+    dias: any;
+    cotizacion: any | null;
+    imagen: any | null;
   }
-  
+// item.model.ts
+export interface pawnItem {
+    id: string;
+    cliente: string;
+    item: string;
+    estado: string;
+    caracteristicas: string;
+    observaciones: string;
+    dias: any|null;
+    cotizacionAutorizada: any | null;
+    borrarImagen:boolean;
+  }

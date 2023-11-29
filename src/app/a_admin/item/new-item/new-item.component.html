@@ -1,19 +1,63 @@
 <form (ngSubmit)="createNewItem()" #myForm="ngForm">
   <div class="mb-3">
     <label for="itemCurp" class="form-label">CURP:</label>
-    <input
-      [(ngModel)]="newItem.curp"
-      type="text"
-      class="form-control"
-      id="itemCurp"
-      name="curp"
-      required
-    />
+    <div class="input-group">
+      <input
+        *ngIf="!cliente"
+        type="text"
+        [(ngModel)]="newItem.curp"
+        class="form-control"
+        placeholder="Inserta tu CURP"
+        aria-label="Search"
+        name="itemCurp"
+        aria-describedby="basic-addon2"
+      />
+      <input
+        *ngIf="cliente"
+        type="text"
+        class="form-control"
+        [placeholder]="'Hola, ' + cliente.nombre"
+        (click)="si()"
+        name="cliente"
+        aria-label="Search"
+        aria-describedby="basic-addon2"
+        disabled="true"
+      />
+      <div class="input-group-append">
+        <button
+          *ngIf="!cliente"
+          title="_"
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onSearch()"
+        >
+          <i class="bi bi-search"></i>
+        </button>
+        <button
+          *ngIf="cliente"
+          title="_"
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onClear()"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="mb-3">
     <label for="itemName" class="form-label">Nombre del Artículo:</label>
-    <select [(ngModel)]="newItem.item" class="form-control" id="itemName" name="item" required>
-      <option *ngFor="let item of items" [value]="item.id">{{ item.verbosename }}</option>
+    <select
+      [(ngModel)]="newItem.item"
+      class="form-control"
+      id="itemName"
+      name="item"
+      required
+    >
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option *ngFor="let item of items" [value]="item.id">
+        {{ item.verbosename }}
+      </option>
     </select>
   </div>
   <div class="mb-3">
@@ -21,9 +65,11 @@
     <input
       [(ngModel)]="newItem.specs"
       type="text"
+      placeholder="Especificaciones: Modelo 2023"
       class="form-control"
       id="itemSpecs"
       name="specs"
+      autocomplete="off"
       required
     />
   </div>
@@ -32,32 +78,52 @@
     <input
       [(ngModel)]="newItem.extras"
       type="text"
+      placeholder="Observaciones: Como nuevo"
       class="form-control"
       id="itemExtras"
       name="extras"
+      autocomplete="off"
       required
     />
   </div>
   <div class="mb-3">
     <label for="itemDias" class="form-label">Días:</label>
-    <input
+    <select
       [(ngModel)]="newItem.dias"
-      type="number"
       class="form-control"
       id="itemDias"
       name="dias"
       required
-    />
+    >
+      <option value="0" disabled selected>Selecciona los dias</option>
+      <option *ngFor="let day of dias" [value]="day">{{ day }}</option>
+    </select>
   </div>
+
   <div class="mb-3">
-    <label for="itemCotizacion" class="form-label">Cotización:</label>
+    <label for="itemCotizacion" class="form-label">Valor Deseado:</label>
     <input
       [(ngModel)]="newItem.cotizacion"
-      type="number"
+      type="text"
       class="form-control"
       id="itemCotizacion"
       name="cotizacion"
+      placeholder="Ingresa una cotización"
+      autocomplete="off"
       required
+      pattern="\d*"
+      (keypress)="numberOnly($event)"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="itemPhoto" class="form-label">Foto del Artículo:</label>
+    <input
+      type="file"
+      class="form-control"
+      id="itemPhoto"
+      name="photo"
+      (change)="onFileChange($event)"
     />
   </div>
   <button type="submit" class="btn btn-primary">Guardar Artículo</button>

@@ -1,4 +1,9 @@
 <app-abc-card-container>
-    <app-employee-card *ngFor="let item of found" [data]="item" ></app-employee-card>
-  </app-abc-card-container>
-  
+  <app-abc-item-card
+    *ngFor="let item of found"
+    [data]="item"
+  ></app-abc-item-card>
+</app-abc-card-container>
+<app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
+  <app-new-item (form)="onSave($event)"></app-new-item>
+</app-abc-modal>

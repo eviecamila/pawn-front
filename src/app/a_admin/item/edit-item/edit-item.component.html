@@ -1,0 +1,99 @@
+<form (ngSubmit)="updateItem()" #editForm="ngForm">
+  <!-- ID del Artículo (oculto) -->
+  <input type="hidden" name="id" />
+
+  <!-- Cliente -->
+  <div class="mb-3">
+    <label for="itemCliente" class="form-label">Cliente:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemCliente"
+      name="cliente"
+      required
+    />
+  </div>
+
+  <!-- Artículo -->
+  <div class="mb-3">
+    <label for="itemArticulo" class="form-label">Artículo:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemArticulo"
+      name="articulo"
+      required
+    />
+  </div>
+
+  <!-- Estado -->
+  <div class="mb-3">
+    <label for="itemEstado" class="form-label">Estado:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemEstado"
+      name="estado"
+      required
+    />
+  </div>
+
+  <!-- Características -->
+  <div class="mb-3">
+    <label for="itemCaracteristicas" class="form-label">Características:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemCaracteristicas"
+      name="caracteristicas"
+      required
+    />
+  </div>
+
+  <!-- Observaciones -->
+  <div class="mb-3">
+    <label for="itemObservaciones" class="form-label">Observaciones:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemObservaciones"
+      name="observaciones"
+      required
+    />
+  </div>
+  <!-- Fechas y otros campos similares -->
+  <div class="mb-3">
+    <label for="itemPhoto" class="form-label">Foto del Artículo:</label>
+    <input
+      type="file"
+      class="form-control"
+      id="itemPhoto"
+      name="photo"
+      (change)="onFileChange($event)"
+    />
+    <br />
+    <div *ngIf="image" class="image-preview d-flex justify-content-center">
+      <button
+        type="button"
+        class="btn-close"
+        style="
+          position: relative;
+          top: 10px;
+          background-color: red;
+          left: 290px;
+        "
+        aria-label="Close"
+        (click)="onClear()"
+      ></button>
+      <img
+        [src]="image"
+        alt="Vista previa de la imagen"
+        class="img-thumbnail square-img"
+      />
+    </div>
+  </div>
+  <!-- Botón para guardar cambios -->
+  <div class="w-100">
+    <button class="text-end" type="submit" class="btn btn-primary">Actualizar</button>
+  </div>
+</form>

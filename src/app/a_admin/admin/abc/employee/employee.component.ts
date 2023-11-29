@@ -54,10 +54,13 @@ export class EmployeeComponent implements OnInit {
 
 @Component({
   selector: 'app-employee-card',
-  template: `<app-abc-card [btn]="{
-    editar: true,
-    desactivar: true,
-  }"
+  template: `<app-abc-card [botones]="[
+    {icon:'power',
+  color:'danger',event:'onDeactivate()', name:'Desactivar'},
+  {icon:'power',
+  color:'danger',event:'onChupada()', name:'Chupar'},
+
+  ]"
         ><div class="d-flex align-items-center">
           <!-- Icono de usuario para el nombre -->
           <i class="bi bi-person-fill"></i>
@@ -87,8 +90,8 @@ export class EmployeeComponent implements OnInit {
         </p>
         <!-- Icono de verificación para el estado activo/inactivo -->
         <p class="card-text m-0">
-          <i title="Activo" class="bi bi-check2-circle"></i> Activo:
-          <span class="text-success"> Sí </span>
+          <i title="Activo" [class]="'bi bi-'+data.activo?'check2-circle':'x-circle-fill'"></i> Activo:
+          <span class="text-success"> {{data.activo ? 'Sí' : 'No' }}</span>
         </p>
       </app-abc-card>`,
   styleUrls: ['./employee.component.css',

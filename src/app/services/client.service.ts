@@ -10,4 +10,5 @@ export class ClientService {
   constructor(private http: HttpClient) { }
   clientExists(data:any) {return this.http.post(`${apiUrl}/clients/verify_exist/`, data);}
   register(data:any) {return this.http.post(`${apiUrl}/clients/new/`, data);}
+  get(curp:any) {return this.http.get(`${apiUrl}/clients?curp=${curp}`);}
 }

@@ -81,3 +81,10 @@ app-itemcard, app-href-item-card{
     display: none;
   }
 }
+
+
+.square-img {
+  width: 300px; /* o el tamaño que prefieras */
+  height: 300px; /* debe ser igual al ancho para que sea cuadrada */
+  object-fit: cover; /* esto asegura que la imagen se recorte para ajustarse al contenedor */
+}

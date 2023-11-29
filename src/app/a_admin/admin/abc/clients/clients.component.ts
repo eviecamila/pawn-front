@@ -1,5 +1,5 @@
 import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
-
+import { AbcModalComponent } from '../abc.component';
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
@@ -28,6 +28,7 @@ export class ClientsComponent implements OnInit {
       urls: { search: '?curp=' },
     });
   }
+
 }
 
 @Component({
