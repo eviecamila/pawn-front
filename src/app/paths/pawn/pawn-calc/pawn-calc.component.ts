@@ -57,13 +57,12 @@ export class PawnCalcComponent implements OnInit {
     // console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
   }
   getTasaDeInteresPorTipoItem(tipo: string): number {
-    const tipoEncontrado = this.tiposItem.find((item) => item.tipo === tipo);
+    const tipoEncontrado = this.tiposItem.find((item) => item.verbosename === tipo);
     return tipoEncontrado ? tipoEncontrado.tasa_interes : 0;
   }
   validateForm() {
     // campos vacios nanai
-    return this.tipoItem === 'Selecciona un tipo de ítem' || !this.dias || !this.monto ?
-      false : true;
+    return this.tipoItem === 'Selecciona un tipo de ítem' || !this.dias || !this.monto ? false : true;
     //  Holdon fake & true
     // mis tuais lesbianas https://www.youtube.com/watch?v=zQELp93xxfo&pp=ygUNZmFrZSBhbmQgdHJ1ZQ%3D%3D
   }
