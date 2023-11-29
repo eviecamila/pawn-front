@@ -33,6 +33,11 @@ export class PawnCalcComponent implements OnInit {
     });
   }
 
+  // capitalInicial: number = 0;
+  capitalFinal: number = 0;
+  interesesTotales: number = 0;
+  tasaInteres: number = 0;
+
   calcularCuota() {
     const tasaDeInteres = this.getTasaDeInteresPorTipoItem(this.tipoItem);
     // Realiza tus cálculos aquí con la tasa de interés y otros datos
@@ -40,19 +45,24 @@ export class PawnCalcComponent implements OnInit {
       importe = this.monto + interes;
     // tasa_decimal = cache['tasa'] / 100.0 * 3 * 1.1
     // Puedes mostrar la cuota en la consola o en una variable, según tus necesidades
-    console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
-    console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
-    console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
-    console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
+
+    // this.capitalInicial = this.monto;
+    this.capitalFinal = importe;
+    this.interesesTotales = interes;
+    this.tasaInteres = tasaDeInteres;
+
+    // console.log(`Capital inicial  : ${Number(this.monto.toFixed(2))}`);
+    // console.log(`Capital final    : ${Number(importe.toFixed(2))}`);
+    // console.log(`Intereses totales: ${Number(interes.toFixed(2))}`);
+    // console.log(`Tasa de interes: ${Number(this.getTasaDeInteresPorTipoItem(this.tipoItem).toFixed(2))}`);
   }
   getTasaDeInteresPorTipoItem(tipo: string): number {
-    const tipoEncontrado = this.tiposItem.find((item) => item.tipo === tipo);
+    const tipoEncontrado = this.tiposItem.find((item) => item.verbosename === tipo);
     return tipoEncontrado ? tipoEncontrado.tasa_interes : 0;
   }
   validateForm() {
     // campos vacios nanai
-    return this.tipoItem === 'Selecciona un tipo de ítem' || !this.dias || !this.monto ?
-      false : true;
+    return this.tipoItem === 'Selecciona un tipo de ítem' || !this.dias || !this.monto ? false : true;
     //  Holdon fake & true
     // mis tuais lesbianas https://www.youtube.com/watch?v=zQELp93xxfo&pp=ygUNZmFrZSBhbmQgdHJ1ZQ%3D%3D
   }

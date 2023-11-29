@@ -1,4 +1,4 @@
-// item.model.ts
+// Interfaz para item
 export interface Item {
     curp: string;
     item: string;
@@ -19,4 +19,14 @@ export interface pawnItem {
     dias: any|null;
     cotizacionAutorizada: any | null;
     borrarImagen:boolean;
-  }
+}
+
+// Interfaz para el nuevo tipo de ítem
+export interface NuevoTipoItem {
+  nombre: string;
+  icon: string;
+  descripcion: string;
+  verbosename: string;
+  tasa_interes: number;
+}
+
