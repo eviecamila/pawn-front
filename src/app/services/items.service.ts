@@ -25,9 +25,9 @@ export class ItemsService {
   editItem(item: Item): Observable<Item> {
     return this.http.post<Item>(`${apiUrl}/items/item/new/`, item);
   }
-  get(item: Item): Observable<Item> {
-    return this.http.get<Item>(`${apiUrl}/items/?item=${item}`);
-  }
+  get(item?: string) {return this.http.get(`${apiUrl}/items/?id=${item}`);}
+  all() {return this.get();}
+  pending() {return this.get('&p=1');}
 
   // When moros en la costa
 

@@ -9,7 +9,7 @@ import { ItemsService } from 'src/app/services/items.service';
   selector: 'app-abc-modal',
   template: `
 
-  <div
+<div
   [ngClass]="{
     active: modal
   }"
@@ -22,20 +22,29 @@ import { ItemsService } from 'src/app/services/items.service';
   <div
     [attr.data-bs-theme]="modo"
     class="modal-content"
-    [ngStyle]="{ background: modo === 'dark' ? '#000f' : '#ffff' }"
+    [ngStyle]="{ 
+      background: modo === 'dark' ? '#000f' : '#ffff',
+      'max-height': '400px',
+      
+    }"
+    style="overflow-y: auto"
   >
-    <button (click)="hideAlert()" class="btn-close"></button>
+    <div style="width:15px;height:15px" >
+      <button (click)="hideAlert()" class="rounded-circle btn-close "></button>
+    </div>
+    {{modo}}
     <ng-content></ng-content>
     <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">Cerrar</button>
   </div>
 </div>
+
     `,
   styleUrls: ['./abc.component.css']
 })
 export class AbcModalComponent implements OnInit {
   @Output() close = new EventEmitter<any>();
   @Output() open = new EventEmitter<any>();
-  modo = 'dark'
+  modo!:string
   modal: boolean = false;
   valid: boolean = false;
   title: string = '32'
@@ -51,6 +60,14 @@ export class AbcModalComponent implements OnInit {
   }
   closeModal() { this.modal = false }
   hideAlert() { this.modal = false; this.close.emit(); }
+  constructor(
+    private darkModeService: DarkModeService
+  ) {
+    this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
+      // Actualiza la variable modo en función del estado del modo oscuro
+      this.modo = !isDarkMode ? 'light' : 'dark';
+    });
+  }
 }
 
 @Component({
