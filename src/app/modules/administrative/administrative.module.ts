@@ -18,6 +18,7 @@ import { PawnComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
 import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotations.component';
 import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal-new';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
+import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -37,6 +38,7 @@ import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.comp
     ClientCardComponent,
     CreateModalComponent,
     QuotationsComponent,
+    PendingQuotationsComponent,
     ItemCardComponent,
     EditItemComponent,
     NewItemComponent,

@@ -12,7 +12,7 @@ export class QuotationsComponent implements OnInit{
     private itemsService: ItemsService,
     private clientService: ClientService
   ) {
-    
+
   }
   ngOnInit(): void {
     console.log('pemne')
@@ -20,5 +20,5 @@ export class QuotationsComponent implements OnInit{
       this.found=data.items
       console.log(this.found)
     });
-  }
+  };
 }

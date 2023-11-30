@@ -1,8 +1,8 @@
 <form (ngSubmit)="updateItem()" #editForm="ngForm">
   <!-- ID del Artículo (oculto) -->
-  <input type="hidden" name="id" />
+  <input type="hidden" name="id" [(ngModel)]="_item.id" />
 
-  <!-- Cliente -->
+  <!-- Cliente (No editable) -->
   <div class="mb-3">
     <label for="itemCliente" class="form-label">Cliente:</label>
     <input
@@ -10,32 +10,41 @@
       class="form-control"
       id="itemCliente"
       name="cliente"
-      required
+      [(ngModel)]="_item.cliente"
+      disabled
     />
   </div>
 
   <!-- Artículo -->
-  <div class="mb-3">
-    <label for="itemArticulo" class="form-label">Artículo:</label>
-    <input
-      type="text"
-      class="form-control"
-      id="itemArticulo"
-      name="articulo"
-      required
-    />
-  </div>
+  <label for="itemName" class="form-label">Nombre del Artículo:</label>
+  <select
+  [selectedIndex]="2"
+    class="form-control"
+    id="itemName"
+    name="item"
+    required
+  >
+    <option value="" disabled selected>Selecciona una opción</option>
+    <option *ngFor="let tipo of tipos" [value]="tipo.id">
+      {{ tipo.verbosename }}
+    </option>
+  </select>
 
   <!-- Estado -->
   <div class="mb-3">
     <label for="itemEstado" class="form-label">Estado:</label>
-    <input
-      type="text"
+    <select
       class="form-control"
       id="itemEstado"
       name="estado"
+      [selectedIndex]="_item.id_estado"
       required
-    />
+    >
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option *ngFor="let estado of estados" [value]="estado.id">
+        {{ estado.estado }}
+      </option>
+    </select>
   </div>
 
   <!-- Características -->
@@ -46,6 +55,7 @@
       class="form-control"
       id="itemCaracteristicas"
       name="caracteristicas"
+      [(ngModel)]="_item.caracteristicas"
       required
     />
   </div>
@@ -58,10 +68,61 @@
       class="form-control"
       id="itemObservaciones"
       name="observaciones"
+      [(ngModel)]="_item.observaciones"
       required
     />
   </div>
-  <!-- Fechas y otros campos similares -->
+
+  <!-- Fecha de Ingreso -->
+  <div class="mb-3">
+    <label for="fechaIngreso" class="form-label">Fecha de Ingreso:</label>
+    <input
+      type="datetime-local"
+      class="form-control"
+      id="fechaIngreso"
+      name="fecha_ingreso"
+      [(ngModel)]="_item.fecha_ingreso"
+    />
+  </div>
+
+  <!-- Fecha de Retiro -->
+  <div class="mb-3">
+    <label for="fechaRetiro" class="form-label">Fecha de Retiro:</label>
+    <input
+      type="datetime-local"
+      class="form-control"
+      id="fechaRetiro"
+      name="fecha_retiro"
+      [(ngModel)]="_item.fecha_retiro"
+    />
+  </div>
+
+  <!-- Fecha Límite -->
+  <div class="mb-3">
+    <label for="fechaLimite" class="form-label">Fecha Límite:</label>
+    <input
+      type="datetime-local"
+      class="form-control"
+      id="fechaLimite"
+      name="fecha_limite"
+      [(ngModel)]="_item.fecha_limite"
+    />
+  </div>
+
+  <!-- Cotización -->
+  <div class="mb-3">
+    <label for="cotizacion" class="form-label">Cotización:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="cotizacion"
+      name="cotizacion"
+      [(ngModel)]="_item.cotizacion"
+      required
+    />
+  </div>
+
+  <!-- Foto del Artículo (manejado por separado) -->
   <div class="mb-3">
     <label for="itemPhoto" class="form-label">Foto del Artículo:</label>
     <input
@@ -92,8 +153,10 @@
       />
     </div>
   </div>
+  <!-- ... -->
+
   <!-- Botón para guardar cambios -->
   <div class="w-100">
-    <button class="text-end" type="submit" class="btn btn-primary">Actualizar</button>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
   </div>
 </form>

@@ -8,6 +8,7 @@ const apiUrl = environment.address;
 export class PawnService {
   constructor(private http: HttpClient) { }
   tiposItem() {return this.http.get(`${apiUrl}/items/tipos/list/`);}
+  estadosItem() {return this.http.get(`${apiUrl}/items/estados/list/`);}
   tipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
   editTipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}
   newTipoItem(name:string) {return this.http.get(`${apiUrl}/items/items?item=${name}`);}

@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from 'src/app/services/items.service';
+import { PawnService } from 'src/app/services/pawn.service';
 import { pawnItem } from 'src/app/model/item.model';
 import { ToastrService } from 'ngx-toastr';
 import { ClientService } from 'src/app/services/client.service';
@@ -11,18 +13,27 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 })
 export class EditItemComponent {
   @Output() form = new EventEmitter<any>();
+  @Input() input!: any;
   dias = [30, 90, 180, 360];
-  editItem: pawnItem = {
+  _item!: any;
+  tipos!: any;
+  estados!: any;
+  item: pawnItem = {
     id: '',
     cliente: '',
-    item: '',
+    articulo: '', // Changed from 'item' to 'articulo' to match your template
     estado: '',
     caracteristicas: '',
-    observaciones: '',
-    cotizacionAutorizada: null,
-    dias: null,
-    borrarImagen: false
-  };
+    observaciones: ',',
+    dias: 32, // Keep this if it's being used
+    borrarImagen: false,
+
+    // Add the missing properties
+    fecha_ingreso: '',
+    fecha_retiro: '',
+    fecha_limite: ',',
+    cotizacion: 32 // Assuming this is a number
+  }
   image!: any;
   cliente!: any;
   items: any;
@@ -31,12 +42,43 @@ export class EditItemComponent {
     private itemService: ItemsService,
     private clientService: ClientService,
     private toastr: ToastrService,
+    private route: ActivatedRoute,
+    private pawn: PawnService,
     public darkModeService: DarkModeService
   ) {
-    // Obtener los tipos de artículos
+    this.route.queryParams.subscribe((params: any) => {
+      try {
+        if (params.id) {
+          this.itemService.get(params.id).subscribe((data: any) => {
+            this._item = data.items[0];
+            this.image = this._item.imagen;
+            // console.log(this._item)
+          })
+        }
+        else {
+          location.href = '/admin/'
+        }
+      } catch (err) {
+
+
+      }
+    });
+    this.pawn.tiposItem().subscribe((items: any) => {
+      this.tipos = items['tipos_item'];
+      // console.log(this.tipos)
+
+    })
+    this.pawn.estadosItem().subscribe((items: any) => {
+      this.estados = items.items;
+      // console.log(this.tipos)
+
+    })
+
   }
 
   updateItem(): void {
+    console.log(this._item);
+
     // if (this.cliente) {
     //   if (this.image) this.editItem.imagen = this.image;
     //   console.log(this.editItem);

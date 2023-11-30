@@ -6,13 +6,13 @@ import { ItemsService } from 'src/app/services/items.service';
   templateUrl: './quotations.component.html',
   styleUrls: ['./quotations.component.css'],
 })
-export class QuotationsComponent implements OnInit{
+export class PendingQuotationsComponent implements OnInit{
   found:any=[]
   constructor(
     private itemsService: ItemsService,
     private clientService: ClientService
   ) {
-    
+
   }
   ngOnInit(): void {
     console.log('pemne')
