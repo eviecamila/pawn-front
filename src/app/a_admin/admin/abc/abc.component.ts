@@ -28,10 +28,10 @@ import { ItemsService } from 'src/app/services/items.service';
       <div
         [attr.data-bs-theme]="modo"
         class="modal-content"
-        [ngStyle]="{ 
+        [ngStyle]="{
       background: modo === 'dark' ? '#000f' : '#ffff',
       'max-height': '400px',
-      
+
     }"
         style="overflow-y: auto"
       >
@@ -41,7 +41,6 @@ import { ItemsService } from 'src/app/services/items.service';
             class="rounded-circle btn-close "
           ></button>
         </div>
-        {{ modo }}
         <ng-content></ng-content>
         <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">
           Cerrar
@@ -183,7 +182,7 @@ export class AbcComponent implements OnInit {
           <div class="col justify-content-md-between mt-3">
             <div *ngFor="let btn of botones">
               <button
-                (click)="(btn.event)"
+                (click)="btn.event"
                 [class]="'btn btn-' + btn.color"
                 type="button"
                 style="width: 100%; max-width: 100%; max-width-md: 20%"

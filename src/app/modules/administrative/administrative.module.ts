@@ -19,6 +19,7 @@ import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotat
 import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal-new';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
+import { SharedModule } from '../shared/shared/shared.module';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -30,7 +31,6 @@ import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quo
     ItemsComponent,
     SellingsComponent,
     PawnComponent,
-    QuotationsComponent,
     AbcCardComponent,
     AbcCardContainerComponent,
     AbcModalComponent,
@@ -47,6 +47,7 @@ import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quo
   imports: [
     CommonModule,
     AdministrativeRoutingModule,
+    SharedModule,
     WebsiteModule,
     FormsModule
     // Items,

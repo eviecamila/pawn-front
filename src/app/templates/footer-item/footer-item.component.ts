@@ -7,6 +7,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 })
 export class FooterItemComponent implements OnInit {
   @Input() href!: string;
+  @Input() target:string = '_blank';
   constructor(public darkModeService: DarkModeService) {}
   toggleDarkMode() {this.darkModeService.toggleDarkMode();}
   ngOnInit(): void {

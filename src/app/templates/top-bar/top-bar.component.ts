@@ -99,8 +99,12 @@ export let Items = [
     href:'pawn',
   },
   {
-    name:'Cotizar Ahora',
+    name:'Calcular Empeño',
     href:'pawn/calc',
+  },
+  {
+    name:'Cotizar Ahora',
+    href:'pawn/quotations',
   },
   {
     name:'Abonar',

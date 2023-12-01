@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from 'src/app/app.component';
 import { TopBarComponent } from 'src/app/templates/top-bar/top-bar.component';
 import { LogoComponent } from 'src/app/templates/logo/logo.component';
 import { ActionsComponent } from 'src/app/templates/actions/actions.component';
@@ -42,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
 import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/collapsible-menu.component';
 import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card/href-item-card.component';
+import { QuotationsComponent } from 'src/app/paths/pawn/quotations/quotations.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +76,7 @@ import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card
     TiposItemComponent,
     CollapsibleMenuComponent,
     HrefItemCardComponent,
+    QuotationsComponent
   ],
   imports: [
     CommonModule,

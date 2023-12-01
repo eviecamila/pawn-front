@@ -51,6 +51,6 @@
 <!-- {{ data.description }} -->
 
 <br /><br />
-<router-outlet [modo]="modo" (form)="onSave($event)" (activate)="onActivate($event)"></router-outlet>
+<router-outlet (form)="onSave($event)" (activate)="onActivate($event)"></router-outlet>
 <app-abc-modal [ngModel]="qrScannerModal" (open)="openScanner()" (close)="closeScanner()"><app-qr-scanner
     (scan)="onScan($event)" [ngModel]="qrScanner"></app-qr-scanner></app-abc-modal>

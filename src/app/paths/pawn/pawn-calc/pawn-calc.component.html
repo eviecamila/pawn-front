@@ -68,14 +68,13 @@
         />
       </div>
 
-
       <br />
       <button
         (click)="toggleModal()"
         type="button"
         class="btn float-end"
         [attr.data-bs-theme]="modo"
-        [ngClass]="(modo==='dark'?'darker':'light') + '-mode'"
+        [ngClass]="(modo === 'dark' ? 'darker' : 'light') + '-mode'"
         data-bs-toggle="modal"
         data-bs-target="#myModal"
       >
@@ -89,7 +88,11 @@
     </form>
   </div>
 
-  <a class="btn btn-primary" routerLink=".." id="go-back">Presiona aqui para regresar</a>
+  <a href="/web" id="go-back" class="">
+    <h1 [style]="'color:#' + (modo === 'dark' ? 'fff' : '000')">
+      <i class="bi bi-arrow-left-circle-fill"></i>
+    </h1>
+  </a>
 </div>
 
 <div
@@ -114,14 +117,22 @@
       <p>Días de Empeño: {{ dias }}</p>
       <p>Monto Esperado: {{ monto | currency : "USD" : "symbol" : "1.2-2" }}</p>
       <!-- <p>Capital inicial: {{ capitalInicial | currency : "USD" : "symbol" : "1.2-2" }}</p> -->
-      <p>Capital final: {{ capitalFinal | currency : "USD" : "symbol" : "1.2-2" }}</p>
-      <p>Intereses totales: {{ interesesTotales | currency : "USD" : "symbol" : "1.2-2" }}</p>
+      <p>
+        Capital final:
+        {{ capitalFinal | currency : "USD" : "symbol" : "1.2-2" }}
+      </p>
+      <p>
+        Intereses totales:
+        {{ interesesTotales | currency : "USD" : "symbol" : "1.2-2" }}
+      </p>
       <p>Tasa de interés: {{ tasaInteres | number : "1.2-2" }} %</p>
     </div>
     <div *ngIf="!valid">
       <h3>Error <i class="bi bi-exclamation-triangle"></i></h3>
       <p>Campos Vacíos</p>
     </div>
-    <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">Cerrar</button>
+    <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">
+      Cerrar
+    </button>
   </div>
 </div>

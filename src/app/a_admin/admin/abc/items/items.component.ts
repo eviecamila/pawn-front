@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter, ViewChild} from '@angular/core';
 import { AbcModalComponent } from '../abc.component';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -10,7 +11,13 @@ export class ItemsComponent {
   @Output() form = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
-  @Input() modo!: any 
+  @Input() modo!: any
+  constructor(private darkModeService: DarkModeService) {
+    this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
+      // Actualiza la variable modo en función del estado del modo oscuro
+      this.modo = !isDarkMode ? 'light' : 'dark';
+    });
+  }
   forms: any = {
     add: 'agregando',
     edit: 'modificando',

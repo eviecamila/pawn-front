@@ -1,3 +1,10 @@
 <app-abc-card-container>
-  <app-employee-card *ngFor="let empleado of found" [data]="empleado" ></app-employee-card>
+  <div class="col-md-6" *ngFor="let empleado of found">
+    <div class="grid-container card container">
+    <ng-container *ngIf="empleado; else loadingTemplate">
+      <app-employee-card [data]="empleado" ></app-employee-card>
+    </ng-container>
+    </div>
+  </div>
+  <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>

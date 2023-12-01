@@ -61,7 +61,7 @@ export class EmployeeComponent implements OnInit {
   color:'danger',event:'onChupada()', name:'Chupar'},
 
   ]"
-        ><div class="d-flex align-items-center">
+        ><div class="d-flex justify-content-center">
           <!-- Icono de usuario para el nombre -->
           <i class="bi bi-person-fill"></i>
           <h5 class="card-title ms-2">{{data.nombre}} {{data.ap1}} {{data.ap2}} </h5>
@@ -99,5 +99,12 @@ export class EmployeeComponent implements OnInit {
 })
 export class EmployeeCardComponent {
   @Input() data!: any;
+  onDeactivate(){
+    console.log('me desactivan')
+  }
+  onChupada(){
+    console.log('me la chupas')
+  }
+
 
 }

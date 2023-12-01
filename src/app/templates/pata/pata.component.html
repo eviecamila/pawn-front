@@ -1,4 +1,5 @@
-<footer class="pata"
+<footer
+  class="pata"
   [ngClass]="{
     'darker-mode': darkModeService.isDarkModeEnabled() | async,
     'light-mode': !(darkModeService.isDarkModeEnabled() | async)
@@ -9,24 +10,14 @@
       <div class="col-12 col-lg-6">
         <!-- Una columna en móvil y dos columnas en escritorio -->
         <div class="row">
-          <div class="col-12 col-md-6">
-            <app-footer-item>Bolsa de trabajo</app-footer-item>
-          </div>
-          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
-            <app-footer-item>Viva Angular mirrei</app-footer-item>
-          </div>
-          <div class="col-12 col-md-6">
-            <app-footer-item>Odio Angular</app-footer-item>
-          </div>
-          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
-            <app-footer-item>When te drogas</app-footer-item>
-          </div>
-          <div class="col-12 col-md-6">
-            <app-footer-item>Como llegar?</app-footer-item>
-          </div>
-
-          <div class="col-12 col-md-6" [ngClass]="screen.isDesktop()?'text-end':''">
-            <!-- <app-footer-item>?</app-footer-item> -->
+          <div
+            class="col-12 col-md-6"
+            [ngClass]="screen.isDesktop() && item.even ? 'text-end' : ''"
+            *ngFor="let item of _items"
+          >
+            <app-footer-item [href]="item.href" [target]="'_'+(item.targetBlank?'blank':'self')">{{
+              item.name
+            }}</app-footer-item>
           </div>
         </div>
       </div>

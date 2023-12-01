@@ -1,0 +1,24 @@
+<div
+  class="w-100"
+  [class]="'bg-' + modo"
+  style="height: 100vh; display: grid; place-items: center"
+>
+<br><br><br>
+  <h1>Elige un sitio:</h1>
+
+  <div class="w-100" style="display: grid; place-items: center">
+    <div class="text-center w-50">
+      <app-href-item-card href="/admin/" icon="briefcase">
+        Modulo Admin
+      </app-href-item-card>
+    </div>
+    <div class="text-center w-50">
+      <app-href-item-card href="/web/" icon="browser-chrome">
+        Modulo Website
+      </app-href-item-card>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>

@@ -1,5 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
 import { AbcModalComponent } from '../abc.component';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
@@ -8,7 +9,13 @@ import { AbcModalComponent } from '../abc.component';
 export class ClientsComponent implements OnInit {
   @Output() data = new EventEmitter<any>();
   @Input() mode: any = 'add';
-  @Input() modo!: any 
+  @Input() modo!: any
+  constructor(private darkModeService: DarkModeService) {
+    this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
+      // Actualiza la variable modo en función del estado del modo oscuro
+      this.modo = !isDarkMode ? 'light' : 'dark';
+    });
+  }
 
   @Input() found: any = [];
   forms: any = {
@@ -48,7 +55,7 @@ export class ClientsComponent implements OnInit {
 
     ]"
   >
-    <div class="d-flex align-items-center">
+    <div class="d-flex justify-content-center">
       <!-- Icono de usuario para el nombre -->
       <i class="bi bi-person-fill"></i>
       <h5 class="card-title ms-2">{{ data.nombre }}</h5>

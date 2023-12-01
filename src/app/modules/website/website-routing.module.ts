@@ -8,6 +8,7 @@ import { InvestComponent } from 'src/app/paths/invest/invest.component';
 import { PawnItemComponent } from 'src/app/paths/pawn/item/item.component';
 import { PawnCalcComponent } from 'src/app/paths/pawn/pawn-calc/pawn-calc.component';
 import { PawnComponent } from 'src/app/paths/pawn/pawn.component';
+import { QuotationsComponent } from 'src/app/paths/pawn/quotations/quotations.component';
 import { VentasComponent } from 'src/app/paths/ventas/ventas.component';
 import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/tipos-item.component';
 import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.component';
@@ -38,9 +39,13 @@ const routes: Routes = [
             path: '',
             component: PawnComponent,
           },
+          // {
+          //   path: 'cotizacion',
+          //   component: CotizacionComponent,
+          // },
           {
-            path: 'cotizacion',
-            component: CotizacionComponent,
+            path: 'quotations',
+            component: QuotationsComponent,
           },
           {
             path: 'qr',

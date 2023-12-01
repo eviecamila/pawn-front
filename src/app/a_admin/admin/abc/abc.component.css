@@ -36,3 +36,7 @@ app-abc-card{
   position: relative;
   text-align: center;
 }
+
+.card{
+  margin-top:20px
+}
