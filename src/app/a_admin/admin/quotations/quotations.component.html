@@ -1,23 +1,28 @@
 <h2>Hay <b>{{found.length}}</b> cotizaciones pendientes de revisar</h2>
 <div class="container-xl">
-        <div class="row text-center">
-            <!-- Box 1 -->
-            <div class="col-md-6" *ngFor="let item of found">
-                <div class="grid-container card">
-                  <br>
-                    <div class="grid-item image">
-                        <img [src]="item.imagen" class="img-fluid square-img rounded" alt="Imagen 1">
-                    </div>
-                    <div class="grid-item info">
-                        <div class="card-body">
-                            <b><p class="card-title">{{item.articulo}}</p></b>
-                            <p>{{item.caracteristicas}}</p>
-                            <p class="card-text">Valor deseado: ${{item.cotizacion}}</p>
-                            <br>
-                        </div>
+    <div class="row text-center">
+        <!-- Box 1 -->
+
+        <div class="col-md-6" *ngFor="let item of found" [attr.data-bs-theme]="modo">
+            <div class="grid-container card">
+                <br>
+                <div class="grid-item image">
+                    <img [src]="item.imagen" class="img-fluid square-img rounded" alt="Imagen 1">
+                </div>
+                <br>
+                <div class="grid-item info">
+                    <div class="card-body">
+                        <b>
+                            <p class="card-title">{{item.articulo}}</p>
+                        </b>
+                        <p>{{item.caracteristicas}}</p>
+                        <p class="card-text">Valor deseado: ${{item.cotizacion}}</p>
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
+
+    </div>
+</div>

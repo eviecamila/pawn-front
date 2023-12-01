@@ -8,17 +8,19 @@ import { ItemsService } from 'src/app/services/items.service';
 })
 export class PendingQuotationsComponent implements OnInit{
   found:any=[]
+  modo!:any
   constructor(
     private itemsService: ItemsService,
     private clientService: ClientService
   ) {
-
-  }
-  ngOnInit(): void {
-    console.log('pemne')
     this.itemsService.pending().subscribe((data: any) => {
       this.found=data.items
       console.log(this.found)
     });
+  }
+  ngOnInit(): void {
+    
+    console.log('pemne')
+    
   }
 }

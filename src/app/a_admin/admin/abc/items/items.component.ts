@@ -10,7 +10,7 @@ export class ItemsComponent {
   @Output() form = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
-
+  @Input() modo!: any 
   forms: any = {
     add: 'agregando',
     edit: 'modificando',

@@ -8,6 +8,8 @@ import { AbcModalComponent } from '../abc.component';
 export class ClientsComponent implements OnInit {
   @Output() data = new EventEmitter<any>();
   @Input() mode: any = 'add';
+  @Input() modo!: any 
+
   @Input() found: any = [];
   forms: any = {
     add: 'agregando',
@@ -68,7 +70,8 @@ export class ClientsComponent implements OnInit {
     <p class="card-text m-0">
       <i title="Email" class="bi bi-envelope-fill"></i> Email: {{ data.email }}
     </p>
-  </app-abc-card> `,
+  </app-abc-card>
+  `,
   styleUrls: ['./clients.component.css', '../abc.component.css'],
 })
 export class ClientCardComponent {

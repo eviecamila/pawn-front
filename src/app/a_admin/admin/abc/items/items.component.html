@@ -1,8 +1,12 @@
 <app-abc-card-container>
-  <app-abc-item-card
-    *ngFor="let item of found"
-    [data]="item"
-  ></app-abc-item-card>
+  <div class="col-md-6" *ngFor="let item of found">
+    <div class="grid-container card">
+    <ng-container *ngIf="item; else loadingTemplate">
+      <app-abc-item-card [data]="item"></app-abc-item-card>
+    </ng-container>
+    </div>
+  </div>
+  <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>
 <app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
   <app-new-item (form)="onSave($event)"></app-new-item>
