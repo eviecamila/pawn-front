@@ -30,10 +30,12 @@ import { ItemsService } from 'src/app/services/items.service';
         class="modal-content"
         [ngStyle]="{
       background: modo === 'dark' ? '#000f' : '#ffff',
-      'max-height': '400px',
+      'max-height': '80%',
+      'max-width': '80%',
 
     }"
         style="overflow-y: auto"
+        id="modal"
       >
         <div style="width:15px;height:15px">
           <button
@@ -42,6 +44,7 @@ import { ItemsService } from 'src/app/services/items.service';
           ></button>
         </div>
         <ng-content></ng-content>
+        <br><br>
         <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">
           Cerrar
         </button>
@@ -64,12 +67,11 @@ export class AbcModalComponent implements OnInit {
     this.modal = !this.modal;
   }
   openModal() {
-    console.log('Abriendo modal w');
+    let item = document.getElementById('modal')
+    if (item){ item.scrollTop = 0}
     this.modal = true;
   }
-  closeModal() {
-    this.modal = false;
-  }
+  closeModal() { this.modal = false; }
   hideAlert() {
     this.modal = false;
     this.close.emit();
@@ -112,12 +114,12 @@ export class AbcComponent implements OnInit {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-  onSave(event: any): void {}
+  onSave(event: any): void { }
   onNew() {
     console.log('Llamando a la instancia que abra el modal');
     this.instance.openModal();
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
   onActivate(component: any) {
     this.instance = component;
@@ -158,11 +160,11 @@ export class AbcComponent implements OnInit {
     this.onSearch();
   }
   openScanner() {
-    this.qrScannerModal.modal = true;
+    this.qrScannerModal.openModal();
     this.qrScanner.toggleScanner();
   }
   closeScanner() {
-    this.qrScannerModal.modal = false;
+    this.qrScannerModal.closeModal()
     this.qrScanner.toggleScanner();
   }
 }
@@ -209,7 +211,7 @@ export class AbcCardComponent implements OnInit {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
 @Component({
   selector: 'app-abc-card-container',
@@ -237,5 +239,5 @@ export class AbcCardContainerComponent implements OnInit {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

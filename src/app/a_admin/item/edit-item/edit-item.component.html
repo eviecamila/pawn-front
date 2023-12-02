@@ -1,43 +1,42 @@
-<form (ngSubmit)="updateItem()" #editForm="ngForm">
+<form (ngSubmit)="updateItem()" #editForm="ngForm" *ngIf="_item">
   <!-- ID del Artículo (oculto) -->
   <input type="hidden" name="id" [(ngModel)]="_item.id" />
 
   <!-- Cliente (No editable) -->
   <div class="mb-3">
-    <label for="itemCliente" class="form-label">Cliente:</label>
+    <label for="itemCliente" class="form-label"><b>Cliente:</b></label>
     <input
       type="text"
       class="form-control"
       id="itemCliente"
       name="cliente"
-      [(ngModel)]="_item.cliente"
+      [ngModel]="_item.cliente"
       disabled
     />
   </div>
 
   <!-- Artículo -->
-  <label for="itemName" class="form-label">Nombre del Artículo:</label>
-  <select
-  [selectedIndex]="2"
-    class="form-control"
-    id="itemName"
-    name="item"
-    required
-  >
-    <option value="" disabled selected>Selecciona una opción</option>
-    <option *ngFor="let tipo of tipos" [value]="tipo.id">
-      {{ tipo.verbosename }}
-    </option>
-  </select>
+  <div class="mb-3">
+    <label for="itemName" class="form-label"><b>Nombre del Artículo:</b></label>
+    <input
+      type="text"
+      class="form-control"
+      id="itemName"
+      name="item"
+      [(ngModel)]="_item.articulo"
+      disabled
+    />
+  </div>
 
   <!-- Estado -->
   <div class="mb-3">
-    <label for="itemEstado" class="form-label">Estado:</label>
+    <label for="itemEstado" class="form-label"><b>Estado:</b></label>
     <select
       class="form-control"
       id="itemEstado"
       name="estado"
-      [selectedIndex]="_item.id_estado"
+      [ngModel]="_item.id_estado"
+      (change)="onChange($event)"
       required
     >
       <option value="" disabled selected>Selecciona una opción</option>
@@ -49,7 +48,9 @@
 
   <!-- Características -->
   <div class="mb-3">
-    <label for="itemCaracteristicas" class="form-label">Características:</label>
+    <label for="itemCaracteristicas" class="form-label"
+      ><b>Características:</b></label
+    >
     <input
       type="text"
       class="form-control"
@@ -62,7 +63,9 @@
 
   <!-- Observaciones -->
   <div class="mb-3">
-    <label for="itemObservaciones" class="form-label">Observaciones:</label>
+    <label for="itemObservaciones" class="form-label"
+      ><b>Observaciones:</b></label
+    >
     <input
       type="text"
       class="form-control"
@@ -75,7 +78,9 @@
 
   <!-- Fecha de Ingreso -->
   <div class="mb-3">
-    <label for="fechaIngreso" class="form-label">Fecha de Ingreso:</label>
+    <label for="fechaIngreso" class="form-label"
+      ><b>Fecha de Ingreso:</b></label
+    >
     <input
       type="datetime-local"
       class="form-control"
@@ -87,7 +92,7 @@
 
   <!-- Fecha de Retiro -->
   <div class="mb-3">
-    <label for="fechaRetiro" class="form-label">Fecha de Retiro:</label>
+    <label for="fechaRetiro" class="form-label"><b>Fecha de Retiro:</b></label>
     <input
       type="datetime-local"
       class="form-control"
@@ -99,7 +104,7 @@
 
   <!-- Fecha Límite -->
   <div class="mb-3">
-    <label for="fechaLimite" class="form-label">Fecha Límite:</label>
+    <label for="fechaLimite" class="form-label"><b>Fecha Límite:</b></label>
     <input
       type="datetime-local"
       class="form-control"
@@ -111,7 +116,7 @@
 
   <!-- Cotización -->
   <div class="mb-3">
-    <label for="cotizacion" class="form-label">Cotización:</label>
+    <label for="cotizacion" class="form-label"><b>Cotización:</b></label>
     <input
       type="number"
       class="form-control"
@@ -124,7 +129,7 @@
 
   <!-- Foto del Artículo (manejado por separado) -->
   <div class="mb-3">
-    <label for="itemPhoto" class="form-label">Foto del Artículo:</label>
+    <label for="itemPhoto" class="form-label"><b>Foto del Artículo:</b></label>
     <input
       type="file"
       class="form-control"
@@ -154,9 +159,9 @@
     </div>
   </div>
   <!-- ... -->
-
+  <br />
   <!-- Botón para guardar cambios -->
-  <div class="w-100">
+  <div class="text-end">
     <button type="submit" class="btn btn-primary">Actualizar</button>
   </div>
 </form>

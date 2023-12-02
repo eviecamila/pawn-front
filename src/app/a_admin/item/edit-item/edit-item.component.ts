@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from 'src/app/services/items.service';
 import { PawnService } from 'src/app/services/pawn.service';
@@ -6,14 +6,17 @@ import { pawnItem } from 'src/app/model/item.model';
 import { ToastrService } from 'ngx-toastr';
 import { ClientService } from 'src/app/services/client.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-edit-item',
   templateUrl: './edit-item.component.html'
 })
-export class EditItemComponent {
+export class EditItemComponent implements OnInit, OnChanges {
   @Output() form = new EventEmitter<any>();
   @Input() input!: any;
+  @Input() id!: any;
+  @Input() q: any = true;
   dias = [30, 90, 180, 360];
   _item!: any;
   tipos!: any;
@@ -45,24 +48,41 @@ export class EditItemComponent {
     private route: ActivatedRoute,
     private pawn: PawnService,
     public darkModeService: DarkModeService
-  ) {
-    this.route.queryParams.subscribe((params: any) => {
-      try {
-        if (params.id) {
-          this.itemService.get(params.id).subscribe((data: any) => {
-            this._item = data.items[0];
-            this.image = this._item.imagen;
-            // console.log(this._item)
-          })
-        }
-        else {
-          location.href = '/admin/'
-        }
-      } catch (err) {
+  ) { }
+  ngOnInit(): void {
+    console.log(this.q ? this.q : "No hay Q")
+    console.log(this.id ? this.id : "No hay ID")
+
+    if (this.q) {
+      console.log('Hay Q')
+      if (!this.id) {
+        console.log('Hay ID')
+        this.route.queryParams.subscribe((params: any) => {
+          try {
+            if (params.id) {
+              this.itemService.get(params.id).subscribe((data: any) => {
+                this._item = data.items[0];
+                this.image = this._item.imagen;
+                // console.log(this._item)
+              })
+            }
+            else {
+              location.href = '/admin/'
+            }
+          } catch (err) {
 
 
+          }
+        });
+      } else {
+        console.log('Hay Q pero no ID')
+        this.itemService.get(this.id).subscribe((data: any) => {
+          this._item = data.items[0];
+          this.image = this._item.imagen;
+          // console.log(this._item)
+        })
       }
-    });
+    }
     this.pawn.tiposItem().subscribe((items: any) => {
       this.tipos = items['tipos_item'];
       // console.log(this.tipos)
@@ -75,7 +95,40 @@ export class EditItemComponent {
     })
 
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['id'] && this.id) {
+      this.itemService.get(this.id).subscribe((data: any) => {
+        this._item = data.items[0];
+        this.image = this._item.imagen;
+        this._item.fecha_ingreso = this.formatDate(this._item.fecha_ingreso);
+        this._item.fecha_retiro = this.formatDate(this._item.fecha_retiro);
+        this._item.fecha_limite = this.formatDate(this._item.fecha_limite);
+      })
+    }
+  }
+  buscarEstado = (id: any) => this.estados.find((item: any) => item.id === id)
+  onChange(event: Event) {
+    console.log(this.estados)
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      const estado = this.buscarEstado(parseInt(target.value));
+      this._item.id_estado = estado.id;
+      this._item.estado = estado.estado
+    }
+  }
 
+  formatDate(date: string): string {
+    if (!date) return '';
+
+    let d = new Date(date);
+    let year = d.getFullYear();
+    let month = ('0' + (d.getMonth() + 1)).slice(-2); // Meses son de 0-11
+    let day = ('0' + d.getDate()).slice(-2);
+    let hour = ('0' + d.getHours()).slice(-2);
+    let minute = ('0' + d.getMinutes()).slice(-2);
+
+    return `${year}-${month}-${day}T${hour}:${minute}`;
+  }
   updateItem(): void {
     console.log(this._item);
 
