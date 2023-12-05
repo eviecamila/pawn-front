@@ -1,16 +1,26 @@
-<form (ngSubmit)="updateItem()" #editForm="ngForm">
+<form (ngSubmit)="updateItem()" #editForm="ngForm" *ngIf="_item">
+  <div class="d-flex justify-content-end">
+    <button
+      (click)="onEdit()"
+      [disabled]="!locked"
+      type="button"
+      class="btn btn-secondary mb-3"
+    >
+      <i class="bi bi-pencil"></i>
+    </button>
+  </div>
   <!-- ID del Artículo (oculto) -->
   <input type="hidden" name="id" [(ngModel)]="_item.id" />
 
   <!-- Cliente (No editable) -->
   <div class="mb-3">
-    <label for="itemCliente" class="form-label">Cliente:</label>
+    <label for="itemCliente" class="form-label"><b>Cliente:</b></label>
     <input
       type="text"
       class="form-control"
       id="itemCliente"
       name="cliente"
-      [(ngModel)]="_item.cliente"
+      [ngModel]="_item.cliente"
       disabled
     />
   </div>
@@ -36,8 +46,9 @@
       id="itemEstado"
       name="estado"
       [ngModel]="_item.id_estado"
-      (change)="child.onChange($event)"
+      (change)="onChange($event)"
       required
+      [disabled]="locked"
     >
       <option value="" disabled selected>Selecciona una opción</option>
       <option *ngFor="let estado of estados" [value]="estado.id">
@@ -48,39 +59,48 @@
 
   <!-- Características -->
   <div class="mb-3">
-    <label for="itemCaracteristicas" class="form-label">Características:</label>
+    <label for="itemCaracteristicas" class="form-label"
+      ><b>Características:</b></label
+    >
     <input
       type="text"
       class="form-control"
+      id="itemCaracteristicas"
       name="caracteristicas"
       [(ngModel)]="_item.caracteristicas"
+      required
+      [disabled]="locked"
     />
   </div>
 
   <!-- Observaciones -->
   <div class="mb-3">
-    <label for="itemObservaciones" class="form-label">Observaciones:</label>
+    <label for="itemObservaciones" class="form-label"
+      ><b>Observaciones:</b></label
+    >
     <input
       type="text"
       class="form-control"
+      id="itemObservaciones"
       name="observaciones"
       [(ngModel)]="_item.observaciones"
+      required
+      [disabled]="locked"
     />
   </div>
-  <div class="mb-3">
-    <label for="fechaCotizacion" class="form-label"
-      ><b>Fecha de Cotización:</b></label
-    >
-    <!-- Fecha de Cotizacion -->
-    <input
-      type="datetime-local"
+  <!-- <div class="mb-3">
+    <label for="dias" class="form-label"><b>Días:</b></label>
+    <select
       class="form-control"
-      id="fechaCotizacion"
-      name="fecha_cotizacion"
-      [(ngModel)]="_item.fecha_cotizacion"
-      [disabled]="true"
-    />
-  </div>
+      id="dias"
+      name="dias"
+      [disabled]="locked"
+      (change)="onDaysChange($event)"
+    >
+      <option value="0" disabled selected>Selecciona el número de días</option>
+      <option *ngFor="let dia of dias" [value]="dia">{{ dia }} Dias</option>
+    </select>
+  </div> -->
   <!-- Fecha de Ingreso -->
   <div class="mb-3">
     <label for="fechaIngreso" class="form-label"
@@ -124,44 +144,60 @@
 
   <!-- Cotización -->
   <div class="mb-3">
-    <label for="cotizacion" class="form-label">Cotización:</label>
+    <label for="cotizacion" class="form-label"><b>Cotización:</b></label>
     <input
-      type="number"
-      class="form-control"
-      name="cotizacion"
       [(ngModel)]="_item.cotizacion"
+      type="text"
+      class="form-control"
+      id="itemCotizacion"
+      name="cotizacion"
+      placeholder="Ingresa una cotización"
+      autocomplete="off"
+      required
+      pattern="\d*"
+      [disabled]="locked"
+      (keypress)="numberOnly($event)"
     />
   </div>
 
-  <!-- Foto del Artículo -->
+  <!-- Foto del Artículo (manejado por separado) -->
   <div class="mb-3">
-    <label for="itemPhoto" class="form-label">Foto del Artículo:</label>
+    <label for="itemPhoto" class="form-label"><b>Foto del Artículo:</b></label>
     <input
       type="file"
       class="form-control"
-      name="fotoArticulo"
+      id="itemPhoto"
+      name="photo"
       (change)="onFileChange($event)"
+      [disabled]="locked"
+      ngModel="_item.imagen"
     />
-  </div>
-  <div *ngIf="image" class="image-preview d-flex justify-content-center">
-    <button
-      type="button"
-      class="btn-close"
-      style="position: relative; top: 10px; background-color: red; left: 290px"
-      aria-label="Close"
-      (click)="onClear()"
-    ></button>
-    <img
-      [src]="image"
-      alt="Vista previa de la imagen"
-      class="img-thumbnail square-img"
-    />
+    <br />
+    <div *ngIf="image" class="image-preview d-flex justify-content-center">
+      <button
+        *ngIf="!locked"
+        type="button"
+        class="btn-close"
+        style="
+          position: relative;
+          top: 10px;
+          background-color: red;
+          left: 290px;
+        "
+        aria-label="Close"
+        (click)="onClear()"
+      ></button>
+      <img
+        [src]="image"
+        alt="Vista previa de la imagen"
+        class="img-thumbnail square-img"
+      />
+    </div>
   </div>
   <!-- ... -->
   <br />
-
   <!-- Botón para guardar cambios -->
   <div class="text-end">
-    <button type="submit" class="btn btn-primary">Actualizar&nbsp;<i class="bi bi-floppy"></i></button>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
   </div>
 </form>

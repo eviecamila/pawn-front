@@ -39,15 +39,15 @@ const routes: Routes = [
           {
             path: '',
             redirectTo: '/404',
-            pathMatch:'full',
-          },
-          {
-            path: 'items',
-            component: ItemsComponent
+            pathMatch: 'full',
           },
           {
             path: 'client',
             component: ClientsComponent,
+          },
+          {
+            path: 'items',
+            component: ItemsComponent
           },
           {
             path: 'pawn',

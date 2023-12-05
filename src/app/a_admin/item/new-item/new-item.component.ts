@@ -49,17 +49,17 @@ export class NewItemComponent {
       console.log(item)
       valid = true;
     }
-    if (valid){
+    if (valid) {
       this.itemService.createItem(this.newItem)
-      .subscribe((Response: any) => {
-        if (Response.status === 'OK') {
-          this.toastr.success(Response.message);
-        }
-        else {
-          this.toastr.error(Response.message);
-        }
-        setTimeout(()=>{location.reload()},2000)
-      });
+        .subscribe((Response: any) => {
+          if (Response.status === 'OK') {
+            this.toastr.success(Response.message);
+          }
+          else {
+            this.toastr.error(Response.message);
+          }
+          setTimeout(() => { location.reload() }, 2000)
+        });
     }
 
 
@@ -76,10 +76,16 @@ export class NewItemComponent {
   onSearch(): boolean {
     if (this.newItem.curp.length === 18)
       this.clientService.get(this.newItem.curp).subscribe((data: any) => {
-        if (data.clientes.length !== 1) { this.toastr.error("Cliente no encontrado, intente de nuevo"); return false }
+        if (data.clientes.length !== 1) {
+          if(confirm("Cliente no registrado. ¿Desea crear un nuevo cliente?")){
+
+          }
+        }
         this.cliente = data.clientes[0]; return true
       });
-    else this.toastr.warning("CURP no valida, intente de nuevo"); return false
+    else this.toastr.warning("CURP no valida, intente de nuevo");
+
+    return false
   }
   onClear() {
     this.cliente = null

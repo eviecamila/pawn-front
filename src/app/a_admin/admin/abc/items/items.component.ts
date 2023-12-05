@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter, ViewChild} from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ViewChild } from '@angular/core';
 import { AbcModalComponent } from '../abc.component';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 @Component({
@@ -25,10 +25,11 @@ export class ItemsComponent {
   }
 
   openModal() {
-    console.log('Llamando al modal que se abra w');
     this.modal.openModal();
   }
-  closeModal() { }
+  closeModal() {
+    this.modal.closeModal();
+  }
   params: any = {
     qr: true,
     info: true,
@@ -55,14 +56,23 @@ export class ItemsComponent {
 
 @Component({
   selector: 'app-abc-item-card',
+
   template: `<app-abc-card [btn]="{
     editar: true,
     desactivar: true,
   }"
   [img]="data.imagen"
+  class="text-center w-100"
+  [botones]="[
+      {icon:'power',
+    color:'danger',event:'onDeactivate()', name:'Desactivar'},
+    {icon:'power',
+    color:'danger',event:'onChupada()', name:'Chupar'},
+
+    ]"
 >
-  <!-- Detalles del cliente y del artículo -->
-  <div class="d-flex align-items-center">
+<div class="card-body" [attr.data-bs-theme]="modo">
+  <div class="d-flex justify-content-center">
     <i class="bi bi-person-fill"></i>
     <h5 class="card-title ms-2">{{data.cliente}} - {{data.articulo}}</h5>
   </div>
@@ -104,6 +114,10 @@ export class ItemsComponent {
           <i title="Revisado" [class]="'bi bi-'+(data.revisado?'check2-circle':'x-circle-fill')"></i>
           Revisado por el valuador: <span [class]="'text-'+(data.revisado?'success':'danger')"> {{data.revisado ? 'Sí' : 'No' }}</span>
   </p>
+</div>
+<div class="card-footer">
+asd
+</div>
   <!-- {{data.revisado }} -->
       </app-abc-card>`,
   styleUrls: ['./items.component.css',
@@ -112,6 +126,7 @@ export class ItemsComponent {
 export class ItemCardComponent {
   @Input() data!: any;
   @Input() btn!: any;
+  @Input() modo!: any;
   formatDate(fecha: string) {
     return fecha.replace('T', ' ').slice(0, 19);
   }

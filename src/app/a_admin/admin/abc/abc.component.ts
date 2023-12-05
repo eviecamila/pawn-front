@@ -65,13 +65,18 @@ export class AbcModalComponent implements OnInit {
   }
   toggleModal() {
     this.modal = !this.modal;
+    if (this.modal) {
+      this.open.emit();
+    }
+    else this.close.emit()
   }
   openModal() {
     let item = document.getElementById('modal')
-    if (item){ item.scrollTop = 0}
+    if (item) { item.scrollTop = 0 }
     this.modal = true;
+    this.open.emit();
   }
-  closeModal() { this.modal = false; }
+  closeModal() { this.modal = false; this.close.emit() }
   hideAlert() {
     this.modal = false;
     this.close.emit();
@@ -117,24 +122,30 @@ export class AbcComponent implements OnInit {
   onSave(event: any): void { }
   onNew() {
     console.log('Llamando a la instancia que abra el modal');
+    console.log(this.instance)
+    if (!this.instance) return;
     this.instance.openModal();
   }
-  ngOnInit() { }
+  async ngOnInit() {
+    await this.instance.isInstanceReady
+   }
 
+  isInstanceReady:boolean = false;
   onActivate(component: any) {
     this.instance = component;
-    component.data.subscribe((data: any) => {
-      this.data = data;
-    });
+    if (this.instance) {
+      this.isInstanceReady = true;
+      component.data.subscribe((data: any) => {
+        this.data = data;
+        console.log(this.instance);
+      });
+    }
   }
 
   onModeChange() {
     this.instance.mode = this.selectedMode;
   }
   onSearchChange() {
-    // buscar
-    // console.log(this.searchText.length === this.data.searchLength?'Aqui deberia buscar tu Empleado con el RFC '+ this.searchText:'No valido');
-    // no hacer nada aun
   }
   onSearch() {
     if (
@@ -160,12 +171,16 @@ export class AbcComponent implements OnInit {
     this.onSearch();
   }
   openScanner() {
-    this.qrScannerModal.openModal();
-    this.qrScanner.toggleScanner();
+    if (this.qrScannerModal) {
+      this.qrScannerModal.openModal();
+      this.qrScanner.toggleScanner();
+    }
   }
   closeScanner() {
-    this.qrScannerModal.closeModal()
-    this.qrScanner.toggleScanner();
+    if (this.qrScannerModal) {
+      this.qrScannerModal.closeModal()
+      this.qrScanner.toggleScanner();
+    }
   }
 }
 
@@ -176,24 +191,8 @@ export class AbcComponent implements OnInit {
           <img *ngIf="img" [src]="img"class="img-fluid square-img rounded"
           />
         </div>
-        <div class="grid-item info">
-          <div class="card-body" [attr.data-bs-theme]="modo">
-            <ng-content></ng-content>
-            <!-- ASD -->
-          </div>
-          <div class="col justify-content-md-between mt-3">
-            <div *ngFor="let btn of botones">
-              <button
-                (click)="btn.event"
-                [class]="'btn btn-' + btn.color"
-                type="button"
-                style="width: 100%; max-width: 100%; max-width-md: 20%"
-              >
-                <i [class]="'bi bi-' + btn.icon"></i> {{ btn.name }}
-              </button>
-              <div style="height:10px"></div>
-            </div>
-          </div>
+        <div class="grid-item info text-center">
+        <ng-content></ng-content>
         </div>
 
   `,

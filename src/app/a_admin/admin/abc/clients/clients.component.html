@@ -1,10 +1,13 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let cliente of found">
     <div class="grid-container card container">
-    <ng-container *ngIf="cliente; else loadingTemplate">
-      <app-client-card [data]="cliente"></app-client-card>
-    </ng-container>
+      <ng-container *ngIf="cliente; else loadingTemplate">
+        <app-client-card [data]="cliente"></app-client-card>
+      </ng-container>
     </div>
   </div>
   <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>
+<app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
+  <app-new-client (form)="onSave($event)"></app-new-client>
+</app-abc-modal>

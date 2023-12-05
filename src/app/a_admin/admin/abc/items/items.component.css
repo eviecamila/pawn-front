@@ -1,3 +1,9 @@
 .card{
     margin-top:20px
 }
+app-abc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Asegúrate de que el padre de app-abc-card tenga una altura definida */
+}

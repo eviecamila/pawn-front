@@ -1,22 +1,36 @@
-import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { AbcModalComponent } from '../abc.component';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { ClientService } from 'src/app/services/client.service';
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.css', '../abc.component.css'],
 })
 export class ClientsComponent implements OnInit {
+  @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
   @Output() data = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @Input() modo!: any
-  constructor(private darkModeService: DarkModeService) {
+  constructor(
+    private darkModeService: DarkModeService,
+    private client: ClientService
+  ) {
     this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
       // Actualiza la variable modo en función del estado del modo oscuro
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
+  openModal() {
+    this.modal.openModal();
+  }
+  closeModal() {
+    this.modal.closeModal();
+  }
 
+  onSave(event: any): void {
+    // this.client.register(event);
+  }
   @Input() found: any = [];
   forms: any = {
     add: 'agregando',
@@ -55,6 +69,7 @@ export class ClientsComponent implements OnInit {
 
     ]"
   >
+  <div class="card-body">
     <div class="d-flex justify-content-center">
       <!-- Icono de usuario para el nombre -->
       <i class="bi bi-person-fill"></i>
@@ -76,7 +91,10 @@ export class ClientsComponent implements OnInit {
     <!-- Icono de correo electrónico para el email -->
     <p class="card-text m-0">
       <i title="Email" class="bi bi-envelope-fill"></i> Email: {{ data.email }}
-    </p>
+    </p></div>
+    <div class="card-footer">
+asd
+</div>
   </app-abc-card>
   `,
   styleUrls: ['./clients.component.css', '../abc.component.css'],

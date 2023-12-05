@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ItemsService } from 'src/app/services/items.service';
 import { PawnService } from 'src/app/services/pawn.service';
@@ -6,19 +6,21 @@ import { pawnItem } from 'src/app/model/item.model';
 import { ToastrService } from 'ngx-toastr';
 import { ClientService } from 'src/app/services/client.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
-import { EditQuotationComponent } from '../quotation/quotation.component';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
-  selector: 'app-edit-item',
-  templateUrl: './edit-item.component.html'
+  selector: 'app-quotation-item',
+  templateUrl: './quotation.component.html'
 })
-export class EditItemComponent {
-  child: EditQuotationComponent = new EditQuotationComponent(this.itemService, this.toastr,
-    this.route, this.pawn, this.darkModeService)
+export class EditQuotationComponent implements OnInit {
+  // , OnChanges {
   @Output() form = new EventEmitter<any>();
   @Input() input!: any;
-  dias = [30, 90, 180, 360];
-  _item!: any;
+  @Input() id!: any;
+  @Input() toggled: boolean = false;
+  @Input() locked: boolean = false;
+  _item: any = { dias: 0 };
+  __item!: any;
   tipos!: any;
   estados!: any;
   item: pawnItem = {
@@ -43,46 +45,59 @@ export class EditItemComponent {
 
   constructor(
     private itemService: ItemsService,
-    private clientService: ClientService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private pawn: PawnService,
     public darkModeService: DarkModeService
-  ) {
-    this.route.queryParams.subscribe((params: any) => {
-      try {
-        if (params.id) {
-          this.itemService.get(params.id).subscribe((data: any) => {
-            this._item = data.items[0];
-            this.image = this._item.imagen;
-            this._item.fecha_cotizacion = this.child.formatDate(this._item.cotizacion)
-            this._item.fecha_ingreso = this.child.formatDate(this._item.fecha_ingreso)
-            this._item.fecha_limite = this.child.formatDate(this._item.fecha_limite)
-            this._item.fecha_retiro = this.child.formatDate(this._item.fecha_retiro)
-            console.log(this._item)
-          })
-        }
-        else {
-          location.href = '/admin/'
-        }
-      } catch (err) {
-
-
-      }
-    });
-    this.pawn.tiposItem().subscribe((items: any) => {
-      this.tipos = items['tipos_item'];
-      // console.log(this.tipos)
-
-    })
+  ) { }
+  ngOnInit(): void {
+    this.locked = true
     this.pawn.estadosItem().subscribe((items: any) => {
       this.estados = items.items;
-      // console.log(this.tipos)
-
     })
-
+    this.pawn.tiposItem().subscribe((items: any) => {
+      this.tipos = items['tipos_item'];
+    })
+    if (this.id) {
+      this.itemService.get(this.id).subscribe((data: any) => {
+        this._item = data.items[0];
+        this.image = this._item.imagen;
+        this._item.fecha_cotizacion = this.formatDate(this._item.cotizacion)
+        this._item.fecha_ingreso = this.formatDate(this._item.fecha_ingreso)
+        this._item.fecha_limite = this.formatDate(this._item.fecha_limite)
+        this._item.fecha_retiro = this.formatDate(this._item.fecha_retiro)
+      })
+    }
+  }
+  onUnlock() { this.locked = false }
+  onLock() { this.locked = true }
+  onEdit() { this.onUnlock() }
+  onSave() { this.onLock() }
+  onReset() {
+  }
+  buscarEstado = (id: any) => this.estados.find((item: any) => item.id === id)
+  onChange(event: Event) {
+    console.log(this.estados)
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      const estado = this.buscarEstado(parseInt(target.value));
+      this._item.id_estado = estado.id;
+      this._item.estado = estado.estado
+    }
   }
 
+  formatDate(date: string): string {
+    if (!date) return '';
+
+    let d = new Date(date);
+    let year = d.getFullYear();
+    let month = ('0' + (d.getMonth() + 1)).slice(-2); // Meses son de 0-11
+    let day = ('0' + d.getDate()).slice(-2);
+    let hour = ('0' + d.getHours()).slice(-2);
+    let minute = ('0' + d.getMinutes()).slice(-2);
+
+    return `${year}-${month}-${day}T${hour}:${minute}`;
+  }
   updateItem(): void {
     console.log(this._item);
     if (this._item.dias) {
@@ -113,16 +128,17 @@ export class EditItemComponent {
     }, 2000);
   }
 
-
   onSearch() {
     // Implementar lógica de búsqueda
   }
 
   onClear() {
-    this.image = null;
-    let input = document.getElementById('itemPhoto') as HTMLInputElement;
-    if (input) {
-      input.value = ''; // Esto borrará el texto en el input de archivo
+    if (!this.locked) {
+      this.image = null;
+      let input = document.getElementById('itemPhoto') as HTMLInputElement;
+      if (input) {
+        input.value = ''; // Esto borrará el texto en el input de archivo
+      }
     }
   }
 
@@ -136,13 +152,20 @@ export class EditItemComponent {
       reader.onload = () => {
         // console.log(reader.result as string);  // Aquí tienes el DataURL del archivo
         this.image = reader.result as string // Aquí tienes el DataURL del archivo
-        // Puedes asignar esto a una variable si deseas mostrar la imagen en tu plantilla
+        this._item.imagen = this.image
       };
 
       // Si necesitas subir el archivo a un servidor, aquí iría esa lógica
     }
   }
+  numberOnly(event: any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    const strValue = event.target.value
+    if (charCode === 46) return !strValue.includes('.')
+    if (!(charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46))
+      return (strValue.includes('.')) ? (!(strValue.split('.')[1].length >= 2)) : true
+    return false
+  }
 
-  onChange(event: Event) { return this.child.onChange(event); }
-  // Puedes incluir otros métodos según sea necesario
+
 }

@@ -1,0 +1,53 @@
+<!-- Cliente (No editable) -->
+<div class="mb-3">
+  <label for="itemCliente" class="form-label"><b>Cliente:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemCliente"
+    name="cliente"
+    [ngModel]="_item.cliente"
+    disabled
+  />
+</div>
+
+<!-- Artículo -->
+<div class="mb-3">
+  <label for="itemName" class="form-label"><b>Nombre del Artículo:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemName"
+    name="item"
+    [(ngModel)]="_item.articulo"
+    disabled
+  />
+</div>
+
+<div class="mb-3">
+  <label for="dias" class="form-label"><b>Días:</b></label>
+  <select
+    class="form-control"
+    id="dias"
+    name="dias"
+    (change)="onDaysChange($event)"
+    [ngModel]="selectedDays"
+  >
+    <option value="0" disabled selected>Selecciona el número de días</option>
+    <option *ngFor="let dia of dias" [value]="dia">{{ dia }} Dias</option>
+  </select>
+</div>
+
+<div *ngIf="image" class="image-preview d-flex justify-content-center">
+  <img
+    [src]="image"
+    alt="Vista previa de la imagen"
+    class="img-thumbnail square-img"
+  />
+</div>
+
+<div class="mb-3 text-end">
+  <button type="button" class="btn btn-success" (click)="onAuthorize()">
+    Autorizar
+  </button>
+</div>

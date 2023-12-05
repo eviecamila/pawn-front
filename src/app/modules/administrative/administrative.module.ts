@@ -20,6 +20,9 @@ import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
 import { SharedModule } from '../shared/shared/shared.module';
+import { AuthorizeItemComponent } from 'src/app/a_admin/item/authorize-item/authorize-item.component';
+import { EditQuotationComponent } from 'src/app/a_admin/item/quotation/quotation.component';
+import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -42,7 +45,9 @@ import { SharedModule } from '../shared/shared/shared.module';
     ItemCardComponent,
     EditItemComponent,
     NewItemComponent,
-
+    AuthorizeItemComponent,
+    EditQuotationComponent,
+    NewClientComponent
   ],
   imports: [
     CommonModule,
