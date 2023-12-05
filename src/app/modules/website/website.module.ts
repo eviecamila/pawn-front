@@ -42,6 +42,7 @@ import { TiposItemComponent } from 'src/app/templates/administrative/tipos-item/
 import { CollapsibleMenuComponent } from 'src/app/templates/collapsible-menu/collapsible-menu.component';
 import { HrefItemCardComponent } from 'src/app/templates/cuincard/href-item-card/href-item-card.component';
 import { QuotationsComponent } from 'src/app/paths/pawn/quotations/quotations.component';
+import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { QuotationsComponent } from 'src/app/paths/pawn/quotations/quotations.co
     TiposItemComponent,
     CollapsibleMenuComponent,
     HrefItemCardComponent,
-    QuotationsComponent
+    QuotationsComponent,
+    NewClientComponent
   ],
   imports: [
     CommonModule,
@@ -97,7 +99,8 @@ import { QuotationsComponent } from 'src/app/paths/pawn/quotations/quotations.co
     // FocusablecardComponent
     ItemcardComponent,
     HrefItemCardComponent,
-    QrScannerComponent
+    QrScannerComponent,
+    NewClientComponent
 
   ],
 })

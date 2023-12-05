@@ -68,7 +68,8 @@ export class ClientsComponent implements OnInit {
     color:'danger',event:'onChupada()', name:'Chupar'},
 
     ]"
-  >
+  ><div class="">
+
   <div class="card-body">
     <div class="d-flex justify-content-center">
       <!-- Icono de usuario para el nombre -->
@@ -95,6 +96,7 @@ export class ClientsComponent implements OnInit {
     <div class="card-footer">
 asd
 </div>
+  </div>
   </app-abc-card>
   `,
   styleUrls: ['./clients.component.css', '../abc.component.css'],

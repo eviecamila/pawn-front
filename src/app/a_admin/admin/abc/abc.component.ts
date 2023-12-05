@@ -128,9 +128,9 @@ export class AbcComponent implements OnInit {
   }
   async ngOnInit() {
     await this.instance.isInstanceReady
-   }
+  }
 
-  isInstanceReady:boolean = false;
+  isInstanceReady: boolean = false;
   onActivate(component: any) {
     this.instance = component;
     if (this.instance) {
@@ -187,13 +187,15 @@ export class AbcComponent implements OnInit {
 @Component({
   selector: 'app-abc-card',
   template: `
-    <div class="grid-item image">
+    <div class="card">
+    <div class="">
           <img *ngIf="img" [src]="img"class="img-fluid square-img rounded"
           />
         </div>
         <div class="grid-item info text-center">
         <ng-content></ng-content>
         </div>
+    </div>
 
   `,
   styleUrls: ['./abc.component.css'],

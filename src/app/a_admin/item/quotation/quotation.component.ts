@@ -4,9 +4,7 @@ import { ItemsService } from 'src/app/services/items.service';
 import { PawnService } from 'src/app/services/pawn.service';
 import { pawnItem } from 'src/app/model/item.model';
 import { ToastrService } from 'ngx-toastr';
-import { ClientService } from 'src/app/services/client.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
-import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-quotation-item',
@@ -46,7 +44,6 @@ export class EditQuotationComponent implements OnInit {
   constructor(
     private itemService: ItemsService,
     private toastr: ToastrService,
-    private route: ActivatedRoute,
     private pawn: PawnService,
     public darkModeService: DarkModeService
   ) { }

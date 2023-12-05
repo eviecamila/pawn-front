@@ -1,6 +1,7 @@
 import { NgModule, Input } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxScannerQrcodeComponent } from 'ngx-scanner-qrcode';
+import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 import { WebsiteComponent } from 'src/app/a_website/website/website.component';
 import { FaqComponent } from 'src/app/paths/faq/faq.component';
 import { IndexComponent } from 'src/app/paths/index/index.component';
@@ -28,6 +29,11 @@ const routes: Routes = [
         path: 'index',
         component: IndexComponent
       },
+      {
+        path: 'newclient',
+        component: NewClientComponent
+      },
+
       {
         path: 'register',
         component: RegisterClientComponent

@@ -13,8 +13,7 @@ import { EditQuotationComponent } from '../quotation/quotation.component';
   templateUrl: './edit-item.component.html'
 })
 export class EditItemComponent {
-  child: EditQuotationComponent = new EditQuotationComponent(this.itemService, this.toastr,
-    this.route, this.pawn, this.darkModeService)
+  child: EditQuotationComponent = new EditQuotationComponent(this.itemService, this.toastr, this.pawn, this.darkModeService)
   @Output() form = new EventEmitter<any>();
   @Input() input!: any;
   dias = [30, 90, 180, 360];

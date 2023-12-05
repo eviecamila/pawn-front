@@ -78,7 +78,7 @@ export class NewItemComponent {
       this.clientService.get(this.newItem.curp).subscribe((data: any) => {
         if (data.clientes.length !== 1) {
           if(confirm("Cliente no registrado. ¿Desea crear un nuevo cliente?")){
-
+            location.href='/admin/newclient?t=1'
           }
         }
         this.cliente = data.clientes[0]; return true

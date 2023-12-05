@@ -10,6 +10,7 @@ import { AdminIndexComponent } from 'src/app/a_admin/admin/admin-index/admin-ind
 import { AdminComponent } from 'src/app/a_admin/admin/admin.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
 import { LoginComponent } from 'src/app/a_admin/auth/login/login.component';
+import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
 const routes: Routes = [
@@ -75,6 +76,10 @@ const routes: Routes = [
       {
         path: 'newitem',
         component: NewItemComponent,
+      },
+      {
+        path: 'newclient',
+        component: NewClientComponent,
       },
       {
         path: 'edititem',

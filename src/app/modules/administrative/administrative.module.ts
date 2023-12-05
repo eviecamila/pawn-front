@@ -47,7 +47,7 @@ import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client
     NewItemComponent,
     AuthorizeItemComponent,
     EditQuotationComponent,
-    NewClientComponent
+    // NewClientComponent
   ],
   imports: [
     CommonModule,

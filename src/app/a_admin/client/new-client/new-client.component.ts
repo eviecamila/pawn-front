@@ -1,17 +1,33 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ClientService } from 'src/app/services/client.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-client',
   templateUrl: './new-client.component.html',
   styleUrls: ['./new-client.component.css']
 })
 export class NewClientComponent implements OnInit {
+  t = false;
+  titulo = '';
+  w = false;
+  href = '/admin/newclient';
+  output = ''
   @Output() form = new EventEmitter();
   constructor(
     private toastr: ToastrService,
-    private clients: ClientService) {
+    private clients: ClientService,
+    private route: ActivatedRoute,) {
+    this.route.queryParams.subscribe((p: any) => {
+      this.t = p.t ? true : false;
+      this.w = p.w ? true : false;
+      this.newClient.curp = p.curp?p.curp.toUpperCase():''
+      if (this.t) {
+        this.output = ', Redireccionando...'
+      }
+      this.titulo = this.w?'Registrate Ahora Mismo!':'Crear Nuevo Cliente';
+      this.href = this.w ? '/web/pawn/quotations':this.href
+    })
 
   }
   newClient: any = {
@@ -34,11 +50,15 @@ export class NewClientComponent implements OnInit {
   async createNewClient() {
     if (this.onValidate()) {
       await this.clients.register(this.newClient).subscribe((data: any) => {
-        if (data.status === 'OK') this.toastr.success(data.message)
+        if (data.status === 'OK')
+        {
+           this.toastr.success(data.message + this.output)
+           if (this.w)this.href+='?curp=' + this.newClient.curp
+          }
         else this.toastr.error(data.message)
       })
       setTimeout(() => {
-        location.reload()
+        location.href = this.href
       }, 3000);
     }
   }
