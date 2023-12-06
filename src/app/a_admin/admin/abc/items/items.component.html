@@ -1,10 +1,8 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let item of found">
-    <div class="grid-container card container">
       <ng-container *ngIf="item; else loadingTemplate">
         <app-abc-item-card [data]="item"></app-abc-item-card>
       </ng-container>
-    </div>
   </div>
   <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>

@@ -7,7 +7,16 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
-  @Output() data = new EventEmitter<any>();
+  data = {
+    icon: 'gem',
+    description: 'Inventario de pertenencias, para agregar y manejar los artículos disponibles.',
+    type: 'Pertenencias',
+    response: 'items',
+    searchPlaceholder: 'Inserta el ID de la pertenencia',
+    searchLength: 0,
+    url: '/items/',
+    urls: { 'search': '?estado=Empeñado&id=' },
+  }
   @Output() form = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
@@ -18,12 +27,6 @@ export class ItemsComponent {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-  forms: any = {
-    add: 'agregando',
-    edit: 'modificando',
-    delete: 'borrando',
-  }
-
   openModal() {
     this.modal.openModal();
   }
@@ -37,17 +40,6 @@ export class ItemsComponent {
   }
   @Input() found: any = [];
   ngOnInit(): void {
-    this.data.emit({
-      icon: 'gem',
-      description: 'Inventario de pertenencias, para agregar y manejar los artículos disponibles.',
-      type: 'Pertenencias',
-      response: 'items',
-      forms: this.forms,
-      searchPlaceholder: 'Inserta el ID de la pertenencia',
-      searchLength: 0,
-      url: '/items/',
-      urls: { 'search': '?id=' },
-    });
   }
   onSave(event: any): void { this.form.emit(event); }
 }
@@ -71,7 +63,7 @@ export class ItemsComponent {
 
     ]"
 >
-<div class="card-body" [attr.data-bs-theme]="modo">
+<div class="card-body"[attr.data-bs-theme]="modo">
   <div class="d-flex justify-content-center">
     <i class="bi bi-person-fill"></i>
     <h5 class="card-title ms-2">{{data.cliente}} - {{data.articulo}}</h5>
@@ -115,6 +107,7 @@ export class ItemsComponent {
           Revisado por el valuador: <span [class]="'text-'+(data.revisado?'success':'danger')"> {{data.revisado ? 'Sí' : 'No' }}</span>
   </p>
 </div>
+<br><br>
 <div class="card-footer">
 asd
 </div>

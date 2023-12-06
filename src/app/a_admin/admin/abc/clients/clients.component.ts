@@ -9,7 +9,17 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class ClientsComponent implements OnInit {
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
-  @Output() data = new EventEmitter<any>();
+  data = {
+    icon: 'person',
+    description:
+      'Administración de clientes, permitiendo acceder y modificar sus datos.',
+    type: 'Clientes',
+    response: 'clientes',
+    searchPlaceholder: 'CURP: PPLU020222MSLLLPA5',
+    searchLength: 18,
+    url: '/clients',
+    urls: { search: '?curp=' },
+  }
   @Input() mode: any = 'add';
   @Input() modo!: any
   constructor(
@@ -32,35 +42,11 @@ export class ClientsComponent implements OnInit {
     // this.client.register(event);
   }
   @Input() found: any = [];
-  forms: any = {
-    add: 'agregando',
-    edit: 'modificando',
-    delete: 'borrando',
-  };
-  ngOnInit(): void {
-    this.data.emit({
-      icon: 'person',
-      description:
-        'Administración de clientes, permitiendo acceder y modificar sus datos.',
-      type: 'Clientes',
-      response: 'clientes',
-      forms: this.forms,
-      searchPlaceholder: 'CURP: PPLU020222MSLLLPA5',
-      searchLength: 18,
-      url: '/clients',
-      urls: { search: '?curp=' },
-    });
-  }
-
+  ngOnInit(): void {}
 }
-
 @Component({
   selector: 'app-client-card',
   template: `<app-abc-card
-    [btn]="{
-    editar: true,
-    desactivar: false,
-  }"
     [botones]="[
       {icon:'power',
     color:'danger',event:'onDeactivate()', name:'Desactivar'},
@@ -93,8 +79,32 @@ export class ClientsComponent implements OnInit {
     <p class="card-text m-0">
       <i title="Email" class="bi bi-envelope-fill"></i> Email: {{ data.email }}
     </p></div>
-    <div class="card-footer">
-asd
+    <div class="card-footer text-center">
+<!-- Aquí irán los botones-->
+  <!-- Editar -->
+  <button
+    (click)="sendEvent('edit')"
+    class="btn btn-primary text-center"
+    type="button"
+    style="width: 80%"
+>
+  <div class="text-center">
+    <i class="bi bi-pencil"></i>&nbsp;&nbsp;&nbsp;<span>Ver/Editar</span>
+  </div>
+</button>
+<br><br>
+    <!-- Guardar -->
+    <button
+    (click)="sendEvent('history')"
+    class="btn btn-success text-center"
+    type="button"
+    style="width: 80%"
+>
+  <div class="text-center">
+    <i class="bi bi-clock-history"></i>&nbsp;&nbsp;&nbsp;<span>Ver articulos</span>
+  </div>
+</button>
+    <!-- Generame otro -->
 </div>
   </div>
   </app-abc-card>
@@ -103,4 +113,12 @@ asd
 })
 export class ClientCardComponent {
   @Input() data!: any;
+  @Output() id = new EventEmitter();
+
+  sendEvent(mode:string) {
+    this.id.emit({
+      id: this.data.id,
+      mode: mode,
+    });
+  }
 }

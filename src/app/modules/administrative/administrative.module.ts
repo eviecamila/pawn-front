@@ -14,7 +14,7 @@ import { ItemCardComponent, ItemsComponent } from 'src/app/a_admin/admin/abc/ite
 import { ClientCardComponent, ClientsComponent } from 'src/app/a_admin/admin/abc/clients/clients.component';
 import { EmployeeCardComponent, EmployeeComponent } from 'src/app/a_admin/admin/abc/employee/employee.component';
 import { SellingsComponent } from 'src/app/a_admin/admin/abc/sellings/sellings.component';
-import { PawnComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
+import { PawnCardComponent, PawnComponent, PawnPayComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
 import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotations.component';
 import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal-new';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
@@ -47,7 +47,8 @@ import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client
     NewItemComponent,
     AuthorizeItemComponent,
     EditQuotationComponent,
-    // NewClientComponent
+    PawnCardComponent,
+    PawnPayComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,5 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let cliente of found">
-
       <ng-container *ngIf="cliente; else loadingTemplate">
         <app-client-card [data]="cliente"></app-client-card>
       </ng-container>

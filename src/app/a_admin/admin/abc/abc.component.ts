@@ -135,10 +135,10 @@ export class AbcComponent implements OnInit {
     this.instance = component;
     if (this.instance) {
       this.isInstanceReady = true;
-      component.data.subscribe((data: any) => {
-        this.data = data;
-        console.log(this.instance);
-      });
+      // component.data.subscribe((data: any) => {
+        this.data = component.data;
+      // });
+      console.log(this.data);
     }
   }
 
@@ -188,7 +188,7 @@ export class AbcComponent implements OnInit {
   selector: 'app-abc-card',
   template: `
     <div class="card">
-    <div class="">
+    <div class="card-body">
           <img *ngIf="img" [src]="img"class="img-fluid square-img rounded"
           />
         </div>

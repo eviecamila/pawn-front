@@ -21,32 +21,25 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  @Output() data = new EventEmitter<any>();
+  data = {
+    icon: 'headset',
+    description: 'Gestión de empleados, incluyendo agregar, dar de baja y modificar información del empleado.',
+    type: 'Empleados',
+    response: 'empleados',
+    searchPlaceholder: 'RFC: PPLU020222HD3',
+    searchLength: 13,
+    url: '/rrhh/',
+    urls: { 'search': '?rfc=' },
+    buttons: {
+      edit: true,
+      delete: true,
+    }
+  }
   @Input() mode: any = 'add';
 
   @Input() found: any = [];
-
-  forms: any = {
-    add: 'agregando',
-    edit: 'modificando',
-    delete: 'borrando',
-  }
   ngOnInit(): void {
-    this.data.emit({
-      icon: 'headset',
-      description: 'Gestión de empleados, incluyendo agregar, dar de baja y modificar información del empleado.',
-      type: 'Empleados',
-      response: 'empleados',
-      forms: this.forms,
-      searchPlaceholder: 'RFC: PPLU020222HD3',
-      searchLength: 13,
-      url: '/rrhh/',
-      urls: { 'search': '?rfc=' },
-      buttons: {
-        edit: true,
-        delete: true,
-      }
-    });
+
   }
 
 }
@@ -60,8 +53,10 @@ export class EmployeeComponent implements OnInit {
   {icon:'power',
   color:'danger',event:'onChupada()', name:'Chupar'},
 
-  ]"
-        ><div class="d-flex justify-content-center">
+  ]">
+  <div class="">
+
+<div class="card-body"><div class="d-flex justify-content-center">
           <!-- Icono de usuario para el nombre -->
           <i class="bi bi-person-fill"></i>
           <h5 class="card-title ms-2">{{data.nombre}} {{data.ap1}} {{data.ap2}} </h5>
@@ -92,17 +87,20 @@ export class EmployeeComponent implements OnInit {
         <p class="card-text m-0">
           <i title="Activo" [class]="'bi bi-'+data.activo?'check2-circle':'x-circle-fill'"></i> Activo:
           <span class="text-success"> {{data.activo ? 'Sí' : 'No' }}</span>
-        </p>
+        </p></div>
+        <br><br>
+        <div class="card-footer">asd
+</div></div>
       </app-abc-card>`,
   styleUrls: ['./employee.component.css',
     '../abc.component.css'],
 })
 export class EmployeeCardComponent {
   @Input() data!: any;
-  onDeactivate(){
+  onDeactivate() {
     console.log('me desactivan')
   }
-  onChupada(){
+  onChupada() {
     console.log('me la chupas')
   }
 
