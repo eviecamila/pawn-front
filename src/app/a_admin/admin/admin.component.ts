@@ -23,10 +23,10 @@ export class AdminComponent implements OnInit {
     if (this.isAuth) {
       this.auth.currentUser(localStorage.getItem('token')).subscribe((res) => {
         this.user = res;
+        this.ready = true
       });
     }
     else location.href = 'admin/login'
-    this.ready = true
   }
   async ngOnInit() {
     await this.ready;

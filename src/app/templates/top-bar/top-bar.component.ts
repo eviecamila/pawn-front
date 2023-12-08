@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
+declare var $:any;
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -10,9 +11,6 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
     '../../../styles.css'
   ],
 })
-
-
-
 export class TopBarComponent implements OnInit {
   @Input() modo!: string
 

@@ -42,6 +42,7 @@
           class="nav-link"
           tabindex="-1"
           aria-disabled="true"
+          [style.cursor]="'pointer'"
           (click)="isAuth ? onLogout() : onLogin()"
           >{{ isAuth ? "Cerrar" : "Iniciar" }} Sesion</a
         >

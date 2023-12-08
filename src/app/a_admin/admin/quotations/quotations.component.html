@@ -1,10 +1,14 @@
 <h2>
   Hay <b>{{ found.length }}</b> cotizaciones pendientes de revisar
 </h2>
+
 <div class="container-xl">
   <div class="row text-center">
     <!-- Box 1 -->
-
+    <h1 *ngIf="!found.length">
+      <br><br>
+      Siento que deberias hacer otra cosa, pin$h3 empleado 🥚
+    </h1>
     <div
       class="col-md-6"
       *ngFor="let item of found"

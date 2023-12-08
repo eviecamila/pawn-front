@@ -31,8 +31,9 @@
   color: rgb(188, 164, 255);
 
 }
-.form-group.focused.dark input{
-  color:white
+
+.form-group.focused.dark input {
+  color: white
 }
 
 @media (max-width: 768px) {
@@ -90,4 +91,33 @@
 #btnLogin.valid {
   cursor: pointer;
   background-color: rgb(9, 190, 182);
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+.dinamico{
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .dinamico {
+    width: 90%;
+  }
+
 }

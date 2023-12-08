@@ -30,7 +30,7 @@ export class LoginComponent {
 
   login() {
     $.blockUI({
-      message: '<i class="icon-spinner4 spinner"></i>',
+      message: '<div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
       overlayCSS: {
         backgroundColor: '#1b2024',
         opacity: 0.8,
@@ -45,6 +45,7 @@ export class LoginComponent {
         backgroundColor: 'transparent',
       },
     });
+    // Para desbloquear la UI después de un tiempo determinado (ejemplo: 3 segundos)
     this.auth.login({
       username: this.username,
       password: this.password

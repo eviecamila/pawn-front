@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'web', // Redirigir a la ruta "web" por defecto
+    redirectTo: 'setup', // Redirigir a la ruta "web" por defecto
     pathMatch: 'full'
   },
 ];

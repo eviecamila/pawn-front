@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ScreenService } from 'src/app/services/screen.service';
+import { AdminComponent } from '../admin.component';
 @Component({
   selector: 'app-admin-index',
   templateUrl: './admin-index.component.html',
   styleUrls: ['./admin-index.component.css']
 })
-export class AdminIndexComponent {
+export class AdminIndexComponent implements OnInit {
+  user!:any;
   constructor(
     public screen: ScreenService,
+    public parent:AdminComponent
   ) { }
   getIcons() { return indexAbcs }
-
+  async ngOnInit() {
+    await this.parent.ready;
+    this.user=this.parent.user;
+    console.log(this.user);
+  }
 };
 export const indexAbcs = [
   {
