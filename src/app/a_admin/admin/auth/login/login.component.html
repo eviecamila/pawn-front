@@ -1,0 +1,81 @@
+<app-switch-dark-mode style="position: absolute; top: 20px; right: 20px">
+</app-switch-dark-mode>
+
+<div
+  style="
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+  "
+  [style]="'background:#' + (modo === 'light' ? 'fff' : '000')"
+>
+  <div
+    [style]="'color:#' + (modo === 'light' ? '000' : 'fff')"
+    class="login-container w-100"
+  >
+    <div class="text-center">
+      <h1>
+        <b
+          >Empeños Pesados
+          <img [class]="'logo-' + modo" src="/assets/logo.png" height="50px" />
+        </b>
+      </h1>
+    </div>
+    <br /><br />
+    <div class="wiwi">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div
+          [class.dark]="modo === 'dark'"
+          class="form-group"
+          [class.focused]="usernameFocused || username"
+        >
+          <label for="username">Nombre de Usuario (RFC)</label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            [(ngModel)]="username"
+            (focus)="usernameFocused = true"
+            (blur)="usernameFocused = false"
+            required
+          />
+        </div>
+
+        <div
+          [class.dark]="modo == 'dark'"
+          class="form-group"
+          [class.focused]="passwordFocused || password"
+        >
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            (focus)="passwordFocused = true"
+            (blur)="passwordFocused = false"
+            required
+          />
+        </div>
+        <div class="text-center w-100">
+          <!-- <br /><br />
+      <a class="nav-link" href="/recuperar">¿Olvidó su contraseña?</a> -->
+          <br /><br />
+          <button
+            [class]="loginForm.valid ? 'valid' : ''"
+            id="btnLogin"
+            class="w-100"
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
+            Entrar
+          </button>
+          <br /><br />
+          <!-- <a class="nav-link" href="/crear-cuenta">CREAR CUENTA</a> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

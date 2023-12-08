@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupComponent } from './paths/setup/setup.component';
-import { SharedModule } from './modules/shared/shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ SetupComponent,
     WebsiteModule,
     AdministrativeModule,
     SharedModule,
+    AuthModule,
     ToastrModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,

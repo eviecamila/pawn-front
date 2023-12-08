@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
@@ -14,8 +15,12 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 export class TopBarComponent implements OnInit {
   @Input() modo!: string
+
   @Input() admin: boolean = false
-  constructor(public darkModeService: DarkModeService) {
+  @Input() isAuth!: boolean
+  constructor(
+    private auth: AuthService,
+    public darkModeService: DarkModeService) {
     this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
       // Actualiza la variable modo en función del estado del modo oscuro
       this.modo = !isDarkMode ? 'light' : 'dark';
@@ -43,6 +48,7 @@ export class TopBarComponent implements OnInit {
     setTimeout(() => {
       this.openSidebar();
     }, 400); // Cambia el valor según tus necesidades
+    console.log('en la topbar dice que es' + this.isAuth)
   }
 
   detectScreenWidth() {
@@ -52,8 +58,8 @@ export class TopBarComponent implements OnInit {
       this.closeMenu();
     }
   }
-  getAdminItems(){return adminItems}
-  getItems(){return Items}
+  getAdminItems() { return adminItems }
+  getItems() { return Items }
   openSidebar() {
     // Obtener el elemento de la barra lateral
     let x: HTMLElement | null = document.querySelector('.sidebar');
@@ -63,55 +69,66 @@ export class TopBarComponent implements OnInit {
       x.classList.add('sidebar-open');
     }
   }
-
+  onLogout() {
+    if (this.admin && this.isAuth)
+      this.auth.logout().subscribe((data: any) => {
+        if (data.status==='OK'){
+          location.reload();
+        }
+      });
+  }
+  onLogin() {
+    if (this.admin && !this.isAuth)
+      location.href = 'admin/login';
+  }
 }
 
 
 export let adminItems = [
   {
-    name:'Clientes',
-    href:'clients',
+    name: 'Clientes',
+    href: 'clients',
   },
   {
-    name:'Pertenencias',
-    href:'items',
+    name: 'Pertenencias',
+    href: 'items',
   },
   {
-    name:'Empleados',
-    href:'rrhh',
+    name: 'Empleados',
+    href: 'rrhh',
   },
   {
-    name:'Abonos',
-    href:'pay',
+    name: 'Abonos',
+    href: 'pay',
   },
   {
-    name:'Cotizaciones',
-    href:'quotations',
+    name: 'Cotizaciones',
+    href: 'quotations',
   },
   {
-    name:'Inversiones',
-    href:'invest',
+    name: 'Inversiones',
+    href: 'invest',
   },
 ];
 export let Items = [
   {
-    name:'Empeños',
-    href:'pawn',
+    name: 'Empeños',
+    href: 'pawn',
   },
   {
-    name:'Calcular Empeño',
-    href:'pawn/calc',
+    name: 'Calcular Empeño',
+    href: 'pawn/calc',
   },
   {
-    name:'Cotizar Ahora',
-    href:'pawn/quotations',
+    name: 'Cotizar Ahora',
+    href: 'pawn/quotations',
   },
   {
-    name:'Abonar',
-    href:'pay',
+    name: 'Abonar',
+    href: 'pay',
   },
   {
-    name:'Inversiones',
-    href:'invest',
+    name: 'Inversiones',
+    href: 'invest',
   },
 ];

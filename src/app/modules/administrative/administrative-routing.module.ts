@@ -8,12 +8,16 @@ import { PawnComponent } from 'src/app/a_admin/admin/abc/pawn/pawn.component';
 import { SellingsComponent } from 'src/app/a_admin/admin/abc/sellings/sellings.component';
 import { AdminIndexComponent } from 'src/app/a_admin/admin/admin-index/admin-index.component';
 import { AdminComponent } from 'src/app/a_admin/admin/admin.component';
+import { LoginComponent } from 'src/app/a_admin/admin/auth/login/login.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
-import { LoginComponent } from 'src/app/a_admin/auth/login/login.component';
 import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: '',
     component: AdminComponent,
@@ -28,10 +32,6 @@ const routes: Routes = [
         component: AdminIndexComponent,
         children: [
         ]
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
       },
       {
         path: 'abc',

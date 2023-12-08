@@ -5,7 +5,6 @@ import { AdministrativeRoutingModule } from './administrative-routing.module';
 import { WebsiteModule } from '../website/website.module';
 import { AdminComponent } from 'src/app/a_admin/admin/admin.component';
 import { AdminIndexComponent } from 'src/app/a_admin/admin/admin-index/admin-index.component';
-import { LoginComponent } from 'src/app/a_admin/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AbcComponent, AbcCardComponent, AbcCardContainerComponent, AbcModalComponent } from 'src/app/a_admin/admin/abc/abc.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
@@ -19,15 +18,14 @@ import { QuotationsComponent } from 'src/app/a_admin/admin/abc/quotations/quotat
 import { CreateModalComponent } from 'src/app/a_admin/admin/abc/components/modal-new';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
-import { SharedModule } from '../shared/shared/shared.module';
 import { AuthorizeItemComponent } from 'src/app/a_admin/item/authorize-item/authorize-item.component';
 import { EditQuotationComponent } from 'src/app/a_admin/item/quotation/quotation.component';
-import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
+import { SharedModule } from '../shared/shared.module';
+import { AuthModule } from '../auth/auth.module';
 @NgModule({
   declarations: [
     AdminComponent,
     AdminIndexComponent,
-    LoginComponent,
     AbcComponent,
     ClientsComponent,
     EmployeeComponent,
@@ -53,9 +51,10 @@ import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client
   imports: [
     CommonModule,
     AdministrativeRoutingModule,
-    SharedModule,
     WebsiteModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    AuthModule
     // Items,
     // adminItems
   ]

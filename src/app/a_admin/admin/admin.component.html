@@ -1,10 +1,10 @@
-<div
+<div *ngIf="ready"
   style="height: 100vh"
   [ngStyle]="{
     background: modo === 'dark' ? '#2d3436' : '#fff'
   }"
 >
-  <app-top-bar [admin]="true" ></app-top-bar>
+  <app-top-bar [isAuth]="isAuth" [admin]="true"></app-top-bar>
   <app-content [admin]="true" [modo]="modo"
     ><router-outlet></router-outlet
   ></app-content>

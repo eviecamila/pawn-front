@@ -1,0 +1,93 @@
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid grey;
+  background-color: transparent;
+  outline: none;
+}
+
+.form-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form-group.focused label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: rgb(247, 0, 255)
+}
+
+.form-group.focused.dark label {
+  color: rgb(188, 164, 255);
+
+}
+.form-group.focused.dark input{
+  color:white
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 769px) {
+  .login-container {
+    display: grid;
+    place-items: center;
+  }
+
+  .wiwi {
+    width: 30%;
+  }
+}
+
+* {
+  font-family: Open Sans;
+}
+
+#btnLogin {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0px;
+  user-select: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 36px;
+  border-radius: 10px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  top: 0px;
+  line-height: 36px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  outline: none;
+  border: 10px;
+  /* Consider revising this value as '10px' might be more appropriate */
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+  background-color: rgb(229, 229, 229);
+}
+
+
+#btnLogin.valid {
+  cursor: pointer;
+  background-color: rgb(9, 190, 182);
+}

@@ -14,20 +14,36 @@
     >
       <span class="navbar-toggler-icon"></span>
     </a>
-    <div class="collapse navbar-collapse" id="navbarNav"
-    [class]="modo === 'dark' ? 'd' : 'l'">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav"
+      [class]="modo === 'dark' ? 'd' : 'l'"
+    >
       <div class="ms-auto"></div>
       <ul class="navbar-nav">
-        <li class="nav-item" *ngFor="let item of (admin?getAdminItems():getItems())">
-          <a class="nav-link active" aria-current="page" [href]="(admin?'admin':'web')+'/'+item.href">{{item.name}}</a>
+        <li
+          class="nav-item"
+          *ngFor="let item of admin ? getAdminItems() : getItems()"
+        >
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [href]="(admin ? 'admin' : 'web') + '/' + item.href"
+            >{{ item.name }}</a
+          >
         </li>
         <li class="nav-item ms-auto">
           <app-switch-dark-mode class="nav-link suich"></app-switch-dark-mode>
         </li>
       </ul>
       <div class="ms-auto">
-        <a *ngIf="admin" class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-          >Iniciar Sesion</a
+        <a
+          *ngIf="admin"
+          class="nav-link"
+          tabindex="-1"
+          aria-disabled="true"
+          (click)="isAuth ? onLogout() : onLogin()"
+          >{{ isAuth ? "Cerrar" : "Iniciar" }} Sesion</a
         >
       </div>
     </div>
