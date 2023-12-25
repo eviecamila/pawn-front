@@ -61,5 +61,11 @@ export const indexAbcs = [
     name: "Inversiones",
     href: "admin/abc/invest",
     description: "Manejo de inversiones",
+  },
+  {
+    icon: "person-fill",
+    name: "Mi Perfil",
+    href: "admin/profile",
+    description: "Editar perfil",
   }
 ]

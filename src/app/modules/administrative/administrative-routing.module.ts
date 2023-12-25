@@ -10,9 +10,11 @@ import { AdminIndexComponent } from 'src/app/a_admin/admin/admin-index/admin-ind
 import { AdminComponent } from 'src/app/a_admin/admin/admin.component';
 import { LoginComponent } from 'src/app/a_admin/admin/auth/login/login.component';
 import { PendingQuotationsComponent } from 'src/app/a_admin/admin/quotations/quotations.component';
+import { EditClientComponent } from 'src/app/a_admin/client/edit-client/edit-client.component';
 import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client.component';
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
+import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -32,6 +34,10 @@ const routes: Routes = [
         component: AdminIndexComponent,
         children: [
         ]
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
       {
         path: 'abc',
@@ -80,6 +86,10 @@ const routes: Routes = [
       {
         path: 'newclient',
         component: NewClientComponent,
+      },
+      {
+        path: 'editclient',
+        component: EditClientComponent,
       },
       {
         path: 'edititem',

@@ -1,0 +1,128 @@
+<h1 *ngIf="t">
+  &nbsp;&nbsp;<b>{{ t?"Crear nuevo Empleado":"" }}</b>
+</h1>
+<form (submit)="createNewEmployee()">
+  <div class="mb-3">
+    <label for="employeeNombre" class="form-label">Nombre:</label>
+    <input
+      [(ngModel)]="newEmployee.nombre"
+      type="text"
+      class="form-control"
+      id="employeeNombre"
+      name="nombre"
+      placeholder="Nombre completo"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeApellido1" class="form-label">Primer Apellido:</label>
+    <input
+      [(ngModel)]="newEmployee.apellido1"
+      type="text"
+      class="form-control"
+      id="employeeApellido1"
+      name="apellido1"
+      placeholder="Primer Apellido"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeApellido2" class="form-label">Segundo Apellido:</label>
+    <input
+      [(ngModel)]="newEmployee.apellido2"
+      type="text"
+      class="form-control"
+      id="employeeApellido2"
+      name="apellido2"
+      placeholder="Segundo Apellido"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeRFC" class="form-label">RFC:</label>
+    <input
+      [(ngModel)]="newEmployee.rfc"
+      type="text"
+      class="form-control"
+      id="employeeRFC"
+      name="rfc"
+      placeholder="RFC"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeNSS" class="form-label">NSS:</label>
+    <input
+      [(ngModel)]="newEmployee.nss"
+      type="text"
+      class="form-control"
+      id="employeeNSS"
+      name="nss"
+      placeholder="Número de Seguro Social"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeTelefono" class="form-label">Teléfono:</label>
+    <input
+      [(ngModel)]="newEmployee.telefono"
+      type="text"
+      class="form-control"
+      id="employeeTelefono"
+      name="telefono"
+      placeholder="Número de teléfono"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeePuesto" class="form-label">Puesto:</label>
+    <input
+      [(ngModel)]="newEmployee.puesto"
+      type="text"
+      class="form-control"
+      id="employeePuesto"
+      name="puesto"
+      placeholder="Puesto"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeArea" class="form-label">Área:</label>
+    <input
+      [(ngModel)]="newEmployee.area"
+      type="text"
+      class="form-control"
+      id="employeeArea"
+      name="area"
+      placeholder="Área"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="employeeSalario" class="form-label">Salario:</label>
+    <input
+      [(ngModel)]="newEmployee.salario"
+      type="number"
+      class="form-control"
+      id="employeeSalario"
+      name="salario"
+      placeholder="Salario"
+      required
+    />
+  </div>
+
+  <!-- Agregar otros campos según sea necesario -->
+
+  <br />
+  <div class="text-end">
+    <button type="submit" class="btn btn-primary">Guardar employeee</button>
+  </div>
+</form>

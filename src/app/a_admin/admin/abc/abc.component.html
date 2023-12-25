@@ -1,39 +1,69 @@
-<div class="header d-flex justify-content-between align-items-center" [attr.data-bs-theme]="modo">
+<div
+  class="header d-flex justify-content-between align-items-center"
+  [attr.data-bs-theme]="modo"
+>
   <div class=""></div>
   <h1 class="text-center">
     {{ data.type }}&nbsp;<i [class]="'bi bi-' + data.icon"></i>
   </h1>
   <div class="d-flex align-items-center">
-    <button (click)="openScanner()" title="QR Scanner" class="btn btn-secondary rounded-circle">
+    <button
+      (click)="openScanner()"
+      title="QR Scanner"
+      class="btn btn-secondary rounded-circle"
+    >
       <i class="bi bi-qr-code-scan"></i>
     </button>
     &nbsp;
     <button title="Info" class="btn btn-info ml-2 rounded-circle">
-      <i class="bi bi-info"></i></button>&nbsp;
-    <button *ngIf="!data.hide" (click)="onNew()" title="Add" class="btn btn-success ml-2 rounded-circle">
+      <i class="bi bi-info"></i></button
+    >&nbsp;
+    <button
+      *ngIf="!data.hide"
+      (click)="onNew()"
+      title="Add"
+      class="btn btn-success ml-2 rounded-circle"
+    >
       <i class="bi bi-plus"></i>
     </button>
     <a href="/admin/abc/items">
-      <button *ngIf="data.hide && data.type=='Empeños'" title="Add" class="btn btn-success ml-2 rounded-circle">
+      <button
+        *ngIf="data.hide && data.type == 'Empeños'"
+        title="Add"
+        class="btn btn-success ml-2 rounded-circle"
+      >
         <i class="bi bi-plus"></i>
       </button>
     </a>
-
   </div>
 </div>
 <br />
-<div class="header d-flex justify-content-between align-items-center" [attr.data-bs-theme]="modo">
+<div
+  class="header d-flex justify-content-between align-items-center"
+  [attr.data-bs-theme]="modo"
+>
   <!-- hacer que esto sea responsive en movil
     row si es en desktop
     columna si es en telefono
     -->
   <div class="col-md-1"></div>
   <div class="input-group">
-    <input type="text" [(ngModel)]="searchText" (ngModelChange)="onSearchChange()" class="form-control"
-      [placeholder]="data.searchPlaceholder + ' o deja vacio para buscar todos'" aria-label="Search"
-      aria-describedby="basic-addon2" />
-    <div class="input-group-append" style="z-index: 0;">
-      <button title="_" class="btn btn-outline-secondary" type="button" (click)="onSearch()">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (ngModelChange)="onSearchChange()"
+      class="form-control"
+      [placeholder]="data.searchPlaceholder + ' o deja vacio para buscar todos'"
+      aria-label="Search"
+      aria-describedby="basic-addon2"
+    />
+    <div class="input-group-append" style="z-index: 0">
+      <button
+        title="_"
+        class="btn btn-outline-secondary"
+        type="button"
+        (click)="onSearch()"
+      >
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -41,7 +71,12 @@
   <!-- no mostrar si es un  -->
   <div class="col-md-2"></div>
   <div class="input-group">
-    <select title="_" class="form-select" [(ngModel)]="selectedMode" (change)="onModeChange()">
+    <select
+      title="_"
+      class="form-select"
+      [(ngModel)]="selectedMode"
+      (change)="onModeChange()"
+    >
       <option [ngValue]="undefined" disabled selected>
         Selecciona un modo
       </option>
@@ -57,6 +92,14 @@
 <!-- {{ data.description }} -->
 
 <br /><br />
-<router-outlet (form)="onSave($event)" (activate)="onActivate($event)"></router-outlet>
-<app-abc-modal [ngModel]="qrScannerModal" (open)="openScanner()" (close)="closeScanner()"><app-qr-scanner
-    (scan)="onScan($event)" [ngModel]="qrScanner"><br></app-qr-scanner></app-abc-modal>
+<router-outlet
+  (form)="onSave($event)"
+  (activate)="onActivate($event)"
+></router-outlet>
+<app-abc-modal
+  [ngModel]="qrScannerModal"
+  (open)="openScanner()"
+  (close)="closeScanner()"
+  ><app-qr-scanner (scan)="onScan($event)" [ngModel]="qrScanner"
+    ><br /></app-qr-scanner
+></app-abc-modal>

@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { PawnService } from 'src/app/services/pawn.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { ClientService } from 'src/app/services/client.service';
+
+declare var $: any;
 @Component({
   selector: 'app-new-item',
   templateUrl: './new-item.component.html',
@@ -50,6 +52,22 @@ export class NewItemComponent {
       valid = true;
     }
     if (valid) {
+      $.blockUI({
+        message: '<div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
+        overlayCSS: {
+          backgroundColor: '#1b2024',
+          opacity: 0.8,
+          zIndex: 1200,
+          cursor: 'wait',
+        },
+        css: {
+          border: 0,
+          color: '#fff',
+          padding: 0,
+          zIndex: 1201,
+          backgroundColor: 'transparent',
+        },
+      });
       this.itemService.createItem(this.newItem)
         .subscribe((Response: any) => {
           if (Response.status === 'OK') {
@@ -61,6 +79,7 @@ export class NewItemComponent {
           setTimeout(() => { location.reload() }, 2000)
         });
     }
+    $.unblockUI();
 
 
 
@@ -77,8 +96,8 @@ export class NewItemComponent {
     if (this.newItem.curp.length === 18)
       this.clientService.get(this.newItem.curp).subscribe((data: any) => {
         if (data.clientes.length !== 1) {
-          if(confirm("Cliente no registrado. ¿Desea crear un nuevo cliente?")){
-            location.href='/admin/newclient?t=1'
+          if (confirm("Cliente no registrado. ¿Desea crear un nuevo cliente?")) {
+            location.href = '/admin/newclient?t=1'
           }
         }
         this.cliente = data.clientes[0]; return true

@@ -42,7 +42,7 @@ export class ClientsComponent implements OnInit {
     // this.client.register(event);
   }
   @Input() found: any = [];
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
 @Component({
   selector: 'app-client-card',
@@ -83,7 +83,7 @@ export class ClientsComponent implements OnInit {
 <!-- Aquí irán los botones-->
   <!-- Editar -->
   <button
-    (click)="sendEvent('edit')"
+    (click)="editClient(data.id)"
     class="btn btn-primary text-center"
     type="button"
     style="width: 80%"
@@ -115,10 +115,13 @@ export class ClientCardComponent {
   @Input() data!: any;
   @Output() id = new EventEmitter();
 
-  sendEvent(mode:string) {
+  sendEvent(mode: string) {
     this.id.emit({
       id: this.data.id,
       mode: mode,
     });
+  }
+  editClient(id: any) {
+
   }
 }

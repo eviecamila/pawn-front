@@ -6,3 +6,7 @@
   </div>
   <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>
+<app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
+  <app-new-employee></app-new-employee>
+  <!-- <app-new-client (form)="onSave($event)"></app-new-client> -->
+</app-abc-modal>

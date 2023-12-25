@@ -22,6 +22,9 @@ import { AuthorizeItemComponent } from 'src/app/a_admin/item/authorize-item/auth
 import { EditQuotationComponent } from 'src/app/a_admin/item/quotation/quotation.component';
 import { SharedModule } from '../shared/shared.module';
 import { AuthModule } from '../auth/auth.module';
+import { EditClientComponent } from 'src/app/a_admin/client/edit-client/edit-client.component';
+import { NewEmployeeComponent } from 'src/app/a_admin/employee/new-employee/new-employee.component';
+import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -46,7 +49,10 @@ import { AuthModule } from '../auth/auth.module';
     AuthorizeItemComponent,
     EditQuotationComponent,
     PawnCardComponent,
-    PawnPayComponent
+    PawnPayComponent,
+    EditClientComponent,
+    NewEmployeeComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

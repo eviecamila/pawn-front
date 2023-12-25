@@ -16,7 +16,6 @@ import { AuthModule } from './modules/auth/auth.module';
   declarations: [
 AppComponent,
 SetupComponent,
-
   ],
   imports: [
     BrowserModule,

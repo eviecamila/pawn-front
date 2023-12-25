@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ViewChild } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
-
+import { AbcModalComponent } from '../abc.component';
 
 
 
@@ -11,6 +11,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
     '../abc.component.css'],
 })
 export class EmployeeComponent implements OnInit {
+  @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
   modo!: string;
   constructor(
     private darkModeService: DarkModeService
@@ -42,6 +43,12 @@ export class EmployeeComponent implements OnInit {
 
   }
 
+  openModal() {
+    this.modal.openModal();
+  }
+  closeModal() {
+    this.modal.closeModal();
+  }
 }
 
 
@@ -89,7 +96,10 @@ export class EmployeeComponent implements OnInit {
           <span class="text-success"> {{data.activo ? 'Sí' : 'No' }}</span>
         </p></div>
         <br><br>
-        <div class="card-footer">asd
+        <div class="card-footer">
+          <button>
+
+          </button>
 </div></div>
       </app-abc-card>`,
   styleUrls: ['./employee.component.css',

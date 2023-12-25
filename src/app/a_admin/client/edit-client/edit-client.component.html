@@ -1,0 +1,112 @@
+<h1 *ngIf="t">
+  &nbsp;&nbsp;<b>{{ titulo }}</b>
+</h1>
+
+<form (submit)="editClient()">
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      [ngModelOptions]="{ standalone: true }"
+      class="form-control"
+      [disabled]="client.exists"
+
+      placeholder="Ejemplo: VAVA020931HSLLLPA0"
+      aria-label="Search"
+      aria-describedby="basic-addon2"
+    />
+    <div class="input-group-append" style="z-index: 0">
+      <button
+        title="_"
+        class="btn btn-outline-secondary"
+        *ngIf="!client.exists"
+        type="button"
+        (click)="onSearch()"
+      >
+        <i class="bi bi-search"></i>
+      </button>
+      <button
+        title="_"
+        class="btn btn-outline-secondary"
+        *ngIf="client.exists"
+        type="button"
+        (click)="onCancel()"
+      >
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="clientNombre" class="form-label">Nombre:</label>
+    <input
+      [(ngModel)]="client.nombre"
+      [disabled]="!client.exists"
+      type="text"
+      class="form-control"
+      id="clientNombre"
+      name="nombre"
+      placeholder="Nombre completo"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="clientDireccion" class="form-label">Dirección:</label>
+    <input
+      [(ngModel)]="client.direccion"
+      [disabled]="!client.exists"
+      type="text"
+      class="form-control"
+      id="clientDireccion"
+      name="direccion"
+      placeholder="Dirección completa"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="clientTelefono" class="form-label">Teléfono:</label>
+    <input
+      [(ngModel)]="client.phone"
+      [disabled]="!client.exists"
+      type="text"
+      class="form-control"
+      id="clientTelefono"
+      name="telefono"
+      placeholder="Número de teléfono"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="clientCurp" class="form-label">CURP:</label>
+    <input
+      [(ngModel)]="client.curp"
+      [disabled]="!client.exists"
+      type="text"
+      class="form-control"
+      id="clientCurp"
+      name="curp"
+      placeholder="CURP"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="clientEmail" class="form-label">Email:</label>
+    <input
+      [(ngModel)]="client.email"
+      [disabled]="!client.exists"
+      type="email"
+      class="form-control"
+      id="clientEmail"
+      name="email"
+      placeholder="Correo electrónico"
+      required
+    />
+  </div>
+  <br />
+  <div class="text-end">
+    <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+  </div>
+</form>

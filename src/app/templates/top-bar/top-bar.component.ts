@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 
-declare var $:any;
+declare var $: any;
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -69,11 +69,27 @@ export class TopBarComponent implements OnInit {
   }
   onLogout() {
     if (this.admin && this.isAuth)
-      this.auth.logout().subscribe((data: any) => {
-        if (data.status==='OK'){
-          location.reload();
-        }
+      $.blockUI({
+        message: '<div class="text-center">Cerrando sesion</div><br><div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
+        overlayCSS: {
+          backgroundColor: '#1b2024',
+          opacity: 0.8,
+          zIndex: 1200,
+          cursor: 'wait',
+        },
+        css: {
+          border: 0,
+          color: '#fff',
+          padding: 0,
+          zIndex: 1201,
+          backgroundColor: 'transparent',
+        },
       });
+    this.auth.logout().subscribe((data: any) => {
+      if (data.status === 'OK') {
+        location.reload();
+      }
+    });
   }
   onLogin() {
     if (this.admin && !this.isAuth)

@@ -12,6 +12,8 @@ import { AbcService } from './abc.service';
 import { QrScannerComponent } from 'src/app/templates/qr-scanner/qr-scanner.component';
 import { ItemsService } from 'src/app/services/items.service';
 // ABC MODAL
+
+declare var $: any;
 @Component({
   selector: 'app-abc-modal',
   template: `
@@ -132,14 +134,32 @@ export class AbcComponent implements OnInit {
 
   isInstanceReady: boolean = false;
   onActivate(component: any) {
+    $.blockUI({
+      message: '<div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
+      overlayCSS: {
+        backgroundColor: '#1b2024',
+        opacity: 0.8,
+        zIndex: 1200,
+        cursor: 'wait',
+      },
+      css: {
+        border: 0,
+        color: '#fff',
+        padding: 0,
+        zIndex: 1201,
+        backgroundColor: 'transparent',
+      },
+    });
     this.instance = component;
     if (this.instance) {
       this.isInstanceReady = true;
       // component.data.subscribe((data: any) => {
-        this.data = component.data;
+      this.data = component.data;
       // });
       console.log(this.data);
     }
+
+    $.unblockUI();
   }
 
   onModeChange() {
