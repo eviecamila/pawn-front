@@ -72,6 +72,7 @@
   border-radius: 10px;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   top: 0px;
+  font-weight: bolder;
   line-height: 36px;
   width: 100%;
   text-align: center;
@@ -82,7 +83,7 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   opacity: 1;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 1);
   cursor: default;
   background-color: rgb(229, 229, 229);
 }
@@ -91,6 +92,7 @@
 #btnLogin.valid {
   cursor: pointer;
   background-color: rgb(9, 190, 182);
+  color:black;
 }
 
 

@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  .lateral{
+    width: 0;
+  }
+}
+/* DesktOp */
+@media (min-width: 769px) {
+  .lateral{
+    width: 30%;
+  }
+  .container-sm{
+    display: flex;
+    flex-direction: row;
+  }
+}

@@ -1,146 +1,155 @@
-<div class="text-end mb-3">
-  <button class="btn btn-link rounded" (click)="toggleFormEdit()">
-    <i class="bi bi-pencil"></i>
-  </button>
+<div class="container-sm">
+  <div class="lateral"></div>
+  <div class="w-100">
+    <div class="text-end mb-3">
+      <button class="btn btn-link border rounded" (click)="toggleFormEdit()">
+        <i [class]="'bi bi-' + (isFormEditable ? 'pencil' : 'x')"></i>
+      </button>
+    </div>
+
+    <div class="text-center">
+      <h1>
+        <b>Mi Perfil <i class="bi bi-person"></i></b>
+      </h1>
+    </div>
+    <form (submit)="editEmployee()">
+    <!-- <form > -->
+      <div class="mb-3">
+        <label for="employeeNombre" class="form-label">Nombre:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.nombre"
+          type="text"
+          class="form-control"
+          id="employeeNombre"
+          name="nombre"
+          placeholder="Nombre completo"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeApellido1" class="form-label">Primer Apellido:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.apellido1"
+          type="text"
+          class="form-control"
+          id="employeeApellido1"
+          name="apellido1"
+          placeholder="Primer Apellido"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeApellido2" class="form-label"
+          >Segundo Apellido:</label
+        >
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.apellido2"
+          type="text"
+          class="form-control"
+          id="employeeApellido2"
+          name="apellido2"
+          placeholder="Segundo Apellido"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeRFC" class="form-label">RFC:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.rfc"
+          type="text"
+          class="form-control"
+          id="employeeRFC"
+          name="rfc"
+          placeholder="RFC"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeNSS" class="form-label">NSS:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.nss"
+          type="text"
+          class="form-control"
+          id="employeeNSS"
+          name="nss"
+          placeholder="Número de Seguro Social"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeTelefono" class="form-label">Teléfono:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.telefono"
+          type="text"
+          class="form-control"
+          id="employeeTelefono"
+          name="telefono"
+          placeholder="Número de teléfono"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeePuesto" class="form-label">Puesto:</label>
+        <input
+          [disabled]="isFormEditable"
+          [(ngModel)]="newEmployee.puesto"
+          type="text"
+          class="form-control"
+          id="employeePuesto"
+          name="puesto"
+          placeholder="Puesto"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeArea" class="form-label">Área:</label>
+        <input
+          [disabled]="true"
+          [(ngModel)]="newEmployee.area"
+          type="text"
+          class="form-control"
+          id="employeeArea"
+          name="area"
+          placeholder="Área"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="employeeSalario" class="form-label">Salario:</label>
+        <input
+          [disabled]="true"
+          [(ngModel)]="newEmployee.salario"
+          type="number"
+          class="form-control"
+          id="employeeSalario"
+          name="salario"
+          placeholder="Salario"
+          required
+        />
+      </div>
+
+      <!-- Agregar otros campos según sea necesario -->
+
+      <br />
+      <div class="text-end">
+        <button [disabled]="isFormEditable" type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+
+  </div>
+  <div class="lateral"></div>
 </div>
-
-<div class="text-center">
-  <h1>
-    <b>Mi Perfil <i class="bi bi-person"></i></b>
-  </h1>
-</div>
-<!-- <form (submit)="createNewEmployee()"> -->
-<form>
-  <div class="mb-3">
-    <label for="employeeNombre" class="form-label">Nombre:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.nombre"
-      type="text"
-      class="form-control"
-      id="employeeNombre"
-      name="nombre"
-      placeholder="Nombre completo"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeApellido1" class="form-label">Primer Apellido:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.apellido1"
-      type="text"
-      class="form-control"
-      id="employeeApellido1"
-      name="apellido1"
-      placeholder="Primer Apellido"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeApellido2" class="form-label">Segundo Apellido:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.apellido2"
-      type="text"
-      class="form-control"
-      id="employeeApellido2"
-      name="apellido2"
-      placeholder="Segundo Apellido"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeRFC" class="form-label">RFC:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.rfc"
-      type="text"
-      class="form-control"
-      id="employeeRFC"
-      name="rfc"
-      placeholder="RFC"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeNSS" class="form-label">NSS:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.nss"
-      type="text"
-      class="form-control"
-      id="employeeNSS"
-      name="nss"
-      placeholder="Número de Seguro Social"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeTelefono" class="form-label">Teléfono:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.telefono"
-      type="text"
-      class="form-control"
-      id="employeeTelefono"
-      name="telefono"
-      placeholder="Número de teléfono"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeePuesto" class="form-label">Puesto:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.puesto"
-      type="text"
-      class="form-control"
-      id="employeePuesto"
-      name="puesto"
-      placeholder="Puesto"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeArea" class="form-label">Área:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.area"
-      type="text"
-      class="form-control"
-      id="employeeArea"
-      name="area"
-      placeholder="Área"
-      required
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="employeeSalario" class="form-label">Salario:</label>
-    <input
-      [disabled]="isFormEditable"
-      [(ngModel)]="newEmployee.salario"
-      type="number"
-      class="form-control"
-      id="employeeSalario"
-      name="salario"
-      placeholder="Salario"
-      required
-    />
-  </div>
-
-  <!-- Agregar otros campos según sea necesario -->
-
-  <br />
-  <div class="text-end">
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </div>
-</form>
