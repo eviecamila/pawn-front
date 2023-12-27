@@ -18,7 +18,9 @@ export class ProfileComponent {
 
   toggleFormEdit() { this.isFormEditable = !this.isFormEditable; }
   editEmployee() {
-    if (this.newEmployee !== this.newEmployee2) {
+    console.log(this.newEmployee);
+    console.log(this.newEmployee2);
+    if (JSON.stringify(this.newEmployee) !== JSON.stringify(this.newEmployee2)) {
       $.blockUI({
         message: '<div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
         overlayCSS: {
@@ -90,7 +92,8 @@ export class ProfileComponent {
     this.auth.currentUser(localStorage.getItem('token')).subscribe((res: any) => {
       this.newEmployee = res
       this.newEmployee['RFC'] = res.rfc
-      this.newEmployee2 = this.newEmployee;
+      this.newEmployee2 = { ...res };
+      this.newEmployee2['RFC'] = res.rfc
     });
     $.unblockUI()
   }
