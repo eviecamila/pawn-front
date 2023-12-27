@@ -15,6 +15,7 @@ import { NewClientComponent } from 'src/app/a_admin/client/new-client/new-client
 import { EditItemComponent } from 'src/app/a_admin/item/edit-item/edit-item.component';
 import { NewItemComponent } from 'src/app/a_admin/item/new-item/new-item.component';
 import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.component';
+import { ChangePwComponent } from 'src/app/a_admin/admin/profile/change-pw/change-pw.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+      },
+      {
+        path: 'profile/changepassword',
+        component: ChangePwComponent,
       },
       {
         path: 'abc',

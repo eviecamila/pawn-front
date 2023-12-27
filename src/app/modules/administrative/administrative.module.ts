@@ -25,6 +25,7 @@ import { AuthModule } from '../auth/auth.module';
 import { EditClientComponent } from 'src/app/a_admin/client/edit-client/edit-client.component';
 import { NewEmployeeComponent } from 'src/app/a_admin/employee/new-employee/new-employee.component';
 import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.component';
+import { ChangePwComponent } from 'src/app/a_admin/admin/profile/change-pw/change-pw.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -52,7 +53,8 @@ import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.componen
     PawnPayComponent,
     EditClientComponent,
     NewEmployeeComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChangePwComponent,
   ],
   imports: [
     CommonModule,

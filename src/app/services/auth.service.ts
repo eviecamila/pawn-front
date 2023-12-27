@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   changePassword(data: any) {
-    return this.http.post(`${this.apiURL}password/change/`, data);
+    return this.http.post(`${this.apiURL}changepassword/`, data);
   }
   changePasswordToken(data: any) {
     return this.http.post(`${this.apiURL}password/change/token/`, data);

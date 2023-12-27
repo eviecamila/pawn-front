@@ -16,7 +16,7 @@ export class ProfileComponent {
 
   isFormEditable: boolean = true;
 
-  toggleFormEdit() {this.isFormEditable = !this.isFormEditable;}
+  toggleFormEdit() { this.isFormEditable = !this.isFormEditable; }
   editEmployee() {
     if (this.newEmployee !== this.newEmployee2) {
       $.blockUI({
@@ -46,7 +46,7 @@ export class ProfileComponent {
         }, 2000);
       })
     }
-    else{
+    else {
       this.toastr.warning("No se modificó nada");
       this.toggleFormEdit();
     }

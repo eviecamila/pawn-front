@@ -1,10 +1,21 @@
 <div class="container-sm">
   <div class="lateral"></div>
   <div class="w-100">
-    <div class="text-end mb-3">
-      <button class="btn btn-link border rounded" (click)="toggleFormEdit()">
+    <div class="text-end">
+      <button
+        class="btn btn-link border rounded btn-sm"
+        (click)="toggleFormEdit()"
+      >
         <i [class]="'bi bi-' + (isFormEditable ? 'pencil' : 'x')"></i>
       </button>
+      <a href="/admin/profile/changepassword"
+        ><button
+          style="margin-left: 10px"
+          class="btn btn-link border rounded btn-sm"
+          (click)="toggleFormEdit()"
+        >
+          <i class="bi bi-key"></i></button
+      ></a>
     </div>
 
     <div class="text-center">
@@ -13,7 +24,7 @@
       </h1>
     </div>
     <form (submit)="editEmployee()">
-    <!-- <form > -->
+      <!-- <form > -->
       <div class="mb-3">
         <label for="employeeNombre" class="form-label">Nombre:</label>
         <input
@@ -29,7 +40,9 @@
       </div>
 
       <div class="mb-3">
-        <label for="employeeApellido1" class="form-label">Primer Apellido:</label>
+        <label for="employeeApellido1" class="form-label"
+          >Primer Apellido:</label
+        >
         <input
           [disabled]="isFormEditable"
           [(ngModel)]="newEmployee.apellido1"
@@ -146,10 +159,15 @@
 
       <br />
       <div class="text-end">
-        <button [disabled]="isFormEditable" type="submit" class="btn btn-primary">Guardar</button>
+        <button
+          [disabled]="isFormEditable"
+          type="submit"
+          class="btn btn-primary"
+        >
+          Guardar
+        </button>
       </div>
     </form>
-
   </div>
   <div class="lateral"></div>
 </div>

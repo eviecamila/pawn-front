@@ -1,0 +1,65 @@
+<br /><br />
+<div class="container-sm position-relative">
+  <a href="/admin/profile">
+    <button
+      class="btn btn-link border rounded position-absolute top-0 start-0"
+    >
+      <i class="bi bi-arrow-left"></i>
+    </button>
+  </a>
+  <div class="lateral"></div>
+  <div class="w-100">
+    <div class="text-center">
+      <h1>
+        <b>Editar contraseña <i class="bi bi-key"></i></b>
+      </h1>
+    </div>
+    <br />
+    <form (ngSubmit)="cambiarContrasena()" #changePasswordForm="ngForm">
+      <!-- Agrega campos para la antigua y nueva contraseña -->
+      <div class="mb-3">
+        <label for="oldContraseña" class="form-label"
+          >Anterior Contraseña:</label
+        >
+        <input
+          [(ngModel)]="oldPassword"
+          type="password"
+          class="form-control"
+          id="oldContraseña"
+          name="oldContraseña"
+          placeholder="********"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="newContraseña" class="form-label">Nueva Contraseña:</label>
+        <input
+          [(ngModel)]="newPassword"
+          type="password"
+          class="form-control"
+          id="newContraseña"
+          name="newContraseña"
+          placeholder="********"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="confirmarContraseña" class="form-label"
+          >Confirmar Contraseña:</label
+        >
+        <input
+          [(ngModel)]="confirmPassword"
+          type="password"
+          class="form-control"
+          id="confirmarContraseña"
+          name="confirmarContraseña"
+          placeholder="********"
+          required
+        />
+      </div>
+      <!-- Botón para enviar el formulario de cambio de contraseña -->
+      <button type="submit">Cambiar Contraseña</button>
+    </form>
+  </div>
+  <div class="lateral"></div>
+</div>
