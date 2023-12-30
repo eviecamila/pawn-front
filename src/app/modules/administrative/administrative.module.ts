@@ -26,6 +26,8 @@ import { EditClientComponent } from 'src/app/a_admin/client/edit-client/edit-cli
 import { NewEmployeeComponent } from 'src/app/a_admin/employee/new-employee/new-employee.component';
 import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.component';
 import { ChangePwComponent } from 'src/app/a_admin/admin/profile/change-pw/change-pw.component';
+import { MessageComponent } from 'src/app/a_admin/admin/message/message.component';
+import { RejectItemComponent } from 'src/app/a_admin/item/reject-item/reject-item.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -55,6 +57,8 @@ import { ChangePwComponent } from 'src/app/a_admin/admin/profile/change-pw/chang
     NewEmployeeComponent,
     ProfileComponent,
     ChangePwComponent,
+    RejectItemComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,

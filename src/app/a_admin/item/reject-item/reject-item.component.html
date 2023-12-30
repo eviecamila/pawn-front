@@ -1,0 +1,71 @@
+<!-- Formulario de Rechazo -->
+<div class="mb-3">
+  <label for="rejectReason" class="form-label"><b>Razón de Rechazo:</b></label>
+  <div class="input-group">
+    <select
+      id="rejectReason"
+      class="form-control"
+      name="rejectReason"
+      [(ngModel)]="selectedReason"
+    >
+      <option value="">Selecciona una razón...</option>
+      <option *ngFor="let reason of predefinedReasons" [value]="reason">
+        {{ reason }}
+      </option>
+    </select>
+    <button
+      type="button"
+      class="btn btn-outline-secondary rounded-circle ms-2"
+      (click)="addCustomReason()"
+    >
+      <i class="bi bi-plus"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Lista de razones seleccionadas -->
+<div *ngIf="selectedReasons.length > 0" class="mb-3">
+  <p><b>Razones Seleccionadas:</b></p>
+  <div style="cursor: pointer;" *ngFor="let reason of selectedReasons" class="d-inline-block w-50" (click)="removeReason(reason)">
+    <div class="badge bg-primary m-1 text-white d-flex justify-content-between align-items-center">
+      <span>{{ reason }}</span>
+      <span><i class="bi bi-x"></i></span>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Campo adicional para la razón específica -->
+<div class="mb-3">
+  <label for="specificReason" class="form-label"
+    ><b>Mensaje Adicional:</b></label
+  >
+  <textarea
+    id="specificReason"
+    class="form-control"
+    name="specificReason"
+    style="height: 2in; resize: none"
+    [(ngModel)]="mensaje"
+    maxlength="512"
+    rows="4"
+  ></textarea>
+  <div class="text-end text-muted">{{ mensaje.length }}/512</div>
+</div>
+
+<div *ngIf="image" class="image-preview d-flex justify-content-center">
+  <img
+    [src]="image"
+    alt="Vista previa de la imagen"
+    class="img-thumbnail square-img"
+  />
+</div>
+
+<br />
+
+<div class="mb-3 text-end">
+  <!-- Botón para rechazar -->
+  <button type="button" class="btn btn-danger" (click)="onReject()">
+    Rechazar <i class="bi bi-x"></i>
+  </button>
+</div>

@@ -1,16 +1,13 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from "@angular/core";
-import { ItemsService } from "src/app/services/items.service";
-import { ToastrService } from "ngx-toastr";
+import { Component, Input } from '@angular/core';
+import { ItemsService } from 'src/app/services/items.service';
+import { ToastrService } from 'ngx-toastr';
 declare var $: any;
 @Component({
-  selector: 'app-autorize-item',
-  templateUrl: './authorize-item.component.html'
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
-export class AuthorizeItemComponent implements OnInit {
-  onReset() {
-
-  }
-  dias = [30, 90, 180, 360];
+export class MessageComponent {
   selectedDays!: any
   image!: string;
   @Input() id!: any;
@@ -18,7 +15,7 @@ export class AuthorizeItemComponent implements OnInit {
     cliente: '',
     articulo: '',
   };
-
+  mensaje: string = '';
   constructor(
     private itemService: ItemsService,
     private toastr: ToastrService,
@@ -31,8 +28,7 @@ export class AuthorizeItemComponent implements OnInit {
     })
   }
 
-  onDaysChange(event: any) { this._item.dias = parseInt(event.target.value) }
-  onAuthorize() {
+  onMessage() {
     $.blockUI({
       message: '<div style="display:grid;place-items:center"><img width="15%" src="assets/cagando.gif" style="position:relative;right:0%;top:30%"></div>',
       overlayCSS: {
@@ -49,10 +45,10 @@ export class AuthorizeItemComponent implements OnInit {
         backgroundColor: 'transparent',
       },
     });
-    this.itemService.pawn(
+    this.itemService.message(
       {
         id: this._item.id,
-        dias: this._item.dias
+        message: this.mensaje
       }
     ).subscribe((response: any) => {
       // Manejo de la respuesta
@@ -68,5 +64,4 @@ export class AuthorizeItemComponent implements OnInit {
     }, 3000);
 
   }
-
 }

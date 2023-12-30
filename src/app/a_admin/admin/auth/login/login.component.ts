@@ -53,7 +53,7 @@ export class LoginComponent {
       (res) => {
         if (res['error']) {
           this.toastr.warning('Usuario o contraseña incorrectos.');
-          location.reload();
+          // location.reload();
         } else {
           window.location.href = '/admin';
         }

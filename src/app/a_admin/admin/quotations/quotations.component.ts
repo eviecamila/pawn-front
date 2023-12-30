@@ -19,6 +19,8 @@ export class PendingQuotationsComponent implements OnInit {
   id: any = null;
   editing: boolean = false;
   authorizing: boolean = false;
+  messaging: boolean = false;
+  rejecting: boolean = false;
   constructor(
     private itemsService: ItemsService,
   ) {
@@ -38,7 +40,6 @@ export class PendingQuotationsComponent implements OnInit {
     console.log(this.id)
     this.editing = true;
     this.modal.openModal();
-
     this.formEdit.ngOnInit()
   }
 
@@ -48,13 +49,27 @@ export class PendingQuotationsComponent implements OnInit {
     this.authorizing = true;
     this.modal.openModal()
   }
+  onMessage(id: any) {
+    this.id = id;
+    console.log(this.id)
+    this.messaging = true;
+    this.modal.openModal()
+  }
+  onReject(id: any) {
+    this.id = id;
+    console.log(this.id)
+    this.rejecting = true;
+    this.modal.openModal()
+  }
   onOpenModal() {
 
   }
 
   onCloseModal() {
     this.editing = false;
+    this.messaging = false;
     this.authorizing = false;
-    console.log('cerradx')
+    this.rejecting = false;
+    // console.log('cerradx')
   }
 }

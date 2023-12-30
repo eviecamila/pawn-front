@@ -6,7 +6,7 @@
   <div class="row text-center">
     <!-- Box 1 -->
     <h1 *ngIf="!found.length">
-      <br><br>
+      <br /><br />
       Siento que deberias hacer otra cosa, pin$h3 empleado 🥚
     </h1>
     <div
@@ -41,8 +41,15 @@
             <button class="btn btn-primary mb-2" (click)="onReview(item.id)">
               <i class="bi bi-eye"></i>&nbsp;&nbsp;&nbsp;Ver / Editar Articulo
             </button>
-            <button class="btn btn-success" (click)="onPawn(item.id)">
-              <i class="bi bi-check-circle-fill"></i>&nbsp;&nbsp;&nbsp;Autorizar
+            <button class="btn btn-info mb-2" (click)="onMessage(item.id)">
+              <i class="bi bi-envelope-at"></i>&nbsp;&nbsp;&nbsp;Enviar Mensaje
+            </button>
+            <button class="btn btn-success mb-2" (click)="onPawn(item.id)">
+              <i class="bi bi-check-circle"></i>&nbsp;&nbsp;&nbsp;Autorizar
+              articulo
+            </button>
+            <button class="btn btn-danger mb-2" (click)="onReject(item.id)">
+              <i class="bi bi-x-circle-fill"></i>&nbsp;&nbsp;&nbsp;Rechazar
               articulo
             </button>
           </div>
@@ -65,4 +72,6 @@
     [id]="id"
     [ngModel]="formAuthorize"
   ></app-autorize-item>
+  <app-message *ngIf="messaging" [id]="id"> </app-message>
+  <app-reject-item *ngIf="rejecting" [id]="id"> </app-reject-item>
 </app-abc-modal>

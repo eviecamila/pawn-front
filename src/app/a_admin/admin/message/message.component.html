@@ -1,0 +1,54 @@
+<!-- Cliente (No editable) -->
+<div class="mb-3">
+  <label for="itemCliente" class="form-label"><b>Cliente:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemCliente"
+    name="cliente"
+    [ngModel]="_item.cliente"
+    disabled
+  />
+</div>
+
+<!-- Artículo -->
+<div class="mb-3">
+  <label for="itemName" class="form-label"><b>Nombre del Artículo:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemName"
+    name="item"
+    [(ngModel)]="_item.articulo + ': ' + _item.caracteristicas"
+    disabled
+  />
+</div>
+<div class="mb-3">
+  <label for="itemMessage" class="form-label"><b>Mensaje (máximo 512 caracteres):</b></label>
+  <textarea
+    id="itemMessage"
+    class="form-control"
+    name="message"
+    style="height:2in;resize: none;"
+    [(ngModel)]="mensaje"
+    maxlength="512"
+    rows="4"
+  ></textarea>
+  <div class="text-end text-muted">
+    {{ mensaje.length }}/512
+  </div>
+</div>
+
+<div *ngIf="image" class="image-preview d-flex justify-content-center">
+  <img
+    [src]="image"
+    alt="Vista previa de la imagen"
+    class="img-thumbnail square-img"
+  />
+</div>
+<br>
+<div class="mb-3 text-end">
+  <button type="button" class="btn btn-success" (click)="onMessage()">
+    Enviar Mensaje <i class="bi bi-envelope-at"></i>
+  </button>
+</div>

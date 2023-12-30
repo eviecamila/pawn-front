@@ -116,7 +116,7 @@
       <div class="mb-3">
         <label for="employeePuesto" class="form-label">Puesto:</label>
         <input
-          [disabled]="isFormEditable"
+          disabled
           [(ngModel)]="newEmployee.puesto"
           type="text"
           class="form-control"
@@ -130,7 +130,7 @@
       <div class="mb-3">
         <label for="employeeArea" class="form-label">Área:</label>
         <input
-          [disabled]="true"
+          disabled
           [(ngModel)]="newEmployee.area"
           type="text"
           class="form-control"
@@ -144,7 +144,7 @@
       <div class="mb-3">
         <label for="employeeSalario" class="form-label">Salario:</label>
         <input
-          [disabled]="true"
+          disabled
           [(ngModel)]="newEmployee.salario"
           type="number"
           class="form-control"

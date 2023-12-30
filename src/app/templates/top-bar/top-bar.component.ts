@@ -105,23 +105,23 @@ export let adminItems = [
   },
   {
     name: 'Pertenencias',
-    href: 'items',
+    href: 'abc/items',
   },
   {
     name: 'Empleados',
-    href: 'rrhh',
+    href: 'abc/employee',
   },
   {
     name: 'Abonos',
-    href: 'pay',
+    href: 'abc/items',
   },
   {
     name: 'Cotizaciones',
     href: 'quotations',
   },
   {
-    name: 'Inversiones',
-    href: 'invest',
+    name: 'Ventas',
+    href: 'sellings',
   },
 ];
 export let Items = [
@@ -137,10 +137,10 @@ export let Items = [
     name: 'Cotizar Ahora',
     href: 'pawn/quotations',
   },
-  {
-    name: 'Abonar',
-    href: 'pay',
-  },
+  // {
+  //   name: 'Abonar',
+  //   href: 'pay',
+  // },
   {
     name: 'Inversiones',
     href: 'invest',
