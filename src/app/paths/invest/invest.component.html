@@ -1,9 +1,65 @@
-<h2>Te interesa invertir en empeños pesados?</h2>
-<p>¡Bienvenido al emocionante mundo de las 
-    inversiones en empeños pesados! </p>
-    
-<br>
-<br>
-<br>
-<br>
-<p><b>Inserte aqui mas cosas</b></p>
+<h2>Te interesa invertir con Empeños Pesados?</h2>
+<p>¡Bienvenido al emocionante mundo de las inversiones en empeños pesados!</p>
+<br />
+<br />
+<br />
+<br />
+<p><b>¿Quieres saber más?</b></p>
+<p>
+  Acude a una de nuestras sucursales para obtener más información y
+  asesoramiento personalizado. Estamos aquí para responder a todas tus preguntas
+  y ayudarte en el proceso de inversión.
+</p>
+<section class="section-tienda">
+  <div
+    class="container card"
+    [ngClass]="{
+      'darker-mode': darkModeService.isDarkModeEnabled() | async,
+      'light-mode': !(darkModeService.isDarkModeEnabled() | async)
+    }"
+    style="padding: 50px"
+  >
+    <div class="row">
+      <div class="container-title-icon">
+        <div class="text-center">
+          <h1>Datos de contacto</h1>
+          <br />
+          <div style="margin: 0 0%">
+            <h5>
+              <div>
+                <i class="bi bi-phone"></i>
+                &nbsp;
+                <app-link href="tel:527783647283">7783647283</app-link>
+              </div>
+              <br />
+              <div>
+                <i class="bi bi-envelope"></i>
+                &nbsp;
+                <app-link href="mailto:eviecaretonta@gmail.com"
+                  >eviecaretonta@gmail.com</app-link
+                >
+              </div>
+              <br />
+              <div>
+                <i class="bi bi-geo-alt"></i>
+                &nbsp;
+                <app-link href="https://maps.app.goo.gl/zXHxXAL9PLSyBhv49"
+                  >Blvd. Macario Gaxiola #1237 Sur</app-link
+                >
+              </div>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agrega aquí un mapa de Google Maps si lo deseas -->
+
+<!-- Puedes usar la API de Google Maps para incrustar un mapa -->
+<!-- Ejemplo: https://developers.google.com/maps/documentation/embed/get-started -->
+
+<br />
+<br />
+<h2>¡Esperamos verte pronto!</h2>
