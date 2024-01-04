@@ -1,1 +1,79 @@
-<p>pay works!</p>
+<!-- Cliente (no editable) -->
+<div class="mb-3">
+  <label for="itemCliente" class="form-label"><b>Cliente:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemCliente"
+    name="cliente"
+    [ngModel]="_item.cliente"
+    disabled
+  />
+</div>
+
+<!-- Item (no editable) -->
+<div class="mb-3">
+  <label for="itemName" class="form-label"><b>Item:</b></label>
+  <input
+    type="text"
+    class="form-control"
+    id="itemName"
+    name="item"
+    [(ngModel)]="_item.articulo + ' : ' + _item.caracteristicas"
+    disabled
+  />
+</div>
+
+<!-- Deuda (mostrada en grande y no editable) -->
+<div class="mb-3">
+  <label for="deuda" class="form-label"><b>Deuda:</b></label>
+  <p class="form-control-plaintext font-weight-bold" id="deuda">
+    {{ _item.deuda | currency:'USD':'symbol':'1.2-2' }}
+  </p>
+</div>
+
+<!-- Cantidad a abonar (Input) -->
+<div class="mb-3">
+  <label for="montoAbonar" class="form-label"><b>Cantidad a Abonar:</b></label>
+  <input
+    type="number"
+    class="form-control"
+    id="montoAbonar"
+    name="montoAbonar"
+    [(ngModel)]="montoAbonar"
+    placeholder="Ingrese la cantidad a abonar"
+    required
+    [disabled]="montoLocked"
+  />
+</div>
+
+<!-- Casilla para decir si pagar el total (iguala la cantidad a la deuda) -->
+<div class="mb-3 text-end">
+
+  <label class="form-check-label" for="pagarTotal"><b>Liquidar?</b></label>
+  &nbsp;&nbsp;&nbsp;
+  <input
+    type="checkbox"
+    class="form-check-input"
+    id="pagarTotal"
+    name="pagarTotal"
+    [(ngModel)]="pagarTotal"
+    (change)="onLiquidar()"
+  />
+</div>
+<br><br>
+<!-- Vista previa de la imagen (si es necesario) -->
+<div *ngIf="_item.imagen" class="image-preview d-flex justify-content-center">
+  <img
+    [src]="_item.imagen"
+    alt="Vista previa de la imagen"
+    class="img-thumbnail square-img"
+  />
+</div>
+<br><br>
+<!-- Botón para abonar con un icono -->
+<div class="mb-3 text-end">
+  <button type="button" class="btn btn-success" (click)="onPay()">
+    <i class="bi bi-currency-dollar"></i> Autorizar {{liquidar?'Abono':'Liquidacion'}}
+  </button>
+</div>

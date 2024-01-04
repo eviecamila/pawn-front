@@ -1,7 +1,7 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let item of found">
       <ng-container *ngIf="item; else loadingTemplate">
-        <app-abc-item-card (edit)="onEdit($event)" [data]="item"></app-abc-item-card>
+        <app-abc-item-card (pay)="onPay($event)" (edit)="onEdit($event)" [data]="item"></app-abc-item-card>
       </ng-container>
   </div>
   <ng-template #loadingTemplate></ng-template>
@@ -10,4 +10,5 @@
   <app-new-item *ngIf="creating" (form)="onSave($event)"></app-new-item>
 
   <app-quotation-item *ngIf="editing" [id]="pk"></app-quotation-item>
+  <app-pay [id]="pk" *ngIf="paying"></app-pay>
 </app-abc-modal>

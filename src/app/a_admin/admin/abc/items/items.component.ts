@@ -17,7 +17,7 @@ export class ItemsComponent {
     url: '/items/',
     urls: { 'search': '?estado=Empeñado&id=' },
   }
-  creating = false; editing = false; pk = 0
+  creating = false; editing = false; paying=false;pk = 0
   @Output() form = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
@@ -39,7 +39,8 @@ export class ItemsComponent {
   closeModal() {
     this.modal.closeModal();
     this.editing = false;
-    this.creating = false
+    this.creating = false;
+    this.paying = false
 
   }
   onEdit(event: any) {
@@ -47,6 +48,12 @@ export class ItemsComponent {
     this.pk = event
     this.openModal()
     this.editing = true
+  }
+  onPay(event: any) {
+    // console.log(event)
+    this.pk = event
+    this.openModal()
+    this.paying= true
   }
   params: any = {
     qr: true,
