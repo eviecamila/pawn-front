@@ -11,6 +11,7 @@ import { AbcModalComponent } from '../abc.component';
     '../abc.component.css'],
 })
 export class EmployeeComponent implements OnInit {
+  creating = false
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
   modo!: string;
   constructor(
@@ -43,11 +44,16 @@ export class EmployeeComponent implements OnInit {
 
   }
 
+  openNewModal() {
+    this.creating = true
+    this.openModal()
+  }
   openModal() {
     this.modal.openModal();
   }
   closeModal() {
     this.modal.closeModal();
+    this.creating = false;
   }
 }
 
@@ -107,12 +113,5 @@ export class EmployeeComponent implements OnInit {
 })
 export class EmployeeCardComponent {
   @Input() data!: any;
-  onDeactivate() {
-    console.log('me desactivan')
-  }
-  onChupada() {
-    console.log('me la chupas')
-  }
-
 
 }

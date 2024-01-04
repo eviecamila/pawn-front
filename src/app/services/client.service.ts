@@ -11,5 +11,7 @@ export class ClientService {
   clientExists(data:any) {return this.http.post(`${apiUrl}/clients/verify_exist/`, data);}
   register(data:any) {return this.http.post(`${apiUrl}/clients/new/`, data);}
   get(curp:any) {return this.http.get(`${apiUrl}/clients?curp=${curp}`);}
+  getID(id:any) {return this.http.get(`${apiUrl}/clients?id=${id}`);}
   edit(data:any) {return this.http.post(`${apiUrl}/clients/edit/`, data);}
+  history(id:any) {return this.http.get(`${apiUrl}/clients/history?id=${id}`);}
 }

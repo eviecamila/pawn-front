@@ -1,5 +1,6 @@
 import { Component, Output, Input, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { AbcModalComponent } from '../abc.component';
+import { EditClientComponent } from 'src/app/a_admin/client/edit-client/edit-client.component';
 import { DarkModeService } from 'src/app/services/dark-mode.service';
 import { ClientService } from 'src/app/services/client.service';
 @Component({
@@ -15,13 +16,15 @@ export class ClientsComponent implements OnInit {
       'Administración de clientes, permitiendo acceder y modificar sus datos.',
     type: 'Clientes',
     response: 'clientes',
-    searchPlaceholder: 'CURP: PPLU020222MSLLLPA5',
-    searchLength: 18,
+    searchPlaceholder: 'Buscar por CURP, ID, ',
+    searchLength: 0,
     url: '/clients',
-    urls: { search: '?curp=' },
+    urls: { search: '?q=' },
   }
   @Input() mode: any = 'add';
   @Input() modo!: any
+  creating = false; editing = false; history = false
+  pk = 0;
   constructor(
     private darkModeService: DarkModeService,
     private client: ClientService
@@ -31,11 +34,26 @@ export class ClientsComponent implements OnInit {
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
-  openModal() {
+  openHistoryModal(event: any) {
+    this.pk = event
+    this.history = true;
+    this.openModal();
+  }
+  openEditModal(event: any) {
+    this.pk = event
+    this.editing = true;
+    this.openModal();
+  }
+  openNewModal() {
+    this.creating = true
     this.modal.openModal();
   }
+  openModal() { this.modal.openModal(); }
   closeModal() {
-    this.modal.closeModal();
+    // this.modal.closeModal();
+    this.editing = false;
+    this.creating = false;
+    this.history=false
   }
 
   onSave(event: any): void {
@@ -83,7 +101,7 @@ export class ClientsComponent implements OnInit {
 <!-- Aquí irán los botones-->
   <!-- Editar -->
   <button
-    (click)="editClient(data.id)"
+    (click)="event(edit, data.id)"
     class="btn btn-primary text-center"
     type="button"
     style="width: 80%"
@@ -95,7 +113,7 @@ export class ClientsComponent implements OnInit {
 <br><br>
     <!-- Guardar -->
     <button
-    (click)="sendEvent('history')"
+    (click)="event(history, data.id)"
     class="btn btn-success text-center"
     type="button"
     style="width: 80%"
@@ -113,15 +131,10 @@ export class ClientsComponent implements OnInit {
 })
 export class ClientCardComponent {
   @Input() data!: any;
-  @Output() id = new EventEmitter();
-
-  sendEvent(mode: string) {
-    this.id.emit({
-      id: this.data.id,
-      mode: mode,
-    });
+  @Output() edit = new EventEmitter();
+  @Output() history = new EventEmitter();
+  event(emitter:any, id: number) {
+    emitter.emit(id);
   }
-  editClient(id: any) {
-
-  }
+  onHistory(id: number) { }
 }

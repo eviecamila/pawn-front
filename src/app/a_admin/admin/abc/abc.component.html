@@ -69,8 +69,8 @@
     </div>
   </div>
   <!-- no mostrar si es un  -->
-  <div class="col-md-2"></div>
-  <div class="input-group">
+  <!-- <div class="col-md-2"></div> -->
+  <!-- <div class="input-group">
     <select
       title="_"
       class="form-select"
@@ -84,7 +84,7 @@
       <option value="edit">Modificar</option>
       <option value="delete">Borrar</option>
     </select>
-  </div>
+  </div> -->
   <div class="col-md-1"></div>
 </div>
 
@@ -98,8 +98,6 @@
 ></router-outlet>
 <app-abc-modal
   [ngModel]="qrScannerModal"
-  (open)="openScanner()"
-  (close)="closeScanner()"
-  ><app-qr-scanner (scan)="onScan($event)" [ngModel]="qrScanner"
+  ><app-qr-scanner (scan)="onScan($event)" *ngIf="scanning" [ngModel]="qrScanner"
     ><br /></app-qr-scanner
 ></app-abc-modal>

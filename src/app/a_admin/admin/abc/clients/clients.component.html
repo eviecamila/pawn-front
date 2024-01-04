@@ -1,12 +1,15 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let cliente of found">
       <ng-container *ngIf="cliente; else loadingTemplate">
-        <app-client-card [data]="cliente"></app-client-card>
+        <app-client-card (history)="openHistoryModal($event)" (edit)="openEditModal($event)" [data]="cliente"></app-client-card>
       </ng-container>
   </div>
   <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>
-<app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
-  <app-new-client (form)="onSave($event)"></app-new-client>
+<app-abc-modal (close)="closeModal()" [ngModel]="modal">
+  <br><br>
+  <app-new-client *ngIf="creating"></app-new-client>
   <!-- <app-new-client (form)="onSave($event)"></app-new-client> -->
+  <app-edit-client [id]="pk" *ngIf="editing"></app-edit-client>
+  <app-client-history [id]="pk" *ngIf="history"></app-client-history>
 </app-abc-modal>

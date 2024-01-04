@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ClientService } from 'src/app/services/client.service';
 import { ActivatedRoute } from '@angular/router';
@@ -7,13 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './edit-client.component.html',
   styleUrls: ['./edit-client.component.css']
 })
-export class EditClientComponent {
+export class EditClientComponent implements OnInit {
   t = false;
   titulo = '';
   w = false;
   href = '/admin/client';
   searchText: string = '';
   output = '';
+  @Input() id!: any;
   @Output() form = new EventEmitter();
   constructor(
     private toastr: ToastrService,
@@ -30,6 +31,7 @@ export class EditClientComponent {
       this.href = this.w ? '/web/pawn/quotations' : this.href
     })
   }
+
   onSearch() {
     console.log('Searching');
     console.log(this.searchText);
@@ -64,7 +66,15 @@ export class EditClientComponent {
     exists: false,
   }
   ngOnInit(): void {
-
+    if (this.id) {
+      this.clients.getID(this.id).subscribe((data: any) => {
+        // console.log(data);
+        this.searchText = data.curp
+        this.client = data["clientes"][0];
+        this.client.exists = true;
+        // console.log(data["clientes"][0]);
+      });
+    }
   }
   onValidate(): boolean {
     return (this.client.nombre.length > 3

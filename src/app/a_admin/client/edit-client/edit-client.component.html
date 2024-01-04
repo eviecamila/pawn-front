@@ -11,7 +11,7 @@
       class="form-control"
       [disabled]="client.exists"
 
-      placeholder="Ejemplo: VAVA020931HSLLLPA0"
+      [placeholder]="client.exists?'Editando a '+client.nombre:'Ejemplo: VAVA020931HSLLLPA0'"
       aria-label="Search"
       aria-describedby="basic-addon2"
     />

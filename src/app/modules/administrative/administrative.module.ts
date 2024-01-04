@@ -28,6 +28,10 @@ import { ProfileComponent } from 'src/app/a_admin/admin/profile/profile.componen
 import { ChangePwComponent } from 'src/app/a_admin/admin/profile/change-pw/change-pw.component';
 import { MessageComponent } from 'src/app/a_admin/admin/message/message.component';
 import { RejectItemComponent } from 'src/app/a_admin/item/reject-item/reject-item.component';
+import { HistoryComponent } from 'src/app/a_admin/client/history/history.component';
+import { PayComponent } from 'src/app/a_admin/item/pay/pay.component';
+
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -58,7 +62,9 @@ import { RejectItemComponent } from 'src/app/a_admin/item/reject-item/reject-ite
     ProfileComponent,
     ChangePwComponent,
     RejectItemComponent,
-    MessageComponent
+    MessageComponent,
+    HistoryComponent,
+    PayComponent
   ],
   imports: [
     CommonModule,

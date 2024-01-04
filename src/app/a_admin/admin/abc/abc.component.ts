@@ -45,6 +45,7 @@ declare var $: any;
             class="rounded-circle btn-close "
           ></button>
         </div>
+        <br><br>
         <ng-content></ng-content>
         <br><br>
         <button (click)="hideAlert()" class="btn" [attr.data-bs-theme]="modo">
@@ -109,6 +110,7 @@ export class AbcComponent implements OnInit {
   qr: boolean = false;
 
   instance!: any;
+  scanning=false
 
   searchText: string = '';
   modo!: string;
@@ -123,10 +125,9 @@ export class AbcComponent implements OnInit {
   }
   onSave(event: any): void { }
   onNew() {
-    console.log('Llamando a la instancia que abra el modal');
-    console.log(this.instance)
     if (!this.instance) return;
-    this.instance.openModal();
+    this.instance.openNewModal();
+
   }
   async ngOnInit() {
     await this.instance.isInstanceReady
@@ -191,15 +192,16 @@ export class AbcComponent implements OnInit {
     this.onSearch();
   }
   openScanner() {
+    this.scanning=true
     if (this.qrScannerModal) {
       this.qrScannerModal.openModal();
-      this.qrScanner.toggleScanner();
+      this.qrScanner.initScanner();
     }
   }
   closeScanner() {
     if (this.qrScannerModal) {
       this.qrScannerModal.closeModal()
-      this.qrScanner.toggleScanner();
+      this.scanning=false
     }
   }
 }

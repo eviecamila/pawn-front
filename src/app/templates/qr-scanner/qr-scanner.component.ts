@@ -16,13 +16,20 @@ export class QrScannerComponent implements OnInit {
       this.action.start();
     }
   }
+  initScanner(){
+    this.action.start();
+  }
+  stopScanner(){
+    this.action.start();
+  }
   ngOnInit(): void {
-    this.action.stop();
+    this.action.start();
   }
   ngOnDestroy(): void {
   }
   onScan(qrData: any): void {
-    this.scan.emit(qrData[0].value);
     this.action.stop();
+    this.scan.emit(qrData[0].value);
+
   }
 }

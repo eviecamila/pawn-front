@@ -1,11 +1,13 @@
 <app-abc-card-container>
   <div class="col-md-6" *ngFor="let item of found">
       <ng-container *ngIf="item; else loadingTemplate">
-        <app-abc-item-card [data]="item"></app-abc-item-card>
+        <app-abc-item-card (edit)="onEdit($event)" [data]="item"></app-abc-item-card>
       </ng-container>
   </div>
   <ng-template #loadingTemplate></ng-template>
 </app-abc-card-container>
 <app-abc-modal [ngModel]="modal" (open)="openModal()" (close)="closeModal()">
-  <app-new-item (form)="onSave($event)"></app-new-item>
+  <app-new-item *ngIf="creating" (form)="onSave($event)"></app-new-item>
+
+  <app-quotation-item *ngIf="editing" [id]="pk"></app-quotation-item>
 </app-abc-modal>

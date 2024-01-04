@@ -17,21 +17,36 @@ export class ItemsComponent {
     url: '/items/',
     urls: { 'search': '?estado=Empeñado&id=' },
   }
+  creating = false; editing = false; pk = 0
   @Output() form = new EventEmitter<any>();
   @Input() mode: any = 'add';
   @ViewChild(AbcModalComponent) modal!: AbcModalComponent;
   @Input() modo!: any
+
   constructor(private darkModeService: DarkModeService) {
     this.darkModeService.isDarkModeEnabled().subscribe((isDarkMode) => {
       // Actualiza la variable modo en función del estado del modo oscuro
       this.modo = !isDarkMode ? 'light' : 'dark';
     });
   }
+  openNewModal() {
+    this.creating = true
+    this.openModal();
+  }
   openModal() {
     this.modal.openModal();
   }
   closeModal() {
     this.modal.closeModal();
+    this.editing = false;
+    this.creating = false
+
+  }
+  onEdit(event: any) {
+    // console.log(event)
+    this.pk = event
+    this.openModal()
+    this.editing = true
   }
   params: any = {
     qr: true,
@@ -83,12 +98,19 @@ export class ItemsComponent {
   </p>
 
   <!-- Observaciones sobre el artículo -->
-  <p class="card-text m-0">
+  <p *ngIf="data.estado!='Empeñado'" class="card-text m-0">
     <i title="Observaciones" class="bi bi-chat-right-text-fill"></i>
     Observaciones:
     <br>&nbsp;&nbsp;{{data.observaciones}}
   </p>
-
+  <div *ngIf="data.estado==='Empeñado'">
+  <br><b>
+  <h5 class="card-text m-0">
+    <i title="Deuda" class="bi bi-cash"></i>
+    Deuda actual: &#36;{{data.deuda.toFixed(2)}}
+  </h5>
+  </b><br>
+  </div>
   <!-- Fechas importantes -->
   <p class="card-text m-0">
     <i title="Fecha de Cotizacion" class="bi bi-calendar-check-fill"></i>
@@ -109,7 +131,27 @@ export class ItemsComponent {
 </div>
 <br><br>
 <div class="card-footer">
-asd
+<button
+    (click)="event(edit, data.id)"
+    class="btn btn-primary text-center"
+    type="button"
+    style="width: 80%"
+>
+  <div class="text-center">
+    <i class="bi bi-pencil"></i>&nbsp;&nbsp;&nbsp;<span>Ver/Editar</span>
+  </div>
+</button>
+<br><br>
+<button
+    (click)="event(pay, data.id)"
+    class="btn btn-primary text-center"
+    type="button"
+    style="width: 80%"
+>
+  <div class="text-center">
+    <i class="bi bi-cash"></i>&nbsp;&nbsp;&nbsp;<span>Abonar/ Liquidar</span>
+  </div>
+</button>
 </div>
   <!-- {{data.revisado }} -->
       </app-abc-card>`,
@@ -120,8 +162,13 @@ export class ItemCardComponent {
   @Input() data!: any;
   @Input() btn!: any;
   @Input() modo!: any;
+
+  @Output() edit = new EventEmitter();
+  @Output() pay = new EventEmitter();
   formatDate(fecha: string) {
     return fecha.replace('T', ' ').slice(0, 19);
   }
-
+  event(emitter: any, id: any) {
+    emitter.emit(id)
+  }
 }
