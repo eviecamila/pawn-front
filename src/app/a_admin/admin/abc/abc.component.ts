@@ -108,6 +108,7 @@ export class AbcComponent implements OnInit {
   modal!: AbcModalComponent;
 
   qr: boolean = false;
+  filtro!:any
 
   instance!: any;
   scanning=false
@@ -162,7 +163,9 @@ export class AbcComponent implements OnInit {
 
     $.unblockUI();
   }
-
+  onFilter(event:any){
+    // En caso de cambiar de filtro
+  }
   onModeChange() {
     this.instance.mode = this.selectedMode;
   }
@@ -175,7 +178,7 @@ export class AbcComponent implements OnInit {
       !this.searchText
     ) {
       this.abc
-        .buscar(this.data.url + this.data.urls.search, this.searchText)
+        .buscar(this.data.url + this.data.urls.search, this.searchText, this.filtro)
         .subscribe((data: any) => {
           console.log(data);
           this.instance.found = data[this.data.response];

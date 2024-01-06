@@ -36,7 +36,7 @@ export class ItemsService {
   }
   get(item?: string) { return this.http.get(`${apiUrl}?id=${item}`); }
   all() { return this.get(''); }
-  pay(item:any) { return this.http.post(`${apiUrl}articulo/pay`,item); }
+  pay(item:any) { return this.http.post(`${apiUrl}articulo/pay/`,item); }
   pending() { return this.get('&p=1'); }
 
   // When moros en la costa

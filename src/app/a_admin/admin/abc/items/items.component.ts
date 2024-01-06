@@ -15,7 +15,15 @@ export class ItemsComponent {
     searchPlaceholder: 'Inserta el ID de la pertenencia',
     searchLength: 0,
     url: '/items/',
-    urls: { 'search': '?estado=Empeñado&id=' },
+    urls: { 'search': '?q=' },
+    filters:[
+      {name:'Todos', filter:''},
+      {name:'Liquidados', filter:'Liquidado'},
+      {name:'Pendientes de Revision', filter:'Revisado'},
+      {name:'Pendientes de Pago', filter:'En Revision'},
+      {name:'Cotizado', filter:'Cotizado'},
+
+    ]
   }
   creating = false; editing = false; paying=false;pk = 0
   @Output() form = new EventEmitter<any>();

@@ -12,6 +12,16 @@ export class AbcService {
 
   constructor(private http: HttpClient) { }
 
-  buscar(url: string, param: string){
-    return this.http.get(apiUrl+url+param)}
+  buscar(url: string, param: string, filtro = ""){
+    if (filtro)
+      url = apiUrl+url+param+(filtro?("&f="+filtro):'')
+    else
+      url= apiUrl+url+param
+    return this.http.get(url)}
+  buscarP(url: string, param: string, filtro = ""){
+    if (filtro)
+      url = apiUrl+url+param+(filtro?("&f="+filtro):'')
+    else
+      url= apiUrl+url+param
+    return this.http.get(url)}
 }

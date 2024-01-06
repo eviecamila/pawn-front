@@ -53,7 +53,7 @@
       [(ngModel)]="searchText"
       (ngModelChange)="onSearchChange()"
       class="form-control"
-      [placeholder]="data.searchPlaceholder + ' o deja vacio para buscar todos'"
+      [placeholder]="data.searchPlaceholder + ' o deja vacío para buscar todos'"
       aria-label="Search"
       aria-describedby="basic-addon2"
     />
@@ -66,6 +66,14 @@
       >
         <i class="bi bi-search"></i>
       </button>
+    </div>
+    &nbsp;&nbsp;
+    <!-- Agregar lista desplegable de filtros -->
+    <div *ngIf="data.filters !== null && data.filters !== undefined" class="input-group-append">
+      <select (change)="onFilter($event)" [(ngModel)]="filtro" class="form-control" required>
+        <option value="">En empeño</option>
+        <option *ngFor="let filter of data.filters" [value]="filter.filter">{{ filter.name }}</option>
+      </select>
     </div>
   </div>
   <!-- no mostrar si es un  -->
