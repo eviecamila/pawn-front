@@ -96,7 +96,7 @@ export class ItemsComponent {
 <div class="card-body"[attr.data-bs-theme]="modo">
   <div class="d-flex justify-content-center">
     <i class="bi bi-person-fill"></i>
-    <h5 class="card-title ms-2">{{data.cliente}} - {{data.articulo}}</h5>
+    <h5 class="card-title ms-2">{{data.cliente}} - {{data.articulo}}&nbsp;&nbsp;<i [class]="'bi bi-'+data.icon"></i></h5>
   </div>
 
   <!-- Estado del artículo -->
