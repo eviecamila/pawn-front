@@ -10,6 +10,7 @@ export class EmployeeService {
 
   // Editar datos de empleado
   edit(data:any){return this.http.post(`${this.apiURL}employee/edit/`, data);}
+  create(data:any){return this.http.post(`${this.apiURL}employee/new/`, data);}
 
   constructor(private http: HttpClient) { }
 }

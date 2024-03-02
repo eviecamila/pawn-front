@@ -34,7 +34,7 @@ body{
 /* DesktOp */
 @media (min-width: 769px) {
   body{
-    background-image: url('assets/bg.jpg');
+    /*background-image: url('assets/bg.jpg');*/
   }
 }
 /* .r{border-radius: 10px;} */

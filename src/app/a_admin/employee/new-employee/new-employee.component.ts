@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from 'src/app/services/employee.service';
 @Component({
   selector: 'app-new-employee',
   templateUrl: './new-employee.component.html',
@@ -24,6 +25,7 @@ export class NewEmployeeComponent {
   };
   constructor(
     private toastr: ToastrService,
+    private rrhh: EmployeeService,
     private route: ActivatedRoute,) {
     this.route.queryParams.subscribe((p: any) => {
       this.t = p.t ? true : false;
@@ -33,5 +35,14 @@ export class NewEmployeeComponent {
   }
   createNewEmployee() {
     console.log(this.newEmployee)
+    this.rrhh.create(this.newEmployee).subscribe((data:any) => {
+      if (data.status === 'OK') {
+        this.toastr.success(data.message);
+      }
+      else this.toastr.error(data.message)
+      setTimeout(() => {
+        location.reload()
+      }, 3000);
+    })
   }
 }
